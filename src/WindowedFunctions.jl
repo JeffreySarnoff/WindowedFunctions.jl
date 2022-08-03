@@ -25,7 +25,7 @@ runfun
 The exported functions named `r<fun>` are the applicative engines 
 that `rollfun` and `runfun` compose over the windowed data
 """
-rfun, rfuncs, rabs, rmin, rmax, rsum, rmean, rvar, rstd
+rfunc, rfuncs, rabs, rmin, rmax, rsum, rmean, rvar, rstd, rwindsorizedmean, rsoftmax, rsoftlog
 
 """
 The exported functions named `rapply`, `rapplyN`
@@ -48,8 +48,8 @@ include("rapidwindowing.jl")
 include("rapply.jl")
 include("rollfun.jl")
 include("runfun.jl")
-include("rfuns1arg.jl")
-include("rfuns2arg.jl")
+include("rfuncs_unary.jl")
+include("rfuncs_binary.jl")
 
 end  # WindowedFunctions
 
