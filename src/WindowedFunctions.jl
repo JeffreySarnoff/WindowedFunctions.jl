@@ -9,7 +9,9 @@ using StatsBase: wsum, variant, sem, span, mad,
       wmean, geomean, harmmean, genmean,
       aweights, eweights, fweights, pweights, uweights, weights
 
-using OnlineStats 
+using OnlineStats: EqualWeight, ExponentialWeight, HarmaonicWeight, McclainWeight, LearningWeight, LearningWeight2,
+      smooth, smooth!, Quantile, Moments, AutoCov
+
 
 """
 With ndata = length(data), using a window of length windowsize, 
