@@ -24,7 +24,7 @@ struct WindowedFunction{Setup, Apply<:Function, Update<:Function, Tracking, Arit
     tracking::Tracking
 end
 
-struct WindowedData{T,Nseqs,Eltype,} <: AbstractWindowedData{T}
+struct WindowedData{T,Nseqs} <: AbstractWindowedData{T}
      source::T
      sourcespan::Int
      windowspan::Int
@@ -32,6 +32,13 @@ struct WindowedData{T,Nseqs,Eltype,} <: AbstractWindowedData{T}
      ntrailing::Int       # how many values are partially windowed, n_partial_values <= mod(sourcespan, windowspan)
 end
 
-
+function WindowedData(source::S, windowspan::Int)
+    sourcesize = size(S)
+    sourcespan = sourcesize[1]
+    ndetermined, ntrailing = fullandpartial(sourcespan, windowspan)
+    sourceviewed = @view(source[Base.OneTo.(sourcesize)...])
+    WindowedData{typeof(sourceviewed), sum(sourcesize[2:end])}(sourcevied, sourcespan, windowspan, ndetermined, ntrailing)
+end
+    
      
      
