@@ -12,6 +12,12 @@ using StatsBase: wsum, variant, sem, span, mad,
 using OnlineStats: EqualWeight, ExponentialWeight, HarmaonicWeight, McclainWeight, LearningWeight, LearningWeight2,
       smooth, smooth!, Quantile, Moments, AutoCov
 
+using LogExpFunctions: xlogx, xexpx, logistic, logit, logcosh, 
+      log1psq, log1pexp, log1mexp, log2mexp, logexpm1, log1pmx, logmxp1,
+      logsumexp, logsumexp!, softmax!, softmax, cloglog, cexpexp,
+      # 2-arg functions
+      xlogy, xlog1py, xexpy, logaddexp, logsubexp
+
 
 """
 With ndata = length(data), using a window of length windowsize, 
