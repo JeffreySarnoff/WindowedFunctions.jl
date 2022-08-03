@@ -67,6 +67,8 @@ export runfun, rollfun
        rabs, rmin, rmax, rsum, rmean, rvar, rstd,
        rwindsorizedmean, rsoftmax, rsoftlog
 
+include("types.jl")
+include("support_functions.jl")
 
 include("rapidwindowing.jl")
 include("rapply.jl")
