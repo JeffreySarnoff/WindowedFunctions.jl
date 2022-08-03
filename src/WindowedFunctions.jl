@@ -9,6 +9,8 @@ using StatsBase: wsum, variant, sem, span, mad,
       wmean, geomean, harmmean, genmean,
       aweights, eweights, fweights, pweights, uweights, weights
 
+using OnlineStats 
+
 """
 With ndata = length(data), using a window of length windowsize, 
 rolling a function results in a vector of ndata - windowsize + 1 elements.
