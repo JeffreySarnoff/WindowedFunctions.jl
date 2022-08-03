@@ -18,6 +18,12 @@ using LogExpFunctions: xlogx, xexpx, logistic, logit, logcosh,
       # 2-arg functions
       xlogy, xlog1py, xexpy, logaddexp, logsubexp
 
+using Distances: euclidean, sqeuclidean, peuclidean, cityblock, totalvariation, jaccard, braycurtis, rogerstanimoto, chebyshev, minkowski,
+      hamming, cosine_dist, corr_dist, chisq_dist, kl_divergence, gkl_divergence, js_divergence, renyi_divergence,
+      spannorm_dist, weuclidean, wsqeuclidean, wcityblock, wminkowski, whamming, sqmahalanobis, mahalanobis, bhattacharyya,
+      hellinger, bregman,
+      haversine, spherical_angle,
+      meanad, msd, rmsd, nrmsd
 
 """
 With ndata = length(data), using a window of length windowsize, 
