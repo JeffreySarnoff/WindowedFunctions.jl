@@ -1,5 +1,13 @@
 module WindowedFunctions
 
+using StatsFuns: logistic, logit, 
+      log1psq, log1pmx, logmxp1,
+      logexpm1, log1pexp, log1mexp, log2mexp,
+      logsumexp, softplus, invsoftplus, softmax
+
+using StatsBase: wsum, variant, sem, span, mad, 
+      wmean, geomean, harmmean, genmean,
+      aweights, eweights, fweights, pweights, uweights, weights
 
 """
 With ndata = length(data), using a window of length windowsize, 
