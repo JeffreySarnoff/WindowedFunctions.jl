@@ -43,4 +43,5 @@ function fullandpartial(seqlength::T, windowspan::T) where {T<:Signed}
     return seqlength - windowspan + 1, windowspan - 1
 end
 
-SpanError(seqlenth, windowspan) = error("SpanErr(seqlength = $seqlength, windowspan = $windowspan)")
+SpanError(seqlenth, windowspan) = 
+    error("SpanErr(seqlength = $(seqlength), windowspan = $(windowspan))")

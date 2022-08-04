@@ -70,10 +70,11 @@ Base.iterate(r::Runner) = (r.setup, 2)
 Base.iterate(r::Runner, state::Int) = (r.update, nothing)
 
 Base.iterate(r::Running) = (r.runner, 2)
-Base.iterate(r::Running, state::Int) = state == 2 ? (r.window, 3) ? (r.current, nothing)
+Base.iterate(r::Running, state::Int) = 
+    state == 2 ? (r.window, 3) : (r.current, nothing)
 
 
-struct WindowedFunction{Setup, Apply<:Function, Update<:Function, Tracking, Arity}
+struct WindowedFunction{Setup, Apply, Update, Tracking, Arity}
     setup::Setup
     apply::Apply
     update::Update
