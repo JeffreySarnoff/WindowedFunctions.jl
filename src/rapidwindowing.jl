@@ -8,7 +8,7 @@ const CurrentWindowInfo = NamedTuple{EightNames, EightInts}
 function advance_window(datasrc::WindowedData, currentwindow::CurrentWindowInfo)
     newstart, newstop = wi.start + 1, wi.stop + 1
     ((newstop <= datasrc.srcspan) && (newstart > 0)) || 
-        DomainError(datasrc.srcspan,  newstart, newstop)
+        WindowBoundsErr((sourcelen=datasrc.srcspan,  start=newstart, stop=newstop))
     newstart, newstop
 end  
 
@@ -21,6 +21,3 @@ function update_window(datasrc::WindowedData, currentwindow::CurrentWindowInfo, 
     CurrentWindowInfo((datasrc.windowspan, newstart, newstop, oldestval, newestval, updatefrom, updatewith)
 end
   
-
-DomainError(seqlenth, startidx, stopidxn) = 
-    error("DomainErr(seqlength = $(seqlength), start=$(startidx), stop=$(stopidx)")
