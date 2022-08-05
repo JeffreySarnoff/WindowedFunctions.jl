@@ -36,7 +36,7 @@ LoopVectorizaiton = ">= 0.12"
 PolyesterWeave = ">= 0.1"
 Tables = "1.7"
 Dictionaries = ">= 0.3.22"
-Chain ">= 0.5"
+Chain = ">= 0.5"
 
 [extras]
 Aqua = "4c88cf16-eb10-579e-8560-4a9242c79595"

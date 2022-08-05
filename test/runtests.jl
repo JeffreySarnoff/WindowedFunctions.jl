@@ -2,4 +2,8 @@
 using WindowedFunctions
 using Aqua, Test
 
-@test true
+@testset "exeptions" begin
+    include("exceptions.jl")
+end
+
+
