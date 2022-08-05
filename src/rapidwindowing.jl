@@ -1,5 +1,27 @@
 # rapidwindowing
 
+const RapidElTypes = Union{Int8, Int16, Int32, Int64,
+                           UInt8, UInt16, UInt32, UInt64,
+                           Float16, Float32, Float64,
+                           Char, String, AbstractString,
+                           Symbol}
+
+
+RapidArrayTypes(n) = map(T->Array{T,n}, Base.uniontypes(RapidElTypes))
+
+rapid1types = RapidArrayTypes(1)
+rapid2types = RapidArrayTypes(2)
+rapid3types = RapidArrayTypes(3)
+rapid4types = RapidArrayTypes(4)
+
+                           [Array{N,T} for T in Base.uniontypes(RapidEltypes) for N]
+
+
+
+
+const RapidlySequencedData{V<:Vector{T}} where {T<:}, T2, D<:Union{}} where {T, D} = Union{Vector{}}
+function viewing(x::)
+
 #=
     the outer box is the entire data source, an n-length vector of T
         this data source is comprised of exactly n elememts, 
@@ -20,18 +42,48 @@
     each relative index from relidx1 through relidxn
         relatively indexes an element within the data source
     all of the elements within the window at its current place
-        are indicated by individual positional contguity ▢▢▢
-             _________________________
-            |                         |
-            |                         |
-            |  ( ▢▢▢▢▢▢ )             |
-            |                         |
-            |                         |
-            ----––––––––––––––––----–––
+        are indicated by individual positional contguity ▢▢▢▢▢▢
 
-                complete data source
 
-    advance sliding window
+
+             ---––––––––––––––––----––
+            |▢▢▢▢▢▢                   |
+            |                         |
+            | ▢▢▢▢▢▢                  |
+            |  ▢▢▢▢▢▢                 |
+            |                         |
+            |        ▢▢▢▢▢▢           |
+            |                         |
+            |              ▢▢▢▢▢▢     |
+            |               ▢▢▢▢▢▢    |
+            |                         |
+            |                   ▢▢▢▢▢▢|
+             ---––––––––––––––––----––
+
+             ---––––––––––––––––----––
+            |▢                        |  (maybe, depends on function)
+            |▢▢                       |
+            |▢▢▢                      |
+            |▢▢▢▢                     |
+            |▢▢▢▢▢                    |
+            |▢▢▢▢▢▢                   |
+            |                         |
+            | ▢▢▢▢▢▢                  |
+            |  ▢▢▢▢▢▢                 |
+            |                         |
+            |        ▢▢▢▢▢▢           |
+            |                         |
+            |              ▢▢▢▢▢▢     |
+            |               ▢▢▢▢▢▢    |
+            |                         |
+            |                   ▢▢▢▢▢▢|
+            |                    ▢▢▢▢▢|
+            |                     ▢▢▢▢|
+            |                      ▢▢▢|
+            |                       ▢▢|
+            |                        ▢| (maybe, depends on function)
+             ---––––––––––––––––----––
+
 """ move_window
 
 const WindowInfo = 
