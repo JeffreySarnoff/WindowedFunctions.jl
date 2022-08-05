@@ -17,19 +17,22 @@
         just after the first unit slide of the window,
            the relidx1 == dataidx1+1 and there relidxn == datainxn+1
            
-        
-             ___________________
-            |                   |
-            |                   |
-            |                   |
-            |                   |
-            |                   |
-             -–––––––––––––––––––
+    each relative index from relidx1 through relidxn
+        relatively indexes an element within the data source
+    all of the elements within the window at its current place
+        are indicated by individual positional contguity ▢▢▢
+             _________________________
+            |                         |
+            |                         |
+            |  ( ▢▢▢▢▢▢ )             |
+            |                         |
+            |                         |
+            ----––––––––––––––––----–––
+
+                complete data source
 
     advance sliding window
 """ move_window
-
-
 
 const WindowInfo = 
     NamedTuple{(:winspan, :firstidx, :finalidx, :firstval, :finalval), NTuple{5,Int}}
