@@ -1,5 +1,8 @@
 module WindowedFunctions
 
+using Tables, TableOperations, TableTransforms
+using CSV, DataFrames
+
 using StatsFuns: logistic, logit, 
       log1psq, log1pmx, logmxp1,
       logexpm1, log1pexp, log1mexp, log2mexp,
