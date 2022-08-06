@@ -1,7 +1,7 @@
 module WindowedFunctions
 
 using Tables, TableOperations, TableTransforms
-using CSV, DataFrames
+using CSV, DataFrames, Arrow
 
 using StatsFuns: logistic, logit, 
       log1psq, log1pmx, logmxp1,
