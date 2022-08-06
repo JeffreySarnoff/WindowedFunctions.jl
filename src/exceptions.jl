@@ -2,17 +2,29 @@
    exceptions that may be encountered
 =#
 
-abstract type DataWindowException <: Exception end
+abstract type WindowedDataException <: Exception end
 
-Base.@kwdef struct WindowOverflowsData <: DataWindowException
+"""
+    WindowOverflowsData <: WindowedDataException
+
+lastindex(current_window) > lastindex(current_data)
+""" WindowOverflowsData
+
+"""
+    WindowUnderflowsData <: WindowedDataException
+
+firstindex(current_window) < firstindex(current_data)
+""" WindowUnderflowsData
+
+
+Base.@kwdef struct WindowOverflowsData <: WindowedDataException
     msg::String
 end
 
-Base.@kwdef struct WindowUnderflowsData <: DataWindowException
+Base.@kwdef struct WindowUnderflowsData <: WindowedDataException
     msg::String
 end
 
-function Base.showerror(io::IO, err::DataWindowException)
+function Base.showerror(io::IO, err::WindowedDataException)
     println(io, err.msg)
 end
-

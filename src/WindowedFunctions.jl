@@ -72,6 +72,7 @@ export runfun, rollfun
 include("exceptions.jl")
 include("types.jl")
 include("support_functions.jl")
+include("inandout.jl")
 
 include("rapidwindowing.jl")
 include("rapply.jl")
