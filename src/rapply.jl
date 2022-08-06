@@ -4,7 +4,7 @@
 """
 rapply
 
-function rapply(rfun::Function, )
+function rapply(source::, window, rfun::Function, )
 
 """
     rspecifer characterizes an rapply-able function
