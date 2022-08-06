@@ -1,5 +1,8 @@
 module WindowedFunctions
 
+using Tables, TableOperations, DataFrames, Arrow
+
+#=
 using Tables, TableOperations, TableTransforms
 using CSV, DataFrames, Arrow
 
@@ -26,6 +29,7 @@ using Distances: euclidean, sqeuclidean, peuclidean, cityblock, totalvariation, 
       hellinger, bregman,
       haversine, spherical_angle,
       meanad, msd, rmsd, nrmsd
+=#
 
 """
 With ndata = length(data), using a window of length windowsize, 
