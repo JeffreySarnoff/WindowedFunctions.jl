@@ -1,14 +1,23 @@
-#=
-    Packaged Types
-
-    data:        source, sink
-    dataseries:
-    window:      span
-
-=#
-# types
+abstract type Dynamism  end
+abstract type Provision <: Dynamism end     # data presenting
+abstract type Reception <: Dynamism end     # concluding data 
 
 
+
+"""
+    AbstractDataProvision
+
+""" AbstractDataProvision
+
+"""
+    AbstractSource
+
+""" AbstractSource
+
+"""
+    AbstractSink
+
+""" AbstractSink
 
 
 
