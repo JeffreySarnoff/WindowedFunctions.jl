@@ -1,6 +1,22 @@
+abstract type AbstractExtent                                                   end
+abstract type                                 Extend         <: AbstractExtent end
+abstract type                                 Extending{N}           <: Extend end
+abstract type                  Sequence{N} <: Extending{N}                     end
+
+abstract type Datum end
+
+struct Unfolding <: Datum end
+struct Provision <: Datum end
+struct Enfolding <: Datum end
+
+const Unfold  = Unfolding()
+const Provide = Provision()
+const Enfold  = Enfolding()
 
 
-
+abstract type AbstractSeeing                            end
+abstract type         Seeing       <: AbstractSeeing    end
+abstract type         Perceives{N} <:         Seeing{N} end
 
 
 

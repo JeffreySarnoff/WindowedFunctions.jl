@@ -6,7 +6,7 @@
 r[oll]apply fun over a moving window
 """ rapply
 
-function rapply(datasource::, windowspec, fun::Function, )
+function rapply(data_source::AT, window_spec::NT, fun::Function, ) where {NT<:NamedTuple, N,T, AT<:AbstractArray{T,N}}
 
 """
     rspecifer characterizes an rapply-able function
