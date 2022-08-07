@@ -11,6 +11,6 @@ Tables.rowtable are row-oriented by e.g. `collect(columnoriented')`
 sourcefile = filename
 targetfile = 
 
-sourcestream = BufferedInputStream(open(filename))
+sourcestream = BufferedInputStream(open(filename, "r"))
 
 targetstream = BufferedOutputStream(open(filename, "w")) # wrap an IOStream
