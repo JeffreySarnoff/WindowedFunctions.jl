@@ -1,3 +1,11 @@
+#=
+    Packaged Types
+
+    data:        source, sink
+    dataseries:
+    window:      span
+
+=#
 # types
 
 
