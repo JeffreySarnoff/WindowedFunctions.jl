@@ -187,7 +187,23 @@ Nov 2019
 
 See the following conversation, there are also some code examples in comments. In particular, this comment:
 
-    Here is a minimal example of running mean, the same applies to higher order stats: using Statistics function runmean1(x::Vector{T}, n::Int64=10)::Vector{T} where {T<:Real} len = size(x,1) @assert n<len && n>1 "Argument n is out of bounds." out = zeros(len - n + 1) @inbounds for i = n:len out[i-n+1] = mean(view(x, i-n+1:i)) end return out end function runmean2(x::Vector{T}, n::Int64=10)::Vector{T} where {T<:Real} len = size(x,1) @assert n<len && n>1 "Arg… 
+    Here is a minimal example of running mean, 
+    the same applies to higher order stats: 
+    
+    using Statistics
+    function runmean1(x::Vector{T}, n::Int64=10)::Vector{T} where {T<:Real}
+      len = size(x,1) 
+      @assert n<len && n>1 "Argument n is out of bounds."
+      out = zeros(len - n + 1)
+      @inbounds for i = n:len out[i-n+1] = mean(view(x, i-n+1:i)) end
+      return out
+    end
+    
+    function runmean2(x::Vector{T}, n::Int64=10)::Vector{T} where {T<:Real}
+      len = size(x,1)
+      @assert n<len && n>1 "Arg…"
+      #
+    end
 
 klaff
 Nov 2019
