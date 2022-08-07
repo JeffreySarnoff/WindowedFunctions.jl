@@ -15,29 +15,15 @@ https://unix.stackexchange.com/questions/357893/is-there-a-difference-between-pw
 =#
 
 """
-    cwd()
-
-filepath for the current working directory
-    - like `Path(pwd())`
+    current_dirpath()
 """
-cwd() = canonicalize(Path(abspath(pwd())))
+current_dirpath() = canonicalize(Path(abspath(pwd())))
 
 """
-   currentdrive()
+   current_rootdir()
 """
-currentdrive() = cwd().drive
-
-"""
-   currentroot()
-"""
-function currentroot()
-    current_path = cwd()
-    current_drive = currentpath.drive
-    current_sep = currentpath.separator
-    current_root = currentpath.root
-
-    curdrive = currentdrive()
-    (curdrive * curdrive.separator),     Path(curdrive * curdrive.separator)
-
+function current_rootdir()
+    current_path = current_dirpath()
+    Path(current_path.drive * current_path.root)
 end
 
