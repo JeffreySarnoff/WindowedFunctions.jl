@@ -1,6 +1,12 @@
 module WindowedFunctions
 
-using Tables, TableOperations, DataFrames, Arrow
+using Tables, TableOperations, TypedTables, DataFrames, Arrow,
+      FilePathsBase, FilePaths
+
+
+const DailyDataTestPath = Path(abspath(joinpath(ENV["FINANCIAL_DATA_TEST"], "daily")))
+
+
 
 #=
 using Tables, TableOperations, TableTransforms
