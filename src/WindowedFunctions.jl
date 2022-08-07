@@ -1,6 +1,6 @@
 module WindowedFunctions
 
-using Tables, TableOperations, TypedTables, DataFrames, Arrow,
+using Tables, TableOperations, DataFrames, Arrow,
       FilePathsBase, FilePaths
 
 dirpath(xs::Vararg{Union{Path,String},N}) where N = 

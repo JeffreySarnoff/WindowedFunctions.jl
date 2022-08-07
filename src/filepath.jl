@@ -15,9 +15,9 @@ https://unix.stackexchange.com/questions/357893/is-there-a-difference-between-pw
 =#
 
 """
-    current_dirpath()
+    current_dir()
 """
-current_dirpath() = canonicalize(Path(abspath(pwd())))
+current_dir() = canonicalize(Path(abspath(pwd())))
 
 """
    current_root()

@@ -1,10 +1,12 @@
 # rapply.jl
 
 """
-"""
-rapply
+    rapply
 
-function rapply(source::, window, rfun::Function, )
+r[oll]apply fun over a moving window
+""" rapply
+
+function rapply(datasource::, windowspec, fun::Function, )
 
 """
     rspecifer characterizes an rapply-able function
