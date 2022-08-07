@@ -1,34 +1,3 @@
-abstract type Dynamism end
-
-abstract type Provision   <: Dynamism end     # data presenting
-
-abstract type Reseating   <: Dynamism end     # data clarified
-abstract type Explication <: Dynamism end     # applicative 
-
-abstract type Remixing  <: Dynamism end     # information rise
-abstract type Remixing  <: Dynamism end     # information rise
-abstract type Reception <: Dynamism end     # concluding data 
-
-
-
-
-
-"""
-    AbstractDataProvision
-
-""" AbstractDataProvision
-
-"""
-    AbstractSource
-
-""" AbstractSource
-
-"""
-    AbstractSink
-
-""" AbstractSink
-
-
 
 
 
