@@ -8,3 +8,8 @@ Tables.rowtable are row-oriented by e.g. `collect(columnoriented')`
 
 =#
 
+datasource = filename
+
+sourcestream = BufferedInputStream(open(filename))
+
+targetstream = BufferedOutputStream(open(filename, "w")) # wrap an IOStream
