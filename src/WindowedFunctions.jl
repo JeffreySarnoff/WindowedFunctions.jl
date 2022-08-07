@@ -3,7 +3,8 @@ module WindowedFunctions
 using Tables, TableOperations, TypedTables, DataFrames, Arrow,
       FilePathsBase, FilePaths
 
-
+dirpath(xs::Vararg{Union{Path,String},N}) where N = 
+    Path(abspath(joinpath(xs...)))
 const DailyDataTestPath = Path(abspath(joinpath(ENV["FINANCIAL_DATA_TEST"], "daily")))
 
 
@@ -80,6 +81,8 @@ export runfun, rollfun
        rwindsorizedmean, rsoftmax, rsoftlog
 
 include("exceptions.jl")
+include("filepath.jl")
+
 include("types.jl")
 include("support_functions.jl")
 include("inandout.jl")
