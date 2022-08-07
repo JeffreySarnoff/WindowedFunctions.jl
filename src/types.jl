@@ -1,7 +1,7 @@
-abstract type AbstractExtent                                                   end
-abstract type                                 Extend         <: AbstractExtent end
-abstract type                                 Extending{N}           <: Extend end
-abstract type                  Sequence{N} <: Extending{N}                     end
+abstract type AbstractExtent end
+abstract type Extend <: AbstractExtent end
+abstract type Extending{N} <: Extend end
+abstract type Sequence{N} <: Extending{N} end
 
 abstract type Datum end
 
@@ -14,9 +14,25 @@ const Provide = Provision()
 const Enfold  = Enfolding()
 
 
-abstract type AbstractSeeing                            end
-abstract type         Seeing       <: AbstractSeeing    end
-abstract type         Perceives{N} <:         Seeing{N} end
+abstract type AbstractSeeing end
+abstract type Sees <: AbstractSeeing end
+abstract type Seeing{N} <: Sees end
+abstract type Perception{N} <: Seeing{N} end
+
+abstract type Percept end
+
+
+struct Grounding <: Percept end
+struct Establish <: Percept end
+struct Change    <: Percept end
+
+const Ground = Grounding()
+const Estab  = Establish()
+const Renew  = Change()
+
+
+
+
 
 
 
