@@ -20,10 +20,11 @@ https://unix.stackexchange.com/questions/357893/is-there-a-difference-between-pw
 current_dirpath() = canonicalize(Path(abspath(pwd())))
 
 """
-   current_rootdir()
+   current_root()
 """
-function current_rootdir()
+function current_root()
     current_path = current_dirpath()
     Path(current_path.drive * current_path.root)
 end
+
 
