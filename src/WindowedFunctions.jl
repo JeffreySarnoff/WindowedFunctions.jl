@@ -83,6 +83,7 @@ export runfun, rollfun
 
 include("exceptions.jl")
 include("filepath.jl")
+include("viewof.jl")
 include("support.jl")
 
 include("types.jl")

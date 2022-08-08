@@ -1,5 +1,26 @@
 # support_functions
 
+function specify_window(sourcelength, windowspan)
+    nonoverlapping_complete_windows, nonoverlapping_partial_window = fldmod(sourcelength, windowspan)
+    nonoverlapping_complete_sourcevalues = nonoverlapping_complete_windows * windowspan
+    nonoverlapping_partial_sourcevalues = nonoverlapping_partial_window
+    nonoverlapping_partial = nonoverlapping_partial_sourcevalues // windowspan
+
+    fullyoverlapping_complete_windows = sourcelength - windowspan + 1
+    firstwindow_firstidx = 1
+    firstwindow_lastidx = windowspan
+    lastwindow_firstidx = sourcelength - windowspan + 1
+    lastwindow_lastidx = sourcelength
+
+    ithwindow_fullyoverlapping_firstidx(i) = i
+    ithwindow_fullyoverlapping_lastidx(i) =  i + windowspan - 1
+    
+    ithwindow_nonoverlapping_firstidx(i) = 1+((i-1)*windowspan)
+    ithwindow_nonoverlapping_lastidx(i) =        i * windowspan
+
+    
+
+
 """
     nrolled(datasource, windowstate)
 
