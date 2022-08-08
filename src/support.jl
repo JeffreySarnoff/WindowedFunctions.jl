@@ -1,13 +1,52 @@
 # support_functions
 
-
 """
     nrolled(datasource, windowstate)
 
-Given a data source, here a sequence of values of a shared type, 
-  each one may appear once or more than once within this vector,
-  the length of the vector is the extent of that value sequence.
+The count of values projected through a window rolling over data;
+the datasource length (the count of its iterates) and the window
+breadth (the count of its subpanes, `finalidx - firstidx + 1`)
+are of a determinate length [breadth].
 """ nrolled
+
+"""
+    nrunned(datasource, windowstate)
+
+The count of values projected through a window running over data;
+the datasource length (the count of its iterates) and the window
+breadth (the count of its subpanes, `finalidx - firstidx + 1`)
+are of a determinate length [breadth].
+""" nrunned
+
+"""
+    nfilled(datasource, windowstate)
+    nfilled(seqlength, windowspan)
+
+- number of values to be partially determined
+- values to be obtained using foreshortend window, imputation
+""" nfilled
+
+function nfilled(seqlength::T, windowspan::T) where {T<:Signed}
+    (1 > windowspan <= seqlength) && WindowOverflowsData((; seqlength, windowspan))
+
+    return windowspan - 1
+end
+""" nfilled
+
+""""
+    fullandpartial(seqlength, windowspan)
+
+- number of values
+    - to be fully determined
+    - to be partially determined
+
+- values to be obtained 
+     - using full windowspan
+     - using foreshortend window, imputation
+
+""" fullandpartial
+
+
 
 function slide_window(datasource, dim, windowstate)
     datasource.firstidx += windowstate.span

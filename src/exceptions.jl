@@ -2,29 +2,18 @@
    exceptions that may be encountered
 =#
 
-abstract type WindowedDataException <: Exception end
-
 """
-    WindowOverflowsData <: WindowedDataException
+    WindowOverflowsData
 
-lastindex(current_window) > lastindex(current_data)
+The final position of a sliding window has advanced past the end of the data.
 """ WindowOverflowsData
 
-"""
-    WindowUnderflowsData <: WindowedDataException
+struct WindowOverflowsData{T} <: Exception
+    msg::T
 
-firstindex(current_window) < firstindex(current_data)
-""" WindowUnderflowsData
-
-
-Base.@kwdef struct WindowOverflowsData <: WindowedDataException
-    msg::String
+    WindowsOverflowsData(x::T) where T = new{T}(string(x))
 end
 
-Base.@kwdef struct WindowUnderflowsData <: WindowedDataException
-    msg::String
-end
-
-function Base.showerror(io::IO, err::WindowedDataException)
+function Base.showerror(io::IO, err::WindowOverflowsData)
     println(io, err.msg)
 end

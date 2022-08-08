@@ -78,13 +78,14 @@ rapply, rapply1, rapply2, rapply3, rapply4
 export runfun, rollfun
        rapply, rapply1, rapply2, rapply3, rapply4,
        rabs, rmin, rmax, rsum, rmean, rvar, rstd,
-       rwindsorizedmean, rsoftmax, rsoftlog
+       rwindsorizedmean, rsoftmax, rsoftlog,
+       WindowOverflowsData
 
 include("exceptions.jl")
 include("filepath.jl")
+include("support.jl")
 
 include("types.jl")
-include("support_functions.jl")
 include("inandout.jl")
 
 include("rapidwindowing.jl")

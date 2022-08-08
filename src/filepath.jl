@@ -16,14 +16,18 @@ https://unix.stackexchange.com/questions/357893/is-there-a-difference-between-pw
 
 """
     current_dir()
+
+The `Path` that is your current directory.
 """
 current_dir() = canonicalize(Path(abspath(pwd())))
 
 """
    current_root()
+
+The `drive` that is your current disk.
 """
 function current_root()
-    current_path = current_dirpath()
+    current_path = current_dir()
     Path(current_path.drive * current_path.root)
 end
 
