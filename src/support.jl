@@ -1,6 +1,83 @@
+
+struct MovingValue{T,F}
+    value::Ref{T}
+    update::F
+end
+
+struct MovingRatio{T,F}
+    value::Ref{T}
+    update::F
+    scale::T
+end
+
+
+function moving_max(moving::MovingValue, newvalue::T) where T
+    current = moving.value[]
+    if current < newvalue
+        moving.value[] = newvalue
+    end
+end
+
+function moving_min(moving::MovingValue, newvalue::T) where {T}
+    current = moving.value[]
+    if newvalue < current
+        moving.value[] = newvalue
+    end
+end
+
+function moving_maxabs(moving::MovingValue, newvalue::T) where T
+    current = moving.value[]
+    newvalue = abs(newvalue)
+    if current < newvalue
+        moving.value[] = newvalue
+    end
+end
+
+function moving_minabs(moving::MovingValue, newvalue::T) where {T}
+    newvalue = abs(newvalue)
+    current = moving.value[]
+    if newvalue < current
+        moving.value[] = newvalue
+    end
+end
+
+incremental_max(init::T=floatmin(T)) where {T} = MovingValue(init, moving_max)
+incremental_min(init::T=floatmax(T)) where {T} = MovingValue(init, moving_min)
+
+incremental_maxabs(init::T=zero(T)) where {T} = MovingValue(abs(init), moving_maxabs)
+incremental_minabs(init::T=floatmax(T)) where {T} = MovingValue(abs(init), moving_minabs)
+
+function moving_mean(moving::MovingRatio, newvalue::T) where {T}
+    current = moving.value[]
+    change  = 
+    ]
+    if current < newvalue
+        moving.value[] = newvalue
+    end
+end
+
+
+const SpanSpecification = NamedTuple{(:span, :offset, :firstidx, :lastidx), NTuple{4,Int}}
+
+struct SourceSpan{T}
+    source::T
+    span::SpanSpecification
+end
+
+struct WindowSpan{T}
+    source::T
+    sourcespan::SpanSpecification
+    windowspan::Ref{SpanSpecification}
+end
+
+
+
+const SourceSpan = NamedTuple{(:source, :span), Tuple{T, NTuple{4,Int}}}
+const WindowSpec = NamedTuple{(:span, :firstidx, :lastidx, )}
+
 # support_functions
 
-function specify_window(sourcelength, windowspan)
+function specify_window(sourcelength, windowspan, skipafterwindow, startfrom, endby)
     nonoverlapping_complete_windows, nonoverlapping_partial_window = fldmod(sourcelength, windowspan)
     nonoverlapping_complete_sourcevalues = nonoverlapping_complete_windows * windowspan
     nonoverlapping_partial_sourcevalues = nonoverlapping_partial_window
@@ -18,8 +95,11 @@ function specify_window(sourcelength, windowspan)
     ithwindow_nonoverlapping_firstidx(i) = 1+((i-1)*windowspan)
     ithwindow_nonoverlapping_lastidx(i) =        i * windowspan
 
-    
+    ithwindow_skipafter_firstidx(windowspan, skipafter, i) = 1 + (i-1)*(windowspan+skipafter)
+    ithwindow_skipafter_lastidx(windowspan, skipafter, i) =  1 + (i-1)*((1+windowspan)+skipafter) 
+    # ith_firstidx(w,s,i) + windowspan
 
+end
 
 """
     nrolled(datasource, windowstate)
