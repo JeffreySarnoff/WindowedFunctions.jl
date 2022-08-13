@@ -132,9 +132,8 @@ function nfilled(seqlength::T, windowspan::T) where {T<:Signed}
 
     return windowspan - 1
 end
-""" nfilled
 
-""""
+"""
     fullandpartial(seqlength, windowspan)
 
 - number of values

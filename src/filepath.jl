@@ -31,4 +31,20 @@ function current_root()
     Path(current_path.drive * current_path.root)
 end
 
+"""
+   listdirs()
 
+Subdirectories in the currect directory
+"""
+function listdirs()
+    filter(isdir, joinpath.(current_dir(), readdir()))
+end
+
+"""
+   listfiles()
+
+Files in the currect directory
+"""
+function listfiles()
+    filter(isfile, joinpath.(current_dir(), readdir()))
+end
