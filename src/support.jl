@@ -81,6 +81,15 @@ function incremental_mean(dw::DataWindow, current)
     return current
 end
 
+function incremental_meanvar(dw::DataWindow, current, currentmean, currentvar)
+    nextmean += (dw.source[(dw.offset+dw.span)] - dw.source[dw.offset]) * dw.invspan
+    moment2 = currentvar * (dw.span - 1)
+    moment2 = moment2 + (current - currentmean) * (current - nextmean)
+    currentvar = moment2 / (dw.span - 1)
+    advance(dw)
+    currentmean, currentvar
+end
+
 
 advance(dw::DataWindow) = dw.offset = dw.offset + 1
 mayadvance(dw::DataWindow) = dw.length >= dw.offset + 1

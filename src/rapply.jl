@@ -1,4 +1,8 @@
 # rapply.jl
+zab=zip(a,b)
+c=collect(zab)
+julia> #map(r->sum(view(data,r)),c)
+julia> #c=map(x->UnitRange(x...),c)
 
 """
     rapply
