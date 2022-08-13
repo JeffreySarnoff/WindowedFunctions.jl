@@ -12,6 +12,14 @@ struct DataWindow{T}
     offset::MutableInt
 end
 
+struct RollingDataWindow{T}
+    source::T
+    current::T
+    length::Int
+    span::MutableInt
+    offset::MutableInt
+end
+
 function advance(dw::DataWindow)
     if dw.offset + span <= length
         dw.offset += 1
@@ -53,6 +61,14 @@ Statistics.var(dw::DataWindow) = applyover(var, dw)
 Statistics.std(dw::DataWindow) = applyover(std, dw)
 Statistics.quantile(dw::DataWindow, p) = applyover(quantile, dw, p)
 
+function incremental_minimum(dw::DataWindow)
+end
+
+function incremental_mean(dw::DataWindow, current)
+    current += (dw.source[(dw.offset+dw.span)] - dw.source[dw.offset]) / dw.span
+    advance(dw)
+    return current
+end
 
 
 advance(dw::DataWindow) = dw.offset = dw.offset + 1
