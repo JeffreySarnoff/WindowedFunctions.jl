@@ -2,7 +2,6 @@
 
 using VectorizedStatistics
 
-
 function rolling(fun::Function, windowspan::Int, data::AbstractVector{T}) where {T}
     dataview = view(data, :)
     seqlen = length(dataview)

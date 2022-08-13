@@ -7,6 +7,24 @@ using Tables, TableOperations, DataFrames, Arrow,
       FilePathsBase, FilePaths
 
 using VectorizedStatistics # vsum, vmean, vvar, vstd, vmaximum, vminimum,
+
+using LogExpFunctions: xlogx
+
+function logbalance(z)
+   minval = minimum(z)
+   if isapprox(minval, 0.0)
+      minval = -1/64
+   end
+   if minval < 0
+      minval *= 65/64
+      w = xlogx.(z .- minval) .- xlogx(-minval)
+   else
+      w = xlogx.(z) .- # pbly want to translate z
+
+   end
+   w
+end
+
 # vextrema, vcor, vcov
 
 const DailyDataTestPath = Path(abspath(joinpath(ENV["FINANCIAL_DATA_TEST"], "daily")))
