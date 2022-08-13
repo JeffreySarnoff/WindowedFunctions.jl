@@ -1,3 +1,64 @@
+mutable struct MutableInt i::Int end
+
+struct DataSequence{T}
+    source::T
+    length::Int
+end
+
+struct DataWindow{T}
+    source::T
+    length::Int
+    span::MutableInt
+    offset::MutableInt
+end
+
+function advance(dw::DataWindow)
+    if dw.offset + span <= length
+        dw.offset += 1
+        return dw
+    elseif dw.offset + 2 <= length
+        dw.offset += 1
+        dw.span = dw.span - 1
+        return dw
+    else
+        return nothing
+    end
+end
+
+function norm2(dw::DataWindow)
+    sqrt(sum(abs2.(source[dw.offset:dw.offset+dw.span-1])))
+end
+
+function Base.minimum(dw::DataWindow)
+    minimum(source[dw.offset:dw.offset+dw.span-1])
+end
+
+function Base.maximum(dw::DataWindow)
+    maximum(source[dw.offset:dw.offset+dw.span-1])
+end
+
+function Base.minimum(dw::DataWindow)
+    minimum(source[dw.offset:dw.offset+dw.span-1])
+end
+
+function Base.extrema(dw::DataWindow)
+    extrema(source[dw.offset:dw.offset+dw.span-1])
+end
+
+function extremadist(dw::DataWindow)
+    lo, hi = extrema(dw)
+    hi - lo
+end
+
+
+
+
+
+advance(dw::DataWindow) = dw.offset = dw.offset + 1
+mayadvance(dw::DataWindow) = dw.length >= dw.offset + 1
+
+
+
 mutable struct LinearBounds
     lo::Int
     hi::Int
