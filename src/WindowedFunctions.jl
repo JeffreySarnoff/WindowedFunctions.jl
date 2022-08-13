@@ -2,9 +2,10 @@ module WindowedFunctions
 
 using Tables, TableOperations, DataFrames, Arrow,
       FilePathsBase, FilePaths
+      
+using VectorizedStatistics # vsum, vmean, vvar, vstd, vmaximum, vminimum,
+                           # vextrema, vcor, vcov
 
-dirpath(xs::Vararg{Union{Path,String},N}) where N = 
-    Path(abspath(joinpath(xs...)))
 const DailyDataTestPath = Path(abspath(joinpath(ENV["FINANCIAL_DATA_TEST"], "daily")))
 
 
@@ -22,7 +23,7 @@ using StatsBase: wsum, variant, sem, span, mad,
       wmean, geomean, harmmean, genmean,
       aweights, eweights, fweights, pweights, uweights, weights
 
-using OnlineStats: EqualWeight, ExponentialWeight, HarmaonicWeight, McclainWeight, LearningWeight, LearningWeight2,
+using OnlineStats: EqualWeight, ExponentialWeight, HarmonicWeight, McclainWeight, LearningWeight, LearningWeight2,
       smooth, smooth!, Quantile, Moments, AutoCov
 
 using LogExpFunctions: xlogx, xexpx, logcosh, 
