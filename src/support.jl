@@ -64,6 +64,12 @@ Statistics.quantile(dw::DataWindow, p) = applyover(quantile, dw, p)
 function incremental_minimum(dw::DataWindow)
 end
 
+function incremental_sum(dw::DataWindow, current)
+    current += (dw.source[(dw.offset+dw.span)] - dw.source[dw.offset])
+    advance(dw)
+    return current
+end
+
 function incremental_mean(dw::DataWindow, current)
     current += (dw.source[(dw.offset+dw.span)] - dw.source[dw.offset]) / dw.span
     advance(dw)
