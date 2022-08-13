@@ -25,32 +25,33 @@ function advance(dw::DataWindow)
     end
 end
 
-function norm2(dw::DataWindow)
-    sqrt(sum(abs2.(source[dw.offset:dw.offset+dw.span-1])))
+function applyover(fn::Function, dw::DataWindow)
+    fn(dw.source[dw.offset:dw.offset+dw.span-1])
 end
 
-function Base.minimum(dw::DataWindow)
-    minimum(source[dw.offset:dw.offset+dw.span-1])
+function applyover(fn::Function, dw::DataWindow, p)
+    fn(dw.source[dw.offset:dw.offset+dw.span-1], p)
 end
 
-function Base.maximum(dw::DataWindow)
-    maximum(source[dw.offset:dw.offset+dw.span-1])
-end
+Base.minimum(dw::DataWindow) = applyover(minimum, dw)
+Base.maximum(dw::DataWindow) = applyover(maximum, dw)
+Base.sum(dw::DataWindow) = applyover(sum, dw)
+Base.prod(dw::DataWindow) = applyover(prod, dw)
+Base.extrema(dw::DataWindow) = applyover(extrema, dw)
 
-function Base.minimum(dw::DataWindow)
-    minimum(source[dw.offset:dw.offset+dw.span-1])
-end
-
-function Base.extrema(dw::DataWindow)
-    extrema(source[dw.offset:dw.offset+dw.span-1])
-end
+norm2(xs) = sqrt(sum(abs2.(xs)))
+norm2(dw::DataWindow) = applyover(norm2, dw)
 
 function extremadist(dw::DataWindow)
     lo, hi = extrema(dw)
     hi - lo
 end
 
-
+Statistics.mean(dw::DataWindow) = applyover(mean, dw)
+Statistics.median(dw::DataWindow) = applyover(mean, dw)
+Statistics.var(dw::DataWindow) = applyover(var, dw)
+Statistics.std(dw::DataWindow) = applyover(std, dw)
+Statistics.quantile(dw::DataWindow, p) = applyover(quantile, dw, p)
 
 
 
