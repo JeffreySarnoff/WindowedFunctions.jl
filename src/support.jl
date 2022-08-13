@@ -1,3 +1,32 @@
+mutable struct LinearBounds
+    lo::Int
+    hi::Int
+end
+
+Base.convert(::Type{LinearBounds}, lohi::NTuple{2,Int}) = LinearBounds(lohi[1], lohi[2])
+
+struct WindowIndices
+    win::LinearBounds
+    all::LinearBounds
+end
+
+function win(w::WindowIndices, lohi::NTuple{2,Int})
+    w.win.lo = lohi[1]
+    w.win.hi = lohi[2]
+end
+
+function win(w::WindowIndices, lo::Int, hi::Int)
+    w.win.lo = lo
+    w.win.hi = hi
+end
+
+function advance(w::WindowIndices)
+    win(w, w.win.lo+1, w.win.hi+1)
+end
+
+function mayadvance(w::WindowIndices)
+    w.win.hi < w.all.hi
+end
 
 struct MovingValue{T,F}
     value::Ref{T}
