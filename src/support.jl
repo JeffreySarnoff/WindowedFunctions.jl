@@ -1,23 +1,28 @@
-mutable struct MutableInt i::Int end
+mutable struct AltInt i::Int end
+mutable struct AltReal{T<:Real} x::T end
+mutable struct AltNum{T<:Number} x::T end
+
 
 struct DataSequence{T}
     source::T
     length::Int
 end
 
-struct DataWindow{T}
+struct DataWindow{T,FP}
     source::T
     length::Int
-    span::MutableInt
-    offset::MutableInt
+    invspan::FP
+    span::AltInt
+    offset::AltInt
 end
 
-struct RollingDataWindow{T}
+struct RollingDataWindow{T,FP}
     source::T
     current::T
     length::Int
-    span::MutableInt
-    offset::MutableInt
+    invspan::FP
+    span::AltInt
+    offset::AltInt
 end
 
 function advance(dw::DataWindow)
@@ -71,7 +76,7 @@ function incremental_sum(dw::DataWindow, current)
 end
 
 function incremental_mean(dw::DataWindow, current)
-    current += (dw.source[(dw.offset+dw.span)] - dw.source[dw.offset]) / dw.span
+    current += (dw.source[(dw.offset+dw.span)] - dw.source[dw.offset]) * dw.invspan
     advance(dw)
     return current
 end
