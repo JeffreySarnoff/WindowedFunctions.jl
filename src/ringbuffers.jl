@@ -14,9 +14,9 @@ export CircularVector, RingBuffer
 
 struct CircularVector{T}
     buffer::Vector{T}
+    size::Int
     first::Ref{Int}
     last::Ref{Int}
-    size::Int
 end
 
 function CircularVector(::Type{T}, n::Int) where {T<:Number}
@@ -24,14 +24,14 @@ function CircularVector(::Type{T}, n::Int) where {T<:Number}
     size = n
     last = Ref(n)
     buf = fill(zero(T), n)
-    CircularVector{T}(buf, first, last, size)
+    CircularVector{T}(buf, size, first, last)
 end
 
 function CircularVector(buffer::Vector{T}) where {T<:Number}
     first = Ref(1)
     size = length(buffer)
     last = Ref(size)
-    CircularVector{T}(buffer, first, last, size)
+    CircularVector{T}(buffer, size, first, last)
 end
 
 function getindex(cv::CircularVector, idx::Int)

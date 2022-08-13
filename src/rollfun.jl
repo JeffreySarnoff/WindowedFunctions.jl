@@ -27,54 +27,47 @@ rollminimum(windowspan::Int, data) = rolling(vminimum, windowspan, data)
 # vsum, vmean, vvar, vstd, vmaximum, vminimum,
 # vextrema, vcor, vcov
 
-
-#=
-function rolling(windowspan::Int, fun::Function, data::AbstractVector{T}) where {T}
+function rollsum(windowspan::Int, data::AbstractVector{T}) where {T}
     dataview = view(data, :)
     seqlen = length(dataview)
-    nvals  = seqlen - windowspan + 1
-
-    starts = 1:nvals
-    stops = starts .+ (windowspan - 1)
-    bounds = map((a,b)->a:b, starts, stops)
-
-    map(boundry->fun(view(dataview, boundry)), bounds)
-end
-
-function rolling(windowspan::Int, fun::Function, data::AbstractVector{T}) where {T}
-    dataview = view(data, :)
-    seqlen = length(dataview)
+    offset = windowspan - 1
     nvals = seqlen - windowspan + 1
-
     starts = 1:nvals
-    stops = starts .+ (windowspan - 1)
-    bounds = map((a, b) -> a:b, starts, stops)
 
     result = Vector{T}(undef, nvals)
-    i = 1
-    for boundry in bounds
-        result[i] = fun(view(dataview, boundry))
-        i += 1
+    result[1] = sum(view(dataview, 1:1+offset))
+
+    # result[2] = result[1] - dataview[1] + dataview[1+windowspan]
+    # result[3] = result[2] - dataview[2] + dataview[2+windowspan]
+
+    for idx in starts[2:end]
+        idx1 = idx-1
+        result[idx] = result[idx1]
+        result[idx] -= dataview[idx1] + dataview[idx1+windowspan]
     end
+
     result
 end
 
-function rolling(windowspan::Int, fun::Function, data::AbstractVector{T}) where {T}
+function rollmean(windowspan::Int, data::AbstractVector{T}) where {T}
     dataview = view(data, :)
     seqlen = length(dataview)
+    offset = windowspan - 1
+    invspan = one(T)/windowspan
     nvals = seqlen - windowspan + 1
-
     starts = 1:nvals
-    stops = starts .+ (windowspan - 1)
-    bounds = map((a, b) -> a:b, starts, stops)
 
-    # result = Vector{T}(undef, nvals)
-    map(i -> fun(view(dataview, i)), bounds)
-    #result .= fun.(view.(Ref(dataview),bounds))
+    result = Vector{T}(undef, nvals)
+    result[1] = mean(view(dataview, 1:1+offset))
 
-    #result
+    for idx in starts[2:end]
+        idx1 = idx - 1
+        result[idx] = result[idx1]
+        result[idx] += (-dataview[idx1] + dataview[idx1+windowspan]) * invspan
+    end
+
+    result
 end
-=#
 
 # number of values to be obtained
 function nrolled(seqlength::T, windowspan::T) where {T<:Signed}
