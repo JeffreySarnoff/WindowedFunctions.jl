@@ -1,9 +1,23 @@
 # rapply.jl
 zab=zip(a,b)
 c=collect(zab)
-julia> #map(r->sum(view(data,r)),c)
-julia> #c=map(x->UnitRange(x...),c)
+julia > #map(r->sum(view(data,r)),c)
+julia > #c=map(x->UnitRange(x...),c)
 
+r = map(z -> UnitRange(z...), c)
+map(sum, view.(Ref(data), r))
+
+julia> @btime view.(Ref($dataview),$r);
+  1.460 μs (2 allocations: 20.05 KiB)
+
+julia> @btime map(sum,view.(Ref($dataview),$r));
+  16.700 μs (3 allocations: 24.17 KiB)
+
+julia> @btime map(i->sum(view($dataview,i)), $r);
+  14.300 μs (1 allocation: 4.12 KiB)
+
+julia> @btime sumview.(Ref($dataview),$r);
+  14.600 μs (1 allocation: 4.12 KiB)
 """
     rapply
 
