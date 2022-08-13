@@ -17,7 +17,6 @@ function rolling(fun::Function, windowspan::Int, data::AbstractVector{T}) where 
     result
 end
 
-
 rollsum(windowspan::Int, data) = rolling(vsum, windowspan, data)
 rollmean(windowspan::Int, data) = rolling(vmean, windowspan, data)
 rollvar(windowspan::Int, data) = rolling(vvar, windowspan, data)

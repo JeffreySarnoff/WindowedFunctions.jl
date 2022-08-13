@@ -1,10 +1,13 @@
 module WindowedFunctions
 
+export rolling,
+       rollsum, rollmean, rollvar, rollstd, rollmaximum, rollminimum
+
 using Tables, TableOperations, DataFrames, Arrow,
       FilePathsBase, FilePaths
-      
+
 using VectorizedStatistics # vsum, vmean, vvar, vstd, vmaximum, vminimum,
-                           # vextrema, vcor, vcov
+# vextrema, vcor, vcov
 
 const DailyDataTestPath = Path(abspath(joinpath(ENV["FINANCIAL_DATA_TEST"], "daily")))
 
@@ -77,10 +80,10 @@ rapply, rapply1, rapply2, rapply3, rapply4
 
 
 export runfun, rollfun
-       rapply, rapply1, rapply2, rapply3, rapply4,
-       rabs, rmin, rmax, rsum, rmean, rvar, rstd,
-       rwindsorizedmean, rsoftmax, rsoftlog,
-       WindowOverflowsData
+rapply, rapply1, rapply2, rapply3, rapply4,
+rabs, rmin, rmax, rsum, rmean, rvar, rstd,
+rwindsorizedmean, rsoftmax, rsoftlog,
+WindowOverflowsData
 
 include("exceptions.jl")
 include("filepath.jl")
