@@ -39,6 +39,7 @@ Tables = "1.7"
 TableOperations ="1.2"
 VectorizationBase = ">= 0.21"
 VectorizedStatistics = ">= 0.4"
+Julia = "1.7"
 
 [extras]
 Aqua = "4c88cf16-eb10-579e-8560-4a9242c79595"
