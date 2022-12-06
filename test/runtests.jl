@@ -1,4 +1,4 @@
-using WindowedFunctions, Test
+using WindowedFunctions, StatsBase, Test
 
 @test true
 
