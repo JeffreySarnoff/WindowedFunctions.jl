@@ -1,20 +1,44 @@
-# number of values to be padded, tapered or otherwise imputed
+"""
+    apportion_windowing(window_span, sequence_length)
 
-function count_unrealized(window_span::T) where {T<:Signed}
+provides (unrealized_count, realized_count)
+- see count_unrealized, count_realized
+"""
+function apportion_windowing(window_span, sequence_length)
+    unrealized = count_unrealized(window_span, sequence_length)
+    realized = count_realized(window_span, sequence_length)
+    (unrealized, realized)
+end
+
+"""
+    count_unrealized(window_span, sequence_length)
+
+Counts the number of observed values to be replaced:
+  - dropped
+  - padded
+  - tapered
+  - otherwise auto-imputed
+"""
+function count_unrealized(window_span::T, sequence_length::Int = 2 * window_span) where {T<:Signed}
     window_span < 1 && throw(ArgumentError("The window is of zero length."))
-
     window_span - 1
 end
 
-# number of values to be obtained by function application
+"""
+    count_realized(window_span, sequence_length)
 
+Counts the number of observed values fully available to function application.
+  - not dropped, padded, tapered, or otherwise auto-imputed
+  - presupposes each observation is well-formed and meets domain constraints 
+"""
 function count_realized(sequence_length::T, window_span::T) where {T<:Signed}
     ValidateSpan(sequence_length, window_span)
-
     sequence_length - window_span + 1
 end
 
-# fill with n == product(dims(data)) copies of the filler
+#=
+#     fill with n == product(dims(data)) copies of the filler
+=#
 
 function filling(filler::T1, data::AbstractArray{T2}) where {T1,T2}
     elemtype = Union{T1, T2}
