@@ -1,0 +1,85 @@
+name: Cleanup
+on:
+  repository_dispatch:
+    types:
+      - triggered-event
+
+jobs:
+
+  # Demonstrate how to delete by name
+  delete-by-name:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Delete Artifact by Name
+        uses: jimschubert/delete-artifacts-action@v1
+        with:
+          log_level: 'debug'
+          artifact_name: '${{ github.event.client_payload.base_name }}'
+          min_bytes: '0'
+
+  # Demonstrate how to delete by active_duration
+  delete-by-retention-duration:
+    needs: delete-by-name
+    continue-on-error: true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Delete Artifact by active duration (expect no deletions)
+        uses: jimschubert/delete-artifacts-action@v1
+        with:
+          log_level: 'debug'
+          min_bytes: '0'
+          active_duration: '30m'
+
+      - name: Sleep 2 minutes
+        run: |
+          echo "Sleeping for 2 minutes, then we'll use duration 1m30s"
+          sleep 120
+
+      - name: Delete Artifact by active duration (expect deletions)
+        uses: jimschubert/delete-artifacts-action@v1
+        with:
+          log_level: 'debug'
+          min_bytes: '0'
+          active_duration: '1m30s'
+
+  # Demonstrates how to use POSIX pattern for deleting artifacts
+  delete-by-pattern:
+    needs: delete-by-retention-duration
+    continue-on-error: true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Delete by pattern
+        uses: jimschubert/delete-artifacts-action@v1
+        with:
+          log_level: 'debug'
+          min_bytes: '0'
+          pattern: '\.pat'
+
+  # Demonstrates how to use a run id for deleting artifacts
+  # This could be used for overall cleanup
+  delete-by-runId:
+    needs: [delete-by-pattern]
+    continue-on-error: true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Delete by run id
+        if: ${{ github.event.client_payload.run_id }}
+        uses: jimschubert/delete-artifacts-action@v1
+        with:
+          log_level: 'debug'
+          min_bytes: '0'
+          run_id: '${{ github.event.client_payload.run_id }}'
+          
