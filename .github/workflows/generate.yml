@@ -1,0 +1,143 @@
+name: Generate artifacts and trigger cleanup
+on:
+  workflow_dispatch:
+    inputs:
+      size:
+        description: 'Target file size'
+        required: true
+        default: '1M'
+      name:
+        description: 'Artifact name'
+        required: true
+        default: 'artifact.bin'
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+
+  # This job represents your "standard" job. notice that the job outputs `github.run_id` as an example of passing variables to a triggering job
+  generate:
+    runs-on: ubuntu-latest
+    continue-on-error: false
+    outputs:
+      # We can use outputs across jobs in the final trigger job
+      target_run_id: ${{ github.run_id }}
+    steps:
+      # Generate a file of empty bytes (this could be a build task)
+      - name: Generate a file
+        run: |
+          truncate -s ${{ github.event.inputs.size }} ${{ github.event.inputs.name }}
+          echo "Created file ${{ github.event.inputs.name }} (${{ github.event.inputs.size }})"
+      # Upload the artifact. Artifacts expire after 90 days, which may count toward storage costs on private repositories
+      - name: Upload artifact as ${{ github.event.inputs.name }}
+        uses: actions/upload-artifact@v1
+        with:
+          name: ${{ github.event.inputs.name }}
+          path: ${{ github.event.inputs.name }}
+
+  # This example triggers via separate job to demonstrate passing variables between jobs and workflows, but the step can exist in a single job. 
+  trigger:
+    runs-on: ubuntu-latest
+    needs: generate
+    continue-on-error: false
+    steps:
+      # See https://docs.github.com/en/rest/reference/repos#create-a-repository-dispatch-event
+      # This requires a Personal Access Token (PAT), the GITHUB_TOKEN provided to workflows will not work.
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v1.0.0
+        with:
+          # THIS MUST BE A PERSONAL ACCESS TOKEN
+          token: ${{secrets.TRIGGER_TOKEN}}
+          repository: ${{github.repository}}
+          event-type: triggered-event
+          # Payload properties can be any name. Note size, base_name, and run_id referring to this workflow's inputs and the generate tasks's outputs
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "size": "${{ github.event.inputs.size }}", "base_name": "${{ github.event.inputs.name }}", "run_id": "${{needs.generate.outputs.target_run_id}}"}'
+Create the following file at .github/workflows/cleanup.yml:
+
+name: Cleanup
+on:
+  repository_dispatch:
+    types:
+      - triggered-event
+
+jobs:
+
+  # Demonstrate how to delete by name
+  delete-by-name:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Delete Artifact by Name
+        uses: jimschubert/delete-artifacts-action@v1
+        with:
+          log_level: 'debug'
+          artifact_name: '${{ github.event.client_payload.base_name }}'
+          min_bytes: '0'
+
+  # Demonstrate how to delete by active_duration
+  delete-by-retention-duration:
+    needs: delete-by-name
+    continue-on-error: true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Delete Artifact by active duration (expect no deletions)
+        uses: jimschubert/delete-artifacts-action@v1
+        with:
+          log_level: 'debug'
+          min_bytes: '0'
+          active_duration: '30m'
+
+      - name: Sleep 2 minutes
+        run: |
+          echo "Sleeping for 2 minutes, then we'll use duration 1m30s"
+          sleep 120
+
+      - name: Delete Artifact by active duration (expect deletions)
+        uses: jimschubert/delete-artifacts-action@v1
+        with:
+          log_level: 'debug'
+          min_bytes: '0'
+          active_duration: '1m30s'
+
+  # Demonstrates how to use POSIX pattern for deleting artifacts
+  delete-by-pattern:
+    needs: delete-by-retention-duration
+    continue-on-error: true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Delete by pattern
+        uses: jimschubert/delete-artifacts-action@v1
+        with:
+          log_level: 'debug'
+          min_bytes: '0'
+          pattern: '\.pat'
+
+  # Demonstrates how to use a run id for deleting artifacts
+  # This could be used for overall cleanup
+  delete-by-runId:
+    needs: [delete-by-pattern]
+    continue-on-error: true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Delete by run id
+        if: ${{ github.event.client_payload.run_id }}
+        uses: jimschubert/delete-artifacts-action@v1
+        with:
+          log_level: 'debug'
+          min_bytes: '0'
+          run_id: '${{ github.event.client_payload.run_id }}'
+          
