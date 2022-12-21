@@ -15,6 +15,8 @@ abstract type Windowed end
 
 abstract type Gather{T} <: Function end
 abstract type Accumulator{T} <: Gather{T} end
+abstract type AccumLensed{T,F} <: Accumulator{T}
+	
 abstract type Aggregator{T}  <: Gather{T} end
 
 struct AccFx{T,A<:Accumulator,F<:Function} <: Accumulator{T}
