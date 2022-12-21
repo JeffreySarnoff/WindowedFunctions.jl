@@ -1,8 +1,15 @@
 module WindowedFunctions
 
 using StatsBase
-using StatsAPI
 using Distances
+
+const Seq = Union{AbstractVector{T}, Tuple{Vararg{T}}} where {T}
+const MultiSeq = Union{AbstractArray{T,D}, NTuple{D, NTuple{N,T}}}} where {D,N,T}
+
+seq(xs::AbstractVector{T}) where {T} = xs
+seq(xs::NTuple{N,T}) where {N,T} = xs
+multiseq(xys::AbstractArray{T,D}) where {T,D} = xys
+multiseq(xys::NTuple{D, NTuple{N,T})} where {D,N,T} = xys
 
 abstract type Windowed end
 
