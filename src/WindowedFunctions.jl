@@ -64,6 +64,7 @@ using Accumulators
 using Aggregators
 
 
+include("exceptions.jl")
 include("support.jl")
 
 end  # WindowedFunctions
