@@ -14,7 +14,7 @@ rapid2types = RapidArrayTypes(2)
 rapid3types = RapidArrayTypes(3)
 rapid4types = RapidArrayTypes(4)
 
-                           [Array{N,T} for T in Base.uniontypes(RapidEltypes) for N]
+ [Array{N,T} for T in Base.uniontypes(RapidEltypes) for N]
 
 
 
