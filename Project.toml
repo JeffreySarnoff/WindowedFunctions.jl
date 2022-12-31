@@ -5,11 +5,9 @@ version = "0.1.0"
 
 [deps]
 StatsBase = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
-StatsAPI = "82ae8749-77ed-4fe6-ae5f-f523153014b0"
-Distances= "b4f34e82-e78d-54a5-968a-f98e89d6e8f7"
+Distances = "b4f34e82-e78d-54a5-968a-f98e89d6e8f7"
 LoopVectorization = "bdcacae8-1622-11e9-2a5c-532679323890"
-# VectorizedStatistics = "3b853605-1c98-4422-8364-4bd93ee0529e"
-# Chain = "8be319e6-bccf-4806-a6f7-6fae938471bc"
+VectorizedStatistics = "3b853605-1c98-4422-8364-4bd93ee0529e"
 
 [compat]
 StatsBase = "0.33, 0.34, 0.35, 0.36"
