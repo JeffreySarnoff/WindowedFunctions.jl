@@ -28,7 +28,7 @@
 
 ## Capabilities
 
-### ≺ apply ≻ { rolling, tiling, running }
+### ≺ apply ≻ is one of { rolling, tiling, running }
 
 #### keywords (optional)
  - __padding__ = nopadding (omit padding) [_or use this value_]
