@@ -1,3 +1,4 @@
+__under construction__
 
 - You have a data sequence 𝐷𝑎𝑡𝑎, the Vector[1, 2, 3, 4, 5].
 - The window width 𝑆𝑝𝑎𝑛 of each subsequence is 3.
