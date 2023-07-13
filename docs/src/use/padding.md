@@ -1,3 +1,6 @@
+__under construction__
+(_see tests_)
+
 You may pad the result with the _value_ of your choice
 
 #### padding is a keyword argument
