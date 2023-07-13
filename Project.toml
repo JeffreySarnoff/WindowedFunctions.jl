@@ -1,0 +1,30 @@
+name = "WindowedFunctions"
+uuid = "cf643d41-0429-49f1-aac1-03cf328148a3"
+keywords = ["rolling", "running", "windowed", "timeseries", "time series"]
+license = "MIT"
+desc = "Roll a window over data, applying a function over the window."
+authors = ["Jeffrey Sarnoff and other contributors"]
+repo = "https://github.com/JeffreySarnoff/WindowedFunctions.jl.git"
+version = "0.9.97"
+
+[deps]
+BenchmarkTools = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
+Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
+DocumenterTools = "35a29f4d-8980-5a13-9543-d66fff28ecb8"
+LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
+LiveServer = "16fef848-5104-11e9-1b77-fb7a48bbb589"
+StatsBase = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
+Tables = "bd369af6-aec1-5ad0-b16a-f7cc5008161c"
+VectorizedStatistics = "3b853605-1c98-4422-8364-4bd93ee0529e"
+
+[compat]
+StatsBase = "0.33, 0.34, 0.35, 0.36"
+Tables = "1.10"
+VectorizedStatistics = "0.5, 0.6, 0.7"
+julia = "1.9"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
