@@ -4,7 +4,6 @@
 
 ----
 
-[![Stable Documentation](https://img.shields.io/badge/docs-stable-blue.svg)](https://JeffreySarnoff.github.io/WindowedFunctions.jl/stable)&nbsp;&nbsp;&nbsp;
 [![Dev Documentation](https://img.shields.io/badge/docs-dev-blue.svg)](https://JeffreySarnoff.github.io/WindowedFunctions.jl/dev)&nbsp;&nbsp;&nbsp;
 [![Aqua QA](https://raw.githubusercontent.com/JuliaTesting/Aqua.jl/master/badge.svg)](https://github.com/JuliaTesting/Aqua.jl)&nbsp;&nbsp;&nbsp;
 [![License: MIT](https://img.shields.io/badge/License-MIT-navy.svg)](https://opensource.org/licenses/MIT)&nbsp;&nbsp;&nbsp;
