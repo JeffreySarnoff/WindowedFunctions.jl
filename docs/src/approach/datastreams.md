@@ -1,28 +1,30 @@
 ```
     datastreams
 
-There are four ways to provide data
-for `rolling`, `tiling`, or `running`.
+There are four sorts of datastreams available when 
+`rolling`, `tiling`, or `running` windowed functions.
 ```
+| datastream   | window functions    | over subsequences of |
+|:-------------|:--------------------|:---------------------|
+| 1 vector     | max, sum, mean      | individual values    |
+| 2 vectors    | cor, cov            | ordered pairs        |
+| 3 vectors    | clamp, midof3       | ordered triples      |
+| _each matrix column is processed as a single vector_      |
+| matrix       | as with 1 vector    | column values        |
 
-- data sources [usually] have a numeric eltype
 
-(a) a unary function over windows into one vector
+Each datastream is composed of one or more
+data sequence[s].  The most fundamental
+datastream is the sequence of values
+that populate a vector. A function of
+one argument is applied over successive
+windows onto the data vector.
+Where the datastream is a matrix, every
+column is an independant vector.
 
-(b) a binary function over matching windows into two vectors
 
-(c) a three arg function over windows into three vectors
+----
 
-(d) a unary function windowed over each column of a matrix
-
-- each column of the matrix is treated as a simple vector
-- there is no current provision for n-ary summary functions
-- the same unary function is applied over each column
-- the same windowing is applied to each column
-
-create a window-ready function using constitutive applicands
-
-`fn(v1,v2,v3,v4,v5,v6) = fnab(fna(v1, v2, v3), fnb(v3, v4, v5))`
 
 See also: [`rolling`](rolling.md),
           [`tiling`](tiling.md),
