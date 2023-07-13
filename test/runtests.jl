@@ -1,5 +1,5 @@
-using RollingFunctions
-import RollingFunctions as RF
+using WindowedFunctions
+import WindowedFunctions as RF
 using LinearAlgebra
 using StatsBase
 using VectorizedStatistics
