@@ -14,26 +14,31 @@ makedocs(
     ),
     pages = Any[
         "Home" => "index.md",
-        "Approaches" => Any[
-            "rolling" => "approach/rolling.md",
-            "tiling"  => "approach/tiling.md",
-            "running" => "approach/running.md",
-            "datastreams" => "approach/datastreams.md"
+        "Capabilities" => Any[
+            "Designs" => Any[
+                "rolling" => "approach/rolling.md",
+                "tiling"  => "approach/tiling.md",
+                "running" => "approach/running.md",
+                "datastreams" => "approach/datastreams.md"
+            ],
+            "Uses" => Any[
+                "rolling" => "use/rolling.md",
+                "tiling"=>"use/tiling.md",
+                "running"=>"use/running.md",
+                "datastreams" => "use/datastreams.md",
+            ],
         ],
         "Options" => Any[
-            "padding"=>"approach/padding.md",
-            "atend"=>"approach/atend.md",
-            "weighting"=>"approach/weights.md"
-        ],
-        "Examples of Use" => Any[
-            "rolling" => "use/rolling.md",
-            "tiling"=>"use/tiling.md",
-            "running"=>"use/running.md",
-        ],
-        "Examples of Options"=>Any[
-            "padding"=>"use/padding.md",
-            "atend"=>"use/atend.md",
-            "weights"=>"use/weights.md",
+            "Designs" => Any[
+                "padding"=>"approach/padding.md",
+                "atend"=>"approach/atend.md",
+                "weights" => "approach/weights.md"
+            ],
+            "Uses"=>Any[
+                "padding"=>"use/padding.md",
+                "atend"=>"use/atend.md",
+                "weights"=>"use/weights.md",
+            ],
         ],
         "References" => "references.md",
         "Thanks" => "thanks.md"
