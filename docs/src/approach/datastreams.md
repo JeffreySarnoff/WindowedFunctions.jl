@@ -25,6 +25,7 @@ column is an independant vector.
 
 ----
 
+##### [using `datastreams`](../use/datastreams.md)
 
 See also: [`rolling`](rolling.md),
           [`tiling`](tiling.md),

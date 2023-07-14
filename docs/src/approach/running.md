@@ -38,6 +38,8 @@ keywords
 - padding::Any=nopadding: the value place as filler.
 - atend::Bool=false:      where to place the padding.
 
+##### [using `running`](../use/running.md)
+
 See also: [`padding`](padding.md), 
           [`atend`](atend.md),
           [`weighted`](weighted.md),

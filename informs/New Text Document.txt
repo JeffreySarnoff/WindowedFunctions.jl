@@ -1,0 +1,30 @@
+3D Morton Numbers
+
+you can use the same technique. I'm assuming that variables contain 32-bit integers
+  with the highest 22 bits set to 0 (which is a bit more restrictive than necessary). 
+For each variable x containing one of the three 10-bit integers we do the following:
+
+x = (x | (x << 16)) & 0x030000FF;
+x = (x | (x <<  8)) & 0x0300F00F;
+x = (x | (x <<  4)) & 0x030C30C3;
+x = (x | (x <<  2)) & 0x09249249;
+
+Then, with x,y and z the three manipulated 10-bit integers we get the result by taking:
+
+x | (y << 1) | (z << 2)
+
+The way this technique works is as follows. Each of the x = ... lines above
+  "splits" groups of bits in half such that there is enough space in between
+  for the bits of the other integers.
+  For example, if we consider three 4-bit integers, 
+    we split one with bits 1234 into 000012000034 
+    where the zeros are reserved for the other integers. 
+  In the next step we split 12 and 34 in the same way to get 001002003004.
+     Even though 10 bits doesn't make for a nice repeated division in two groups,
+     you can just consider it 16 bits where you lose the highest ones in the end.
+
+As you can see from the first line, you actually only need that for each input integer x 
+   it holds that x & 0x03000000 == 0.
+
+from
+https://stackoverflow.com/questions/1024754/how-to-compute-a-3d-morton-number-interleave-the-bits-of-3-ints/18528775#18528775

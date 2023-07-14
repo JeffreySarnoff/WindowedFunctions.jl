@@ -148,3 +148,4 @@ result = rolling(𝐹𝑢𝑛𝑐, 𝐷𝑎𝑡𝑎₁, 𝐷𝑎𝑡𝑎₂, �
 ```
 
 
+##### [approaching `padding`](../approach/padding.md)

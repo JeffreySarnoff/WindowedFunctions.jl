@@ -120,3 +120,5 @@ result = rolling(𝐹𝑢𝑛𝑐,𝐷𝑎𝑡𝑎₁,𝐷𝑎𝑡𝑎₂, 𝑆�
 =#
 
 ```
+
+##### [approaching `rolling`](../approach/rolling.md)

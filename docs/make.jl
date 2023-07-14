@@ -23,7 +23,7 @@ makedocs(
         "Options" => Any[
             "padding"=>"approach/padding.md",
             "atend"=>"approach/atend.md",
-            "weighting"=>"approach/weighted.md"
+            "weighting"=>"approach/weights.md"
         ],
         "Examples of Use" => Any[
             "rolling" => "use/rolling.md",

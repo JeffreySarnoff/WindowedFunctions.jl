@@ -11,7 +11,9 @@ By default, padding is applied at the begining of the result.
 - by default, the padding value is placed at the lowest indices
 To apply padding at the end of the result, set `atend=true`.
 - that way the padding value is placed at the highest indices
- 
+
+##### [using `padding`](../use/padding.md)
+
 See also: [`atend`](atend.md),
           [`rolling`](rolling.md),
           [`tiling`](tiling.md),

@@ -13,7 +13,7 @@
 - [__running__](approach/running.md)
 
 ##### optionally specifying
-- [__weights__](approach/weighted.md)
+- [__weights__](approach/weights.md)
 - [__padding__](approach/padding.md)
 - [__pad placement__](approach/atend.md)
 

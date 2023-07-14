@@ -27,6 +27,8 @@ a small multiple of`eps(eltype(weights))`.
 
 ----
 
+##### [using `weights`](../use/weights.md)
+
 See also: [`safeweights`](safeweights.md),
           [`datastreams`](datastreams.md)
 
