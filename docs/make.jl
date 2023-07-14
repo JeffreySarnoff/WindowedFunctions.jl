@@ -4,7 +4,7 @@ pushfirst!(LOAD_PATH, joinpath(@__DIR__, "..")) # add to environment stack
 
 makedocs(
     # modules = [RollingFunctions],
-    sitename = "RollingFunctions.jl",
+    sitename = "WindowedFunctions.jl",
     authors = "Jeffrey Sarnoff <jeffrey.sarnoff@gmail.com>",
     format=Documenter.HTML(
         canonical = "https://jeffreysarnoff.github.io/WindowedFunctions.jl/stable/",

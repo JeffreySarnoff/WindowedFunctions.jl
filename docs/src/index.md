@@ -28,46 +28,73 @@
 
 ## Capabilities
 
-### ≺ apply ≻ is one of { rolling, tiling, running }
+----
 
-#### keywords (optional)
- - __padding__ = nopadding (omit padding) [_or use this value_]
- - __atend__ = false (_pad the start_) [_true, pad the end_]
+#### __padding__
+###### - extends the length of an obtained result
+###### - may be placed at the start or at the end of the result
+###### - is controlled with keyword args
+
+| _keyword_  | _default_    | _action_     |
+|:-----------|:-------------|:-------------|
+| `padding`  | `nopadding`  | do not pad   |
+| `atend`    | false        | pad at start |
+
+   - where `padding = nopadding`, `atend` is ignored.
+-----
+
+#### __data sources__
+
+##### sequence
+- _unweighted_
+   - ≺ rolling | tiling | running ≻(fn, width, seq)
+- _weighted_
+   - ≺ rolling | tiling | running ≻(fn, width, seq, weights)
+
+##### multisequence
+- _unweighted_
+   - ≺ rolling | tiling | running ≻(fn, width, seq1, seq2)
+   - ≺ rolling | tiling | running ≻(fn, width, seq1, seq2, seq3)
+- _weighted_
+   - ≺ rolling | tiling | running ≻(fn, width, seq1, seq2, _weighting_)
+   - ≺ rolling | tiling | running ≻(fn, width, seq1, seq2, seq3, _weighting_)
 
 
-### data sequences
-- _as provided_
-    - ≺ apply ≻(win_fn, win_width, seq)
-- _with weights_
-   - ≺ apply ≻(win_fn, win_width, seq, weights)
+| multisequence     |   |      signature                                            |
+|:------------------|---|:----------------------------------------------------------|
+|                   |   | ≺ rolling \| tiling \| running ≻(fn, width, _`rest`_...)  |
+|                   |   | _`rest`_ are the remaining args, they follow `width`      |
+|                   |   |                                                           |
+| _unweighted_      |   |                                                           |
+|                   |   |(seq1, seq2)                                               |
+|                   |   |(seq1, seq2, seq3)                                         |
+|                   |   |                                                           |
+| _shared weights_  |   |                                                           |
+|                   |   |(seq1, seq2, weights)                                      |
+|                   |   |(seq1, seq2, seq3, weights)                                |
+|                   |   |                                                           |
+| _unique weights_  |   |                                                           |
+|                   |   |(seq1, seq2, [weights1, weights2])                         |
+|                   |   |(seq1, seq2, seq3, [weights1, weights2, weights3])         |
+|                   |   |                                                           |
 
-### data matrix
-- _as provided_
-    - ≺ apply ≻(win_fn, win_width, data_matrix)
-- _with shared weights_
-   - ≺ apply ≻(win_fn, win_width, data_matrix, weights)
-- _with unique weights_
-   - ≺ apply ≻(win_fn, win_width, data_matrix, weight_matrix)
 
-   _(each data matrix column is independent -- use unary functions)_
 
-|                   |   |      signature                       |
-|:------------------|---|:-------------------------------------|
-| multisequence     |   | ≺ apply ≻(fn, width, _`rest`_...)    |
-|                   |   |                                      |
-| _unweighted_      |   | _rest_                               |
-|                   |   |(seq1, seq2)                          |
-|                   |   |(seq1, ..,  seqN)                  |
-|                   |   |                                      |
-| _shared weights_  |   | _rest_                               |
-|                   |   |(seq1, seq2, weights)                 |
-|                   |   |(seq1, .., seqN, weights)          |
-|                   |   |                                      |
-| _unique weights_  |   | _rest_                               |
-|                   |   |(seq1, seq2, [weights1, weights2])    |
-|                   |   |(seq1, .., seqN, [weights1, .., weightsN]) |
-|                   |   |                                       |
 
-  _(the maximum number of sequences, Nseq = 3)_
+##### matrix
+
+- columns are data sequences
+   - _each column is processed independently_
+   - _the windowed fn is applied columnwise_
+
+###### _unweighted_
+- ≺ rolling | tiling | running ≻(fn, width, datamatrix)
+
+###### _weighted (shared weights)_
+- ≺ rolling | tiling | running ≻(fn, width, datamatrix, weights)
+
+###### _weighted (column weights)_
+ - ≺ rolling | tiling | running ≻(fn, width, datamatrix, weightmatrix)
+
 
 ----
