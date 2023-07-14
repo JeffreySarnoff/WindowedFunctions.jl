@@ -47,6 +47,7 @@ include("support/types.jl")
 include("support/exceptions.jl")
 include("support/utils.jl")
 include("support/vecmat_weights.jl")
+include("support/wholesparts.jl")
 
 include("roll/rolling.jl")
 include("roll/roll_vectors.jl")
