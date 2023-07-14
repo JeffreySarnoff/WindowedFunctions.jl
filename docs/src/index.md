@@ -5,7 +5,9 @@
 | WindowedFunctions.jl © 2015-2023 by Jeffrey Sarnoff   |
 |                                                       |
 
+## Working
 
+----
 
 ##### in three different ways
 - [__rolling__](approach/rolling.md)
@@ -20,9 +22,6 @@
 ##### with these data sequences
 - [__datastreams__](approach/datastreams.md)
 
-
-
-----
 
 ----
 

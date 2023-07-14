@@ -14,7 +14,7 @@ makedocs(
     ),
     pages = Any[
         "Home" => "index.md",
-        "Capabilities" => Any[
+        "Approaches" => Any[
             "Designs" => Any[
                 "rolling" => "approach/rolling.md",
                 "tiling"  => "approach/tiling.md",
