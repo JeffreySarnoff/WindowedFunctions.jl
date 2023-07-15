@@ -5,7 +5,10 @@
 | WindowedFunctions.jl © 2015-2023 by Jeffrey Sarnoff   |
 |                                                       |
 
-## Working
+### Worked Examples
+
+Each method is shown, examples clarify proper use.
+Concepts are illustrated and developed with shared data.
 
 ----
 

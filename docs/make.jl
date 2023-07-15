@@ -14,6 +14,11 @@ makedocs(
     ),
     pages = Any[
         "Home" => "index.md",
+        "Capabilites" => Any[
+           "Shared Example" => "approach/sharedexample.md",
+           "padding" => "approach/padding.md",
+           "weights" => "approach/weights.md"
+        ],
         "Approaches" => Any[
             "Designs" => Any[
                 "rolling" => "approach/rolling.md",

@@ -39,7 +39,9 @@ keywords
 
 ##### [using `tiling`](../use/tiling.md)
 
-See also: [`padding`](padding.md), 
+See also: [`rolling`](rolling.md),
+          [`running`](running.md)
+          [`padding`](padding.md), 
           [`atend`](atend.md),
           [`weighs`](weights.md),
           [`datastreams`](datastreams.md)

@@ -41,7 +41,9 @@ keywords
 
 ##### [using `rolling`](../use/rolling.md)
 
-See also: [`padding`](padding.md), 
+See also: [`tiling`](running.md),
+          [`running`](running.md),
+          [`padding`](padding.md), 
           [`atend`](atend.md),
           [`weights`](weights.md),
           [`datastreams`](datastreams.md)

@@ -20,7 +20,7 @@ While the window is fully contained within the data,
 each step (one roll) increments the indices of the current window:
 `(start:finish)  ↦  (start+1:finish+1)`.
 When advancing the window would carry the end of the window
-beyond the end of the data, `running` uses __tapering__.
+beyond the end of the data, `running` uses [__tapering__](tapering.md).
 
 To fill in the results where the window would be incomplete
 (where there is less data remaining than the window width),
@@ -40,7 +40,9 @@ keywords
 
 ##### [using `running`](../use/running.md)
 
-See also: [`padding`](padding.md), 
+See also: [`tapering`](tapering.md),
+          [`rolling`](rolling.md),
+          [`padding`](padding.md), 
           [`atend`](atend.md),
           [`weights`](weights.md),
           [`datastreams`](datastreams.md)
