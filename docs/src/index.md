@@ -1,4 +1,5 @@
-### Apply functions over windows that advance through data.
+#### __apply functions to ordered data using moving windows__
+
 
 |                                                       |
 |:-----------------------------------------------------:|
