@@ -2,7 +2,7 @@
 
 |                                                       |
 |:-----------------------------------------------------:|
-| WindowedFunctions.jl © 2015-2023 by Jeffrey Sarnoff   |
+| WindowedFunctions.jl © 2017-2023 by Jeffrey Sarnoff   |
 |                                                       |
 
 ### Worked Examples
