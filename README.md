@@ -7,7 +7,7 @@
 [![Dev Documentation](https://img.shields.io/badge/docs-dev-blue.svg)](https://JeffreySarnoff.github.io/WindowedFunctions.jl/dev)&nbsp;&nbsp;&nbsp;
 [![Aqua QA](https://raw.githubusercontent.com/JuliaTesting/Aqua.jl/master/badge.svg)](https://github.com/JuliaTesting/Aqua.jl)&nbsp;&nbsp;&nbsp;
 [![License: MIT](https://img.shields.io/badge/License-MIT-navy.svg)](https://opensource.org/licenses/MIT)&nbsp;&nbsp;&nbsp;
-[![Package Downloads](https://shields.io/endpoint?url=https://pkgs.genieframework.com/api/v1/badge/WindowedFunctions)](https://github.com/JeffreySarnoff/RollingFunctions.jl)&nbsp;
+[![Package Downloads](https://shields.io/endpoint?url=https://pkgs.genieframework.com/api/v1/badge/RollingFunctions)](https://github.com/JeffreySarnoff/RollingFunctions.jl)&nbsp;
 
 |&nbsp;&nbsp;&nbsp;  [<a>&nbsp;Copyright © 2017-2023 by Jeffrey Sarnoff \<on github: JeffreySarnoff\></a>](https://github.com/JeffreySarnoff/WindowedFunctions.jl) &nbsp;&nbsp;&nbsp;|
 |----------:|
