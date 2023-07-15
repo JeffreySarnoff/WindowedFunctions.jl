@@ -3,7 +3,7 @@ using Documenter
 pushfirst!(LOAD_PATH, joinpath(@__DIR__, "..")) # add to environment stack
 
 makedocs(
-    # modules = [RollingFunctions],
+    # modules = [WindowedFunctions],
     sitename = "WindowedFunctions.jl",
     authors = "Jeffrey Sarnoff <jeffrey.sarnoff@gmail.com>",
     format=Documenter.HTML(
