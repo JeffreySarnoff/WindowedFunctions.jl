@@ -20,4 +20,4 @@ something other the 1-norm, do the normalization yourself.
 
 ----
 
-See also: [`weighted`](weighted.md)
+See also: [`weights`](weights.md)

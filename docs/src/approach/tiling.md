@@ -41,6 +41,6 @@ keywords
 
 See also: [`padding`](padding.md), 
           [`atend`](atend.md),
-          [`weighted`](weighted.md),
+          [`weighs`](weights.md),
           [`datastreams`](datastreams.md)
 
