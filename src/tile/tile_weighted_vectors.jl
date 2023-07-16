@@ -65,7 +65,7 @@ function basic_tiling(fn::Function, width::Integer,
 end
 
 function basic_tiling(fn::Function, width::Integer,
-    data1::ViewMatrix{T}, weight::ViewOfWeights{W}) where {T,W}
+    data1::ViewMatrix{T}, weight::ViewWeights{W}) where {T,W}
     typ = promote_type(T, W)
     ᵛʷdata1 = T === typ ? asview(data1) : asview([typ(x) for x in data1])
     ᵛʷweight = W === typ ? asview(weight) : asview([typ(x) for x in weight])
@@ -119,7 +119,7 @@ end
 
 
 function padfirst_tiling(fn::Function, width::Integer,
-    data1::ViewMatrix{T}, weight::ViewOfWeights{W}, padding) where {T,W}
+    data1::ViewMatrix{T}, weight::ViewWeights{W}, padding) where {T,W}
     typ = promote_type(T, W)
     ᵛʷdata1 = T === typ ? asview(data1) : asview([typ(x) for x in data1])
     ᵛʷweight = W === typ ? asview(weight) : asview([typ(x) for x in weight])
@@ -200,7 +200,7 @@ end
 # basic_tiling implementations
 
 function basic_tiling(fn::Function, width::Integer,
-    ᵛʷdata1::ViewOfVector{T}, ᵛʷweight1::ViewOfWeights{T}) where {T}
+    ᵛʷdata1::ViewVector{T}, ᵛʷweight1::ViewWeights{T}) where {T}
     n = length(ᵛʷdata1)
     check_width(n, width)
     check_weights(length(ᵛʷweight1), width)
@@ -220,8 +220,8 @@ function basic_tiling(fn::Function, width::Integer,
     result
 end
 
-function basic_tiling(fn::Function, width::Integer, ᵛʷdata1::ViewOfVector{T}, ᵛʷdata2::ViewOfVector{T},
-    ᵛʷweight1::ViewOfWeights{T}, ᵛʷweight2::ViewOfWeights{T}) where {T}
+function basic_tiling(fn::Function, width::Integer, ᵛʷdata1::ViewVector{T}, ᵛʷdata2::ViewVector{T},
+    ᵛʷweight1::ViewWeights{T}, ᵛʷweight2::ViewWeights{T}) where {T}
     n = min(length(ᵛʷdata1), length(ᵛʷdata2))
     w = min(length(ᵛʷweight1), length(ᵛʷweight2))
     check_width(n, width)
@@ -242,8 +242,8 @@ function basic_tiling(fn::Function, width::Integer, ᵛʷdata1::ViewOfVector{T},
     result
 end
 
-function basic_tiling(fn::Function, width::Integer, ᵛʷdata1::ViewOfVector{T}, ᵛʷdata2::ViewOfVector{T}, ᵛʷdata3::ViewOfVector{T},
-    ᵛʷweight1::ViewOfWeights{T}, ᵛʷweight2::ViewOfWeights{T}, ᵛʷweight3::ViewOfWeights{T}) where {T}
+function basic_tiling(fn::Function, width::Integer, ᵛʷdata1::ViewVector{T}, ᵛʷdata2::ViewVector{T}, ᵛʷdata3::ViewVector{T},
+    ᵛʷweight1::ViewWeights{T}, ᵛʷweight2::ViewWeights{T}, ᵛʷweight3::ViewWeights{T}) where {T}
     n = min(length(ᵛʷdata1), length(ᵛʷdata2), length(ᵛʷdata3))
     w = min(length(ᵛʷweight1), length(ᵛʷweight2), length(ᵛʷweight3))
     check_width(n, width)
@@ -268,7 +268,7 @@ end
 # padfirst_tiling implementation
 
 function padfirst_tiling(fn::Function, width::Integer,
-    ᵛʷdata1::ViewOfVector{T}, ᵛʷweight1::ViewOfWeights{T}, padding) where {T}
+    ᵛʷdata1::ViewVector{T}, ᵛʷweight1::ViewWeights{T}, padding) where {T}
     n = length(ᵛʷdata1)
     check_width(n, width)
     check_weights(length(ᵛʷweight1), width)
@@ -294,8 +294,8 @@ function padfirst_tiling(fn::Function, width::Integer,
 end
 
 function padfirst_tiling(fn::Function, width::Integer,
-    ᵛʷdata1::ViewOfVector{T}, ᵛʷdata2::ViewOfVector{T}, 
-    ᵛʷweight1::ViewOfWeights{T}, ᵛʷweight2::ViewOfWeights{T}, padding) where {T}
+    ᵛʷdata1::ViewVector{T}, ᵛʷdata2::ViewVector{T}, 
+    ᵛʷweight1::ViewWeights{T}, ᵛʷweight2::ViewWeights{T}, padding) where {T}
     n = min(length(ᵛʷdata1), length(ᵛʷdata2))
     w = min(length(ᵛʷweight1), length(ᵛʷweight2))
     check_width(n, width)
@@ -322,8 +322,8 @@ function padfirst_tiling(fn::Function, width::Integer,
 end
 
 function padfirst_tiling(fn::Function, width::Integer,
-    ᵛʷdata1::ViewOfVector{T}, ᵛʷdata2::ViewOfVector{T}, ᵛʷdata3::ViewOfVector{T},
-    ᵛʷweight1::ViewOfWeights{T}, ᵛʷweight2::ViewOfWeights{T}, ᵛʷweight3::ViewOfWeights{T},
+    ᵛʷdata1::ViewVector{T}, ᵛʷdata2::ViewVector{T}, ᵛʷdata3::ViewVector{T},
+    ᵛʷweight1::ViewWeights{T}, ᵛʷweight2::ViewWeights{T}, ᵛʷweight3::ViewWeights{T},
     padding) where {T}
     n = min(length(ᵛʷdata1), length(ᵛʷdata2), length(ᵛʷdata3))
     w = min(length(ᵛʷweight1), length(ᵛʷweight2), length(ᵛʷweight3))
@@ -353,7 +353,7 @@ end
 # padfinal_tiling implementation
 
 function padfinal_tiling(fn::Function, width::Integer,
-    ᵛʷdata1::ViewOfVector{T}, ᵛʷweight1::ViewOfWeights{T}, padding) where {T}
+    ᵛʷdata1::ViewVector{T}, ᵛʷweight1::ViewWeights{T}, padding) where {T}
     n = length(ᵛʷdata1)
     check_width(n, width)
     check_weights(length(ᵛʷweight1), width)
@@ -379,8 +379,8 @@ function padfinal_tiling(fn::Function, width::Integer,
 end
 
 function padfinal_tiling(fn::Function, width::Integer,
-    ᵛʷdata1::ViewOfVector{T}, ᵛʷdata2::ViewOfVector{T}, 
-    ᵛʷweight1::ViewOfWeights{T}, ᵛʷweight2::ViewOfWeights{T}, padding) where {T}
+    ᵛʷdata1::ViewVector{T}, ᵛʷdata2::ViewVector{T}, 
+    ᵛʷweight1::ViewWeights{T}, ᵛʷweight2::ViewWeights{T}, padding) where {T}
     n = min(length(ᵛʷdata1), length(ᵛʷdata2))
     w = min(length(ᵛʷweight1), length(ᵛʷweight2))
     check_width(n, width)
@@ -407,8 +407,8 @@ function padfinal_tiling(fn::Function, width::Integer,
 end
 
 function padfinal_tiling(fn::Function, width::Integer,
-    ᵛʷdata1::ViewOfVector{T}, ᵛʷdata2::ViewOfVector{T}, ᵛʷdata3::ViewOfVector{T},
-    ᵛʷweight1::ViewOfWeights{T}, ᵛʷweight2::ViewOfWeights{T}, ᵛʷweight3::ViewOfWeights{T},
+    ᵛʷdata1::ViewVector{T}, ᵛʷdata2::ViewVector{T}, ᵛʷdata3::ViewVector{T},
+    ᵛʷweight1::ViewWeights{T}, ᵛʷweight2::ViewWeights{T}, ᵛʷweight3::ViewWeights{T},
     padding) where {T}
     n = min(length(ᵛʷdata1), length(ᵛʷdata2), length(ᵛʷdata3))
     w = min(length(ᵛʷweight1), length(ᵛʷweight2), length(ᵛʷweight3))

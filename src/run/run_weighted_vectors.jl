@@ -157,7 +157,7 @@ end
 
 # taperfirst implementations
 
-function taperfirstpadded(fn::F, width::Integer, ᵛʷdata1::ViewOfVector{T}, ᵛʷweight1::ViewOfWeights{T}) where {F<:Function,T}
+function taperfirstpadded(fn::F, width::Integer, ᵛʷdata1::ViewVector{T}, ᵛʷweight1::ViewWeights{T}) where {F<:Function,T}
     result = taperfirst(fn, width, ᵛʷdata1, ᵛʷweight1)
     for i = eachindex(result)
         if !isnan(result[i])
@@ -169,7 +169,7 @@ function taperfirstpadded(fn::F, width::Integer, ᵛʷdata1::ViewOfVector{T}, �
     result
 end
 
-function taperfirstpadded(fn::F, width::Integer, ᵛʷdata1::ViewOfVector{T}, ᵛʷdata2::ViewOfVector{T}, ᵛʷweight1::ViewOfWeights{T}, ᵛʷweight2::ViewOfWeights{T}, padding) where {F<:Function,T}
+function taperfirstpadded(fn::F, width::Integer, ᵛʷdata1::ViewVector{T}, ᵛʷdata2::ViewVector{T}, ᵛʷweight1::ViewWeights{T}, ᵛʷweight2::ViewWeights{T}, padding) where {F<:Function,T}
     result = taperfirst(fn, width, ᵛʷdata1, ᵛʷdata2, ᵛʷweight1, ᵛʷweight2)
     for i = eachindex(result)
         if !isnan(result[i])
@@ -181,7 +181,7 @@ function taperfirstpadded(fn::F, width::Integer, ᵛʷdata1::ViewOfVector{T}, �
     result
 end
 
-function taperfirstpadded(fn::F, width::Integer, ᵛʷdata1::ViewOfVector{T}, ᵛʷdata2::ViewOfVector{T}, ᵛʷdata3::ViewOfVector{T}, ᵛʷweight1::ViewOfWeights{T}, ᵛʷweight2::ViewOfWeights{T}, ᵛʷweight3::ViewOfWeights{T}, padding) where {F<:Function,T}
+function taperfirstpadded(fn::F, width::Integer, ᵛʷdata1::ViewVector{T}, ᵛʷdata2::ViewVector{T}, ᵛʷdata3::ViewVector{T}, ᵛʷweight1::ViewWeights{T}, ᵛʷweight2::ViewWeights{T}, ᵛʷweight3::ViewWeights{T}, padding) where {F<:Function,T}
     result = taperfirst(fn, width, ᵛʷdata1, ᵛʷdata2, ᵛʷdata3, ᵛʷweight1, ᵛʷweight2, ᵛʷweight3)
     for i = eachindex(result)
         if !isnan(result[i])
@@ -193,7 +193,7 @@ function taperfirstpadded(fn::F, width::Integer, ᵛʷdata1::ViewOfVector{T}, �
     result
 end
 
-function taperfirst(fn::F, width::Integer, ᵛʷdata1::ViewOfVector{T}, ᵛʷweight1::ViewOfWeights{T}) where {F<:Function,T}
+function taperfirst(fn::F, width::Integer, ᵛʷdata1::ViewVector{T}, ᵛʷweight1::ViewWeights{T}) where {F<:Function,T}
     n = length(ᵛʷdata1)
     check_width(n, width)
     check_weights(length(ᵛʷweight1), width)
@@ -284,7 +284,7 @@ end
 
 # taper final implementations
 
-function taperfinalpadded(fn::F, width::Integer, ᵛʷdata1::ViewOfVector{T}, ᵛʷweight1::ViewOfWeights{T}) where {F<:Function,T}
+function taperfinalpadded(fn::F, width::Integer, ᵛʷdata1::ViewVector{T}, ᵛʷweight1::ViewWeights{T}) where {F<:Function,T}
     result = taperfinal(fn, width, ᵛʷdata1, ᵛʷweight1)
     for i = length(result):-1:1
         if !isnan(result[i])
@@ -296,7 +296,7 @@ function taperfinalpadded(fn::F, width::Integer, ᵛʷdata1::ViewOfVector{T}, �
     result
 end
 
-function taperfinalpadded(fn::F, width::Integer, ᵛʷdata1::ViewOfVector{T}, ᵛʷdata2::ViewOfVector{T}, ᵛʷweight1::ViewOfWeights{T}, ᵛʷweight2::ViewOfWeights{T}, padding) where {F<:Function,T}
+function taperfinalpadded(fn::F, width::Integer, ᵛʷdata1::ViewVector{T}, ᵛʷdata2::ViewVector{T}, ᵛʷweight1::ViewWeights{T}, ᵛʷweight2::ViewWeights{T}, padding) where {F<:Function,T}
     result = taperfinal(fn, width, ᵛʷdata1, ᵛʷdata2, ᵛʷweight1, ᵛʷweight2)
     for i = length(result):-1:1
         if !isnan(result[i])
@@ -308,7 +308,7 @@ function taperfinalpadded(fn::F, width::Integer, ᵛʷdata1::ViewOfVector{T}, �
     result
 end
 
-function taperfinalpadded(fn::F, width::Integer, ᵛʷdata1::ViewOfVector{T}, ᵛʷdata2::ViewOfVector{T}, ᵛʷdata3::ViewOfVector{T}, ᵛʷweight1::ViewOfWeights{T}, ᵛʷweight2::ViewOfWeights{T}, ᵛʷweight3::ViewOfWeights{T}, padding) where {F<:Function,T}
+function taperfinalpadded(fn::F, width::Integer, ᵛʷdata1::ViewVector{T}, ᵛʷdata2::ViewVector{T}, ᵛʷdata3::ViewVector{T}, ᵛʷweight1::ViewWeights{T}, ᵛʷweight2::ViewWeights{T}, ᵛʷweight3::ViewWeights{T}, padding) where {F<:Function,T}
     result = taperfinal(fn, width, ᵛʷdata1, ᵛʷdata2, ᵛʷdata3, ᵛʷweight1, ᵛʷweight2, ᵛʷweight3)
     for i = length(result):-1:1
         if !isnan(result[i])
@@ -320,8 +320,8 @@ function taperfinalpadded(fn::F, width::Integer, ᵛʷdata1::ViewOfVector{T}, �
     result
 end
 
-function taperfinal(fn::F, width::Integer, ᵛʷdata1::ViewOfVector{T},
-                    ᵛʷweight::ViewOfWeights{T}) where {F<:Function,T}
+function taperfinal(fn::F, width::Integer, ᵛʷdata1::ViewVector{T},
+                    ᵛʷweight::ViewWeights{T}) where {F<:Function,T}
     n = length(ᵛʷdata1)
     check_width(n, width)
 
@@ -348,8 +348,8 @@ function taperfinal(fn::F, width::Integer, ᵛʷdata1::ViewOfVector{T},
     result
 end
 
-function taperfinal(fn::F, width::Integer, ᵛʷdata1::ViewOfVector{T}, ᵛʷdata2::ViewOfVector{T},
-    ᵛʷweight1::ViewOfWeights{T}, ᵛʷweight2::ViewOfWeights{T}) where {F<:Function,T}
+function taperfinal(fn::F, width::Integer, ᵛʷdata1::ViewVector{T}, ᵛʷdata2::ViewVector{T},
+    ᵛʷweight1::ViewWeights{T}, ᵛʷweight2::ViewWeights{T}) where {F<:Function,T}
     n = min(length(ᵛʷdata1), length(ᵛʷdata2))
     check_width(n, width)
     check_weights(length(ᵛʷweight1), width)
@@ -375,8 +375,8 @@ function taperfinal(fn::F, width::Integer, ᵛʷdata1::ViewOfVector{T}, ᵛʷdat
     result
 end
 
-function taperfinal(fn::F, width::Integer, ᵛʷdata1::ViewOfVector{T}, ᵛʷdata2::ViewOfVector{T}, ᵛʷdata3::ViewOfVector{T},
-    ᵛʷweight1::ViewOfWeights{T}, ᵛʷweight2::ViewOfWeights{T}, ᵛʷweight3::ViewOfWeights{T}) where {F<:Function,T}
+function taperfinal(fn::F, width::Integer, ᵛʷdata1::ViewVector{T}, ᵛʷdata2::ViewVector{T}, ᵛʷdata3::ViewVector{T},
+    ᵛʷweight1::ViewWeights{T}, ᵛʷweight2::ViewWeights{T}, ᵛʷweight3::ViewWeights{T}) where {F<:Function,T}
     n = min(length(ᵛʷdata1), length(ᵛʷdata2), length(ᵛʷdata3))
     check_width(n, width)
     check_weights(length(ᵛʷweight1), width)

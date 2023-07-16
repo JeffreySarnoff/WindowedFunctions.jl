@@ -75,7 +75,7 @@ end
 # basic_tiling implementation
 
 function basic_tiling(fn::Function, width::Integer,
-    ᵛʷdata1::ViewOfVector{T}) where {T}
+    ᵛʷdata1::ViewVector{T}) where {T}
     n = length(ᵛʷdata1)
     check_width(n, width)
 
@@ -95,7 +95,7 @@ function basic_tiling(fn::Function, width::Integer,
 end
 
 function basic_tiling(fn::Function, width::Integer,
-    ᵛʷdata1::ViewOfVector{T}, ᵛʷdata2::ViewOfVector{T}) where {T}
+    ᵛʷdata1::ViewVector{T}, ᵛʷdata2::ViewVector{T}) where {T}
     n = min(length(ᵛʷdata1), length(ᵛʷdata2))
     check_width(n, width)
 
@@ -115,7 +115,7 @@ function basic_tiling(fn::Function, width::Integer,
 end
 
 function basic_tiling(fn::Function, width::Integer,
-    ᵛʷdata1::ViewOfVector{T}, ᵛʷdata2::ViewOfVector{T}, ᵛʷdata3::ViewOfVector{T}) where {T}
+    ᵛʷdata1::ViewVector{T}, ᵛʷdata2::ViewVector{T}, ᵛʷdata3::ViewVector{T}) where {T}
     n = min(length(ᵛʷdata1), length(ᵛʷdata2), length(ᵛʷdata3))
     check_width(n, width)
 
@@ -136,7 +136,7 @@ end
 
 # padfirst_tiling implementation
 
-function padfirst_tiling(fn::Function, width::Integer, ᵛʷdata1::ViewOfVector{T}, padding) where {T}
+function padfirst_tiling(fn::Function, width::Integer, ᵛʷdata1::ViewVector{T}, padding) where {T}
     n = length(ᵛʷdata1)
     check_width(n, width)
 
@@ -159,7 +159,7 @@ function padfirst_tiling(fn::Function, width::Integer, ᵛʷdata1::ViewOfVector{
     result
 end
 
-function padfirst_tiling(fn::Function, width::Integer, ᵛʷdata1::ViewOfVector{T}, ᵛʷdata2::ViewOfVector{T}, padding) where {T}
+function padfirst_tiling(fn::Function, width::Integer, ᵛʷdata1::ViewVector{T}, ᵛʷdata2::ViewVector{T}, padding) where {T}
     n = min(length(ᵛʷdata1), length(ᵛʷdata2))
     check_width(n, width)
 
@@ -182,7 +182,7 @@ function padfirst_tiling(fn::Function, width::Integer, ᵛʷdata1::ViewOfVector{
     result
 end
 
-function padfirst_tiling(fn::Function, width::Integer, ᵛʷdata1::ViewOfVector{T}, ᵛʷdata2::ViewOfVector{T}, ᵛʷdata3::ViewOfVector{T}, padding) where {T}
+function padfirst_tiling(fn::Function, width::Integer, ᵛʷdata1::ViewVector{T}, ᵛʷdata2::ViewVector{T}, ᵛʷdata3::ViewVector{T}, padding) where {T}
     n = min(length(ᵛʷdata1), length(ᵛʷdata2), length(ᵛʷdata3))
     check_width(n, width)
 
@@ -207,7 +207,7 @@ end
 
 # padfinal_tiling implementation
 
-function padfinal_tiling(fn::Function, width::Integer, ᵛʷdata1::ViewOfVector{T}, padding) where {T}
+function padfinal_tiling(fn::Function, width::Integer, ᵛʷdata1::ViewVector{T}, padding) where {T}
     n = length(ᵛʷdata1)
     check_width(n, width)
 
@@ -230,7 +230,7 @@ function padfinal_tiling(fn::Function, width::Integer, ᵛʷdata1::ViewOfVector{
     result
 end
 
-function padfinal_tiling(fn::Function, width::Integer, ᵛʷdata1::ViewOfVector{T}, ᵛʷdata2::ViewOfVector{T}, padding) where {T}
+function padfinal_tiling(fn::Function, width::Integer, ᵛʷdata1::ViewVector{T}, ᵛʷdata2::ViewVector{T}, padding) where {T}
     n = min(length(ᵛʷdata1), length(ᵛʷdata2))
     check_width(n, width)
 
@@ -253,7 +253,7 @@ function padfinal_tiling(fn::Function, width::Integer, ᵛʷdata1::ViewOfVector{
     result
 end
 
-function padfinal_tiling(fn::Function, width::Integer, ᵛʷdata1::ViewOfVector{T}, ᵛʷdata2::ViewOfVector{T}, ᵛʷdata3::ViewOfVector{T}, padding) where {T}
+function padfinal_tiling(fn::Function, width::Integer, ᵛʷdata1::ViewVector{T}, ᵛʷdata2::ViewVector{T}, ᵛʷdata3::ViewVector{T}, padding) where {T}
     n = min(length(ᵛʷdata1), length(ᵛʷdata2), length(ᵛʷdata3))
     check_width(n, width)
 

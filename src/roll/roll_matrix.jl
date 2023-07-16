@@ -95,7 +95,7 @@ function basic_rolling(fn::F, width::Integer,
 end
 
 function basic_rolling(fn::F, width::Integer,
-                       data::AbstractMatrix{T}, weighting::VectorVectors{T}) where {T, F<:Function}
+                       data::AbstractMatrix{T}, weighting::VectorOfVectors{T}) where {T, F<:Function}
     mweights = vmatrix(weighting)
 
     basic_rolling(fn, width, data, mweights)
@@ -160,7 +160,7 @@ function padfirst_rolling(fn::F, width::Integer,
 end
 
 function padfirst_rolling(fn::F, width::Integer,
-    data::AbstractMatrix{T}, weighting::VectorVectors{T}) where {T,F<:Function}
+    data::AbstractMatrix{T}, weighting::VectorOfVectors{T}) where {T,F<:Function}
     mweights = vmatrix(weighting)
 
     padfirst_rolling(fn, width, data, mweights)
@@ -208,7 +208,7 @@ end
 end
 
 function padfirst_rolling(fn::F, width::Integer,
-    ᵛʷdata::ViewMatrix{T}, ᵛʷweight::ViewOfWeights{T}) where {T,F<:Function}
+    ᵛʷdata::ViewMatrix{T}, ᵛʷweight::ViewWeights{T}) where {T,F<:Function}
     n = nrows(ᵛʷdata)
     nvalues = rolling_wholes(n, width)
     rettype = Union{typeof(padding),rts(fn, (T,))}
@@ -246,7 +246,7 @@ function padfinal_rolling(fn::F, width::Integer,
 end
 
 function padfinal_rolling(fn::F, width::Integer,
-    data::AbstractMatrix{T}, weighting::VectorVectors{T}) where {T,F<:Function}
+    data::AbstractMatrix{T}, weighting::VectorOfVectors{T}) where {T,F<:Function}
     mweights = vmatrix(weighting)
 
     padfinal_rolling(fn, width, data, mweights)

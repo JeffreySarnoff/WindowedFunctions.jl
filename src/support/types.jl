@@ -6,29 +6,28 @@ haspadding(x) = x !== nopadding
 
 # absent specified element type
 
-const VectorOfVectors = AbstractVector{<:AbstractVector} 
-const VectorOfWeights = AbstractVector{<:AbstractWeights}  # VectorOfWeights <: VectorOfVectors
+const VectorWeights = AbstractVector{<:AbstractWeights}  # VectorWeights <: VectorVectors
+const VectorVectors = AbstractVector{<:AbstractVector}
 
-const ViewOfVector = SubArray{T,1,A,Tuple{Base.Slice{Base.OneTo{Int64}}},true} where {T,A<:AbstractVector}
-const ViewOfWeights = SubArray{T,1,A,Tuple{Base.Slice{Base.OneTo{Int64}}},true} where {T,A<:AbstractWeights}
+const ViewWeights = SubArray{T,1,A,Tuple{Base.Slice{Base.OneTo{Int64}}},true} where {T,A<:AbstractWeights}
+const ViewVector = SubArray{T,1,A,Tuple{Base.Slice{Base.OneTo{Int64}}},true} where {T,A<:AbstractVector}
 
-const ViewOfVectorOfVectors = SubArray{T,1,A,Tuple{Base.Slice{Base.OneTo{Int64}}},true} where {T,A<:AbstractVector{<:AbstractVector}}
-const ViewOfVectorOfWeights = SubArray{T,1,A,Tuple{Base.Slice{Base.OneTo{Int64}}},true} where {T,A<:AbstractVector{<:AbstractWeights}}
+const ViewVectorWeights = SubArray{T,1,A,Tuple{Base.Slice{Base.OneTo{Int64}}},true} where {T,A<:AbstractVector{<:AbstractWeights}}
+const ViewVectorVectors = SubArray{T,1,A,Tuple{Base.Slice{Base.OneTo{Int64}}},true} where {T,A<:AbstractVector{<:AbstractVector}}
 
-const ViewOfMatrix = SubArray{T,2,M,Tuple{Base.Slice{Base.OneTo{Int64}},Base.Slice{Base.OneTo{Int64}}},true} where {T,M<:AbstractMatrix}
+const ViewMatrix = SubArray{T,2,M,Tuple{Base.Slice{Base.OneTo{Int64}},Base.Slice{Base.OneTo{Int64}}},true} where {T,M<:AbstractMatrix}
 
 # with element type included
 
-const VectorVectors{T} = AbstractVector{<:AbstractVector{T}} where {T}
-const VectorWeights{T} = AbstractVector{<:AbstractWeights{T}} where {T}
+const ViewOfWeights{T} = SubArray{T,1,A,Tuple{Base.Slice{Base.OneTo{Int64}}},true} where {T,A<:AbstractWeights{T}}
+const ViewOfVector{T} = SubArray{T,1,A,Tuple{Base.Slice{Base.OneTo{Int64}}},true} where {T,A<:AbstractVector{T}}
+const ViewOfMatrix{T} = SubArray{T,2,M,Tuple{Base.Slice{Base.OneTo{Int64}},Base.Slice{Base.OneTo{Int64}}},true} where {T,M<:AbstractMatrix{T}}
 
-const ViewVector{T} = SubArray{T,1,A,Tuple{Base.Slice{Base.OneTo{Int64}}},true} where {T,A<:AbstractVector{T}}
-const ViewWeights{T} = SubArray{T,1,A,Tuple{Base.Slice{Base.OneTo{Int64}}},true} where {T,A<:AbstractWeights{T}}
+const VectorOfWeights{T} = AbstractVector{<:AbstractWeights{T}} where {T}
+const VectorOfVectors{T} = AbstractVector{<:AbstractVector{T}} where {T}
 
-const ViewVectorWeights{T} = SubArray{T,1,A,Tuple{Base.Slice{Base.OneTo{Int64}}},true} where {T,A<:AbstractVector{<:AbstractWeights{T}}}
-const ViewVectorVectors{T} = SubArray{T,1,A,Tuple{Base.Slice{Base.OneTo{Int64}}},true} where {T,A<:AbstractVector{<:AbstractVector{T}}}
-
-const ViewMatrix{T} = SubArray{T,2,M,Tuple{Base.Slice{Base.OneTo{Int64}},Base.Slice{Base.OneTo{Int64}}},true} where {T,M<:AbstractMatrix{T}}
+const ViewOfVectorOfWeights{T} = SubArray{T,1,A,Tuple{Base.Slice{Base.OneTo{Int64}}},true} where {T,A<:AbstractVector{<:AbstractWeights{T}}}
+const ViewOfVectorOfVectors{T} = SubArray{T,1,A,Tuple{Base.Slice{Base.OneTo{Int64}}},true} where {T,A<:AbstractVector{<:AbstractVector{T}}}
 
 #=
 const VectorOfNTuples = AbstractVector{<:NTuple}
@@ -64,12 +63,12 @@ end
 #=
       AbstractVector
                     >: AbstractWeights
-                                        >: VectorOfWeights 
-                                                            >: VectorOfVectors
+                                        >: VectorWeights 
+                                                            >: VectorVectors
 
       AbstractVector
-                    >: ViewOfVector
-                                      >: ViewOfVectors
+                    >: ViewVector
+                                      >: ViewVectors
                    >: ViewOfWieghts
 
 

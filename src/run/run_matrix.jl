@@ -132,7 +132,7 @@ end
 end =#
 
 function taperfirst(fn::F, width::Integer, 
-    data1::AbstractMatrix{T}, weighting::VectorVectors{T};
+    data1::AbstractMatrix{T}, weighting::VectorOfVectors{T};
     padding=nopadding) where {T,F<:Function}
     ᵛʷdata1 = asview(data1)
     colcount = ncols(data1)

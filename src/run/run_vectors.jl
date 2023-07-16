@@ -72,7 +72,7 @@ end
 
 # taperfirst implementation
 
-function taperfirstpadded(fn::F, width::Integer, ᵛʷdata1::ViewOfVector{T}, padding) where {F<:Function,T}
+function taperfirstpadded(fn::F, width::Integer, ᵛʷdata1::ViewVector{T}, padding) where {F<:Function,T}
     result = taperfirst(fn, width, ᵛʷdata1)
     for i = eachindex(result)
         if !isnan(result[i])
@@ -84,7 +84,7 @@ function taperfirstpadded(fn::F, width::Integer, ᵛʷdata1::ViewOfVector{T}, pa
     result
 end
 
-function taperfirstpadded(fn::F, width::Integer, ᵛʷdata1::ViewOfVector{T}, ᵛʷdata2::ViewOfVector{T}, padding) where {F<:Function,T}
+function taperfirstpadded(fn::F, width::Integer, ᵛʷdata1::ViewVector{T}, ᵛʷdata2::ViewVector{T}, padding) where {F<:Function,T}
     result = taperfirst(fn, width, ᵛʷdata1, ᵛʷdata2)
     for i = eachindex(result)
         if !isnan(result[i])
@@ -96,7 +96,7 @@ function taperfirstpadded(fn::F, width::Integer, ᵛʷdata1::ViewOfVector{T}, �
     result
 end
 
-function taperfirstpadded(fn::F, width::Integer, ᵛʷdata1::ViewOfVector{T}, ᵛʷdata2::ViewOfVector{T}, ᵛʷdata3::ViewOfVector{T}, padding) where {F<:Function,T}
+function taperfirstpadded(fn::F, width::Integer, ᵛʷdata1::ViewVector{T}, ᵛʷdata2::ViewVector{T}, ᵛʷdata3::ViewVector{T}, padding) where {F<:Function,T}
     result = taperfirst(fn, width, ᵛʷdata1, ᵛʷdata2, ᵛʷdata3)
     for i = eachindex(result)
         if !isnan(result[i])
@@ -108,7 +108,7 @@ function taperfirstpadded(fn::F, width::Integer, ᵛʷdata1::ViewOfVector{T}, �
     result
 end
 
-function taperfirst(fn::F, width::Integer, ᵛʷdata1::ViewOfVector{T}) where {F<:Function,T}
+function taperfirst(fn::F, width::Integer, ᵛʷdata1::ViewVector{T}) where {F<:Function,T}
     n = length(ᵛʷdata1)
     check_width(n, width)
 
@@ -135,7 +135,7 @@ function taperfirst(fn::F, width::Integer, ᵛʷdata1::ViewOfVector{T}) where {F
     result
 end
 
-function taperfirst(fn::F, width::Integer, ᵛʷdata1::ViewOfVector{T}, ᵛʷdata2::ViewOfVector{T}) where {F<:Function,T}
+function taperfirst(fn::F, width::Integer, ᵛʷdata1::ViewVector{T}, ᵛʷdata2::ViewVector{T}) where {F<:Function,T}
     n = min(length(ᵛʷdata1), length(ᵛʷdata2))
     check_width(n, width)
 
@@ -162,7 +162,7 @@ function taperfirst(fn::F, width::Integer, ᵛʷdata1::ViewOfVector{T}, ᵛʷdat
     result
 end
 
-function taperfirst(fn::F, width::Integer, ᵛʷdata1::ViewOfVector{T}, ᵛʷdata2::ViewOfVector{T}, ᵛʷdata3::ViewOfVector{T}) where {F<:Function,T}
+function taperfirst(fn::F, width::Integer, ᵛʷdata1::ViewVector{T}, ᵛʷdata2::ViewVector{T}, ᵛʷdata3::ViewVector{T}) where {F<:Function,T}
     n = min(length(ᵛʷdata1), length(ᵛʷdata2), length(ᵛʷdata3))
     check_width(n, width)
 
@@ -191,7 +191,7 @@ end
 
 # taperfinal implementation
 
-function taperfinalpadded(fn::F, width::Integer, ᵛʷdata1::ViewOfVector{T}, padding) where {F<:Function,T}
+function taperfinalpadded(fn::F, width::Integer, ᵛʷdata1::ViewVector{T}, padding) where {F<:Function,T}
     result = taperfinal(fn, width, ᵛʷdata1)
     for i = length(result):-1:1
         if !isnan(result[i])
@@ -203,7 +203,7 @@ function taperfinalpadded(fn::F, width::Integer, ᵛʷdata1::ViewOfVector{T}, pa
     result
 end
 
-function taperfinalpadded(fn::F, width::Integer, ᵛʷdata1::ViewOfVector{T}, ᵛʷdata2::ViewOfVector{T}, padding) where {F<:Function,T}
+function taperfinalpadded(fn::F, width::Integer, ᵛʷdata1::ViewVector{T}, ᵛʷdata2::ViewVector{T}, padding) where {F<:Function,T}
     result = taperfinal(fn, width, ᵛʷdata1, ᵛʷdata2)
     for i = length(result):-1:1
         if !isnan(result[i])
@@ -215,7 +215,7 @@ function taperfinalpadded(fn::F, width::Integer, ᵛʷdata1::ViewOfVector{T}, �
     result
 end
 
-function taperfinalpadded(fn::F, width::Integer, ᵛʷdata1::ViewOfVector{T}, ᵛʷdata2::ViewOfVector{T}, ᵛʷdata3::ViewOfVector{T}, padding) where {F<:Function,T}
+function taperfinalpadded(fn::F, width::Integer, ᵛʷdata1::ViewVector{T}, ᵛʷdata2::ViewVector{T}, ᵛʷdata3::ViewVector{T}, padding) where {F<:Function,T}
     result = taperfinalt(fn, width, ᵛʷdata1, ᵛʷdata2, ᵛʷdata3)
     for i = length(result):-1:1
         if !isnan(result[i])
@@ -227,7 +227,7 @@ function taperfinalpadded(fn::F, width::Integer, ᵛʷdata1::ViewOfVector{T}, �
     result
 end
 
-function taperfinal(fn::F, width::Integer, ᵛʷdata1::ViewOfVector{T}) where {F<:Function,T}
+function taperfinal(fn::F, width::Integer, ᵛʷdata1::ViewVector{T}) where {F<:Function,T}
     n = length(ᵛʷdata1)
     check_width(n, width)
 
@@ -254,7 +254,7 @@ function taperfinal(fn::F, width::Integer, ᵛʷdata1::ViewOfVector{T}) where {F
     result
 end
 
-function taperfinal(fn::F, width::Integer, ᵛʷdata1::ViewOfVector{T}, ᵛʷdata2::ViewOfVector{T}) where {F<:Function,T}
+function taperfinal(fn::F, width::Integer, ᵛʷdata1::ViewVector{T}, ᵛʷdata2::ViewVector{T}) where {F<:Function,T}
     n = min(length(ᵛʷdata1), length(ᵛʷdata2))
     check_width(n, width)
 
@@ -281,7 +281,7 @@ function taperfinal(fn::F, width::Integer, ᵛʷdata1::ViewOfVector{T}, ᵛʷdat
     result
 end
 
-function taperfinal(fn::F, width::Integer, ᵛʷdata1::ViewOfVector{T}, ᵛʷdata2::ViewOfVector{T}, ᵛʷdata3::ViewOfVector{T}) where {F<:Function,T}
+function taperfinal(fn::F, width::Integer, ᵛʷdata1::ViewVector{T}, ᵛʷdata2::ViewVector{T}, ᵛʷdata3::ViewVector{T}) where {F<:Function,T}
     n = min(length(ᵛʷdata1), length(ᵛʷdata2), length(ᵛʷdata3))
     check_width(n, width)
 

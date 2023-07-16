@@ -146,7 +146,7 @@ end
 # basic_rolling implementation
 
 function basic_rolling(fn::Function, width::Integer,
-    ᵛʷdata1::ViewOfVector{T}) where {T}
+    ᵛʷdata1::ViewVector{T}) where {T}
     n = length(ᵛʷdata1)
     check_width(n, width)
 
@@ -166,7 +166,7 @@ function basic_rolling(fn::Function, width::Integer,
 end
 
 function basic_rolling(fn::Function, width::Integer,
-    ᵛʷdata1::ViewOfVector{T}, ᵛʷdata2::ViewOfVector{T}) where {T}
+    ᵛʷdata1::ViewVector{T}, ᵛʷdata2::ViewVector{T}) where {T}
     n = min(length(ᵛʷdata1), length(ᵛʷdata2))
     check_width(n, width)
 
@@ -186,7 +186,7 @@ function basic_rolling(fn::Function, width::Integer,
 end
 
 function basic_rolling(fn::Function, width::Integer,
-    ᵛʷdata1::ViewOfVector{T}, ᵛʷdata2::ViewOfVector{T}, ᵛʷdata3::ViewOfVector{T}) where {T}
+    ᵛʷdata1::ViewVector{T}, ᵛʷdata2::ViewVector{T}, ᵛʷdata3::ViewVector{T}) where {T}
     n = min(length(ᵛʷdata1), length(ᵛʷdata2), length(ᵛʷdata3))
     check_width(n, width)
 
@@ -206,8 +206,8 @@ function basic_rolling(fn::Function, width::Integer,
 end
 
 function basic_rolling(fn::Function, width::Integer,
-    ᵛʷdata1::ViewOfVector{T}, ᵛʷdata2::ViewOfVector{T}, 
-    ᵛʷdata3::ViewOfVector{T}, ᵛʷdata4::ViewOfVector{T}) where {T}
+    ᵛʷdata1::ViewVector{T}, ᵛʷdata2::ViewVector{T}, 
+    ᵛʷdata3::ViewVector{T}, ᵛʷdata4::ViewVector{T}) where {T}
     n = min(length(ᵛʷdata1), length(ᵛʷdata2), length(ᵛʷdata3), length(ᵛʷdata4))
     check_width(n, width)
 
@@ -228,7 +228,7 @@ end
 
 # padfirst_rolling implementation
 
-function padfirst_rolling(fn::Function, width::Integer, ᵛʷdata1::ViewOfVector{T}, padding) where {T}
+function padfirst_rolling(fn::Function, width::Integer, ᵛʷdata1::ViewVector{T}, padding) where {T}
     n = length(ᵛʷdata1)
     check_width(n, width)
 
@@ -253,7 +253,7 @@ end
 
 # padfirst implementation
 
-function padfirst_rolling(fn::Function, width::Integer, ᵛʷdata1::ViewOfVector{T}, ᵛʷdata2::ViewOfVector{T}, padding) where {T}
+function padfirst_rolling(fn::Function, width::Integer, ᵛʷdata1::ViewVector{T}, ᵛʷdata2::ViewVector{T}, padding) where {T}
     n = min(length(ᵛʷdata1), length(ᵛʷdata2))
     check_width(n, width)
 
@@ -276,7 +276,7 @@ function padfirst_rolling(fn::Function, width::Integer, ᵛʷdata1::ViewOfVector
     result
 end
 
-function padfirst_rolling(fn::Function, width::Integer, ᵛʷdata1::ViewOfVector{T}, ᵛʷdata2::ViewOfVector{T}, ᵛʷdata3::ViewOfVector{T}, padding) where {T}
+function padfirst_rolling(fn::Function, width::Integer, ᵛʷdata1::ViewVector{T}, ᵛʷdata2::ViewVector{T}, ᵛʷdata3::ViewVector{T}, padding) where {T}
     n = min(length(ᵛʷdata1), length(ᵛʷdata2), length(ᵛʷdata3))
     check_width(n, width)
 
@@ -300,8 +300,8 @@ function padfirst_rolling(fn::Function, width::Integer, ᵛʷdata1::ViewOfVector
 end
 
 function padfirst_rolling(fn::Function, width::Integer, 
-                          ᵛʷdata1::ViewOfVector{T}, ᵛʷdata2::ViewOfVector{T}, 
-                          ᵛʷdata3::ViewOfVector{T}, ᵛʷdata4::ViewOfVector{T},
+                          ᵛʷdata1::ViewVector{T}, ᵛʷdata2::ViewVector{T}, 
+                          ᵛʷdata3::ViewVector{T}, ᵛʷdata4::ViewVector{T},
                           padding) where {T}
     n = min(length(ᵛʷdata1), length(ᵛʷdata2), length(ᵛʷdata3), length(ᵛʷdata4))
     check_width(n, width)
@@ -327,7 +327,7 @@ end
 
 # padfinal_rolling implementation
 
-function padfinal_rolling(fn::Function, width::Integer, ᵛʷdata1::ViewOfVector{T}, padding) where {T}
+function padfinal_rolling(fn::Function, width::Integer, ᵛʷdata1::ViewVector{T}, padding) where {T}
     n = length(ᵛʷdata1)
     check_width(n, width)
 
@@ -351,7 +351,7 @@ function padfinal_rolling(fn::Function, width::Integer, ᵛʷdata1::ViewOfVector
     result
 end
 
-function padfinal_rolling(fn::Function, width::Integer, ᵛʷdata1::ViewOfVector{T}, ᵛʷdata2::ViewOfVector{T}, padding) where {T}
+function padfinal_rolling(fn::Function, width::Integer, ᵛʷdata1::ViewVector{T}, ᵛʷdata2::ViewVector{T}, padding) where {T}
     n = min(length(ᵛʷdata1), length(ᵛʷdata2))
     check_width(n, width)
 
@@ -375,7 +375,7 @@ function padfinal_rolling(fn::Function, width::Integer, ᵛʷdata1::ViewOfVector
     result
 end
 
-function padfinal_rolling(fn::Function, width::Integer, ᵛʷdata1::ViewOfVector{T}, ᵛʷdata2::ViewOfVector{T}, ᵛʷdata3::ViewOfVector{T}, padding) where {T}
+function padfinal_rolling(fn::Function, width::Integer, ᵛʷdata1::ViewVector{T}, ᵛʷdata2::ViewVector{T}, ᵛʷdata3::ViewVector{T}, padding) where {T}
     n = min(length(ᵛʷdata1), length(ᵛʷdata2), length(ᵛʷdata3))
     check_width(n, width)
 
@@ -400,8 +400,8 @@ function padfinal_rolling(fn::Function, width::Integer, ᵛʷdata1::ViewOfVector
 end
 
 function padfinal_rolling(fn::Function, width::Integer, 
-                          ᵛʷdata1::ViewOfVector{T}, ᵛʷdata2::ViewOfVector{T},
-                          ᵛʷdata3::ViewOfVector{T}, ᵛʷdata4::ViewOfVector{T},
+                          ᵛʷdata1::ViewVector{T}, ᵛʷdata2::ViewVector{T},
+                          ᵛʷdata3::ViewVector{T}, ᵛʷdata4::ViewVector{T},
                           padding) where {T}
     n = min(length(ᵛʷdata1), length(ᵛʷdata2), length(ᵛʷdata3), length(ᵛʷdata4))
     check_width(n, width)

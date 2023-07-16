@@ -94,7 +94,7 @@ function basic_tiling(fn::F, width::Integer,
 end
 
 function basic_tiling(fn::F, width::Integer,
-    data::AbstractMatrix{T}, weighting::VectorVectors{T}) where {T,F<:Function}
+    data::AbstractMatrix{T}, weighting::VectorOfVectors{T}) where {T,F<:Function}
     mweights = vmatrix(weighting)
     basic_tiling(fn, width, data, mweights)
 end
@@ -170,7 +170,7 @@ function padfirst_tiling(fn::F, width::Integer,
 end
 
 function padfirst_tiling(fn::F, width::Integer,
-    data::AbstractMatrix{T},weighting::VectorVectors{T}, padding) where {T,F<:Function}
+    data::AbstractMatrix{T},weighting::VectorOfVectors{T}, padding) where {T,F<:Function}
     mweights = vmatrix(weighting)
 
     padfirst_tiling(fn, width, data, mweights, paddomg)
@@ -256,7 +256,7 @@ function padfinal_tiling(fn::F, width::Integer,
 end
 
 function padfinal_tiling(fn::F, width::Integer,
-    data::AbstractMatrix{T},weighting::VectorVectors{T}, padding) where {T,F<:Function}
+    data::AbstractMatrix{T},weighting::VectorOfVectors{T}, padding) where {T,F<:Function}
     mweights = vmatrix(weighting)
 
     padfinal_tiling(fn, width, data, mweights, paddomg)
@@ -304,7 +304,7 @@ end
     padfinal_tiling(fn, width, data, Matrix{T}(weighting), padding)
 end
 
-function padfinal_tiling(fn::Function, width::Integer, ᵛʷdata::ViewMatrix{T}, ᵛʷweight::ViewOfMatrix, padding) where {T}
+function padfinal_tiling(fn::Function, width::Integer, ᵛʷdata::ViewMatrix{T}, ᵛʷweight::ViewMatrix, padding) where {T}
     n = nrows(ᵛʷdata)
     nvalues = rolling_wholes(n, width)
     rettype = Union{typeof(padding), rts(fn, (T,))}

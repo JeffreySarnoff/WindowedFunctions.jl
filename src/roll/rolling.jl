@@ -148,7 +148,7 @@ function rolling(fn::F, width::Integer,
 end
 
 function rolling(fn::F, width::Integer,
-    data::AbstractMatrix{T}, weights::VectorOfVectors;
+    data::AbstractMatrix{T}, weights::VectorVectors;
     padding=nopadding, atend=false) where {T,F<:Function}
 
     typ = promote_type(T, eltype(weights[1]))

@@ -1,4 +1,11 @@
-#### __apply functions to ordered data using moving windows__
+#### functions move over data windows
+
+       data into subparts
+       subparts recieve focus as windows move
+       functions apply to successive subparts
+       window reveals subpart values
+       function applies over window onto subpart
+
 
 
 |                                                       |

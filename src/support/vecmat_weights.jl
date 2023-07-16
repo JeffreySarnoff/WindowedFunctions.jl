@@ -18,12 +18,12 @@ provides
 """
     vmatrix(matrix)
     vmatrix(vector, n_columns)
-    vmatrix(vector_of_vectors)
+    vmatrix(vectorOfvectors)
     vmatrix(::Type{T}, ..)
 
 provides a Matrix
 - where the source `vector` is replicated in each of the `n_columns`
-- where each vector in the vector_of_vectors is a column
+- where each vector in the vectorOfvectors is a column
 
 if the first argument is a numeric type
 - the resultant Matrix has that same `eltype`
@@ -53,12 +53,12 @@ end
 
 """
     viewmatrix(vector, n_columns)
-    viewmatrix(vector_of_vectors)
+    viewmatrix(vectorOfvectors)
     viewmatrix(::Type{T}, ..)
 
 provides the view of a Matrix
 - where the source `vector` is replicated in each of the `n_columns`
-- where each vector in the vector_of_vectors is a column
+- where each vector in the vectorOfvectors is a column
 
 if the first argument is a numeric type
 - the resultant Matrix has that same `eltype`

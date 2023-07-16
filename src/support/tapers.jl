@@ -20,33 +20,33 @@ function taperfinal(fn::F, width::Integer, data::AbstractMatrix{T}) where {T,F<:
     (fn(data[i:n]) for i = m:n)
 end
 
-function taperfirst(fn::F, width::Integer, ᵛʷdata::ViewOfVector{T}) where {T,F<:Function}
+function taperfirst(fn::F, width::Integer, ᵛʷdata::ViewVector{T}) where {T,F<:Function}
     ntapers = width - 1
     (fn(ᵛʷdata[1:i]) for i = 1:ntapers)
 end
 
-function taperfinal(fn::F, width::Integer, ᵛʷdata::ViewOfVector{T}) where {T,F<:Function}
+function taperfinal(fn::F, width::Integer, ᵛʷdata::ViewVector{T}) where {T,F<:Function}
     n = length(data)
     m = n - width + 2
     (fn(ᵛʷdata[i:n]) for i = m:n)
 end
 
-function taperfirst(fn::F, width::Integer, ᵛʷdata::ViewOfVector{T}, ᵛʷweights::ViewOfWeights{W}) where {T,W,F<:Function}
+function taperfirst(fn::F, width::Integer, ᵛʷdata::ViewVector{T}, ᵛʷweights::ViewWeights{W}) where {T,W,F<:Function}
     ntapers = width - 1
     (fn(ᵛʷdata[1:i] .* ᵛʷweigths[1:i]) for i = 1:ntapers)
 end
-function taperfirst(fn::F, width::Integer, ᵛʷdata::ViewOfVector{T}, ᵛʷweights::ViewOfWeights{T}) where {T,F<:Function}
+function taperfirst(fn::F, width::Integer, ᵛʷdata::ViewVector{T}, ᵛʷweights::ViewWeights{T}) where {T,F<:Function}
     ntapers = width - 1
     (fn(ᵛʷdata[1:i] .* ᵛʷweigths[1:i]) for i = 1:ntapers)
 end
 
-function taperfinal(fn::F, width::Integer, ᵛʷdata::ViewOfVector{T}, ᵛʷweights::ViewOfWeights{W}) where {T,W,F<:Function}
+function taperfinal(fn::F, width::Integer, ᵛʷdata::ViewVector{T}, ᵛʷweights::ViewWeights{W}) where {T,W,F<:Function}
     n = length(data)
     m = n - width + 2
     (fn(ᵛʷdata[i:n] .* ᵛʷweigths[1:i]) for i = m:n)
 end
 
-function taperfinal(fn::F, width::Integer, ᵛʷdata::ViewOfVector{T}, ᵛʷweights::ViewOfWeights{T}) where {T,F<:Function}
+function taperfinal(fn::F, width::Integer, ᵛʷdata::ViewVector{T}, ᵛʷweights::ViewWeights{T}) where {T,F<:Function}
     n = length(data)
     m = n - width + 2
     (fn(ᵛʷdata[i:n] .* ᵛʷweigths[1:i]) for i = m:n)
