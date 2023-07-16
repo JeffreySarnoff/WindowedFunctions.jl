@@ -1,6 +1,8 @@
 ```
     datastreams
+```
 
+```
 There are four sorts of datastreams available when 
 `rolling`, `tiling`, or `running` windowed functions.
 ```
