@@ -1,6 +1,5 @@
 
-### Illustrating Sequential Data
 
-![image](https://github.com/JeffreySarnoff/WindowedFunctions.jl/assets/1682118/08633a51-96d5-4a19-9277-00450425aebd)
+<img src="https://github.com/JeffreySarnoff/WindowedFunctions.jl/assets/1682118/53917581-5eca-402d-845e-c6d4b1706d88" width=75% height=75%>
 
-complete
+

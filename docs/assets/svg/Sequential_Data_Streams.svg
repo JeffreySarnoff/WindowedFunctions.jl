@@ -1,0 +1,1703 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   width="513.711"
+   height="402.143"
+   xlink="http://www.w3.org/1999/xlink"
+   style="position:relative;overflow:hidden;"
+   viewBox="47.75 17.583 513.711 402.143"
+   id="svg503"
+   sodipodi:docname="Sequential_Data_Streams.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview505"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="2.1236227"
+     inkscape:cx="269.58649"
+     inkscape:cy="190.94729"
+     inkscape:window-width="1920"
+     inkscape:window-height="1010"
+     inkscape:window-x="3993"
+     inkscape:window-y="612"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg503" />
+  <defs
+     id="defs241">
+    <filter
+       id="e10580a9-40cd-4247-8bba-6c6c118808ca"
+       x="-0.036556503"
+       y="-0.20059698"
+       width="1.0626683"
+       height="1.4814328">
+      <feFlood
+         flood-color="#000"
+         flood-opacity="0.3"
+         result="flood"
+         id="feFlood2" />
+      <feComposite
+         in="flood"
+         in2="SourceAlpha"
+         operator="in"
+         result="mask"
+         id="feComposite4" />
+      <feGaussianBlur
+         in="mask"
+         stdDeviation="5"
+         id="feGaussianBlur6" />
+      <feOffset
+         dx="-5"
+         dy="5"
+         result="oEffect0"
+         id="feOffset8" />
+      <feMerge
+         id="feMerge14">
+        <feMergeNode
+           in="oEffect0"
+           id="feMergeNode10" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode12" />
+      </feMerge>
+    </filter>
+    <filter
+       id="32e9020d-fbef-4df3-8670-d9ac2b87228d"
+       x="-0.14910442"
+       y="-0.14910442"
+       width="1.2982088"
+       height="1.2982088">
+      <feGaussianBlur
+         in="SourceAlpha"
+         stdDeviation="1.1150926166106614"
+         id="feGaussianBlur17" />
+      <feComposite
+         in2="SourceAlpha"
+         operator="arithmetic"
+         k2="-1"
+         k3="1"
+         result="shadowdiff"
+         id="feComposite19" />
+      <feFlood
+         flood-color="#FFFFFF"
+         flood-opacity="1"
+         id="feFlood21" />
+      <feComposite
+         in2="shadowdiff"
+         operator="in"
+         id="feComposite23" />
+      <feComposite
+         in2="SourceGraphic"
+         operator="over"
+         result="sourceEffect"
+         id="feComposite25" />
+      <feMerge
+         id="feMerge29">
+        <feMergeNode
+           in="sourceEffect"
+           id="feMergeNode27" />
+      </feMerge>
+    </filter>
+    <filter
+       id="e7a141a0-bb39-4007-8235-3bd57299ffe7"
+       x="-0.90289905"
+       y="-0.90289905"
+       width="2.8057981"
+       height="2.8057981">
+      <feFlood
+         flood-color="#D694B2"
+         result="flood"
+         id="feFlood32" />
+      <feComposite
+         in="flood"
+         in2="SourceAlpha"
+         operator="in"
+         result="mask"
+         id="feComposite34" />
+      <feGaussianBlur
+         in="mask"
+         stdDeviation="6.690555699663968"
+         result="oEffect0"
+         id="feGaussianBlur36" />
+      <feMerge
+         id="feMerge42">
+        <feMergeNode
+           in="oEffect0"
+           id="feMergeNode38" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode40" />
+      </feMerge>
+    </filter>
+    <filter
+       id="ea2c4bd2-2dc2-4890-8d63-b2f7bdd1b8c7"
+       x="-0.14886077"
+       y="-0.14886077"
+       width="1.2977215"
+       height="1.2977215">
+      <feGaussianBlur
+         in="SourceAlpha"
+         stdDeviation="1.1242187501640246"
+         id="feGaussianBlur45" />
+      <feComposite
+         in2="SourceAlpha"
+         operator="arithmetic"
+         k2="-1"
+         k3="1"
+         result="shadowdiff"
+         id="feComposite47" />
+      <feFlood
+         flood-color="#FFFFFF"
+         flood-opacity="1"
+         id="feFlood49" />
+      <feComposite
+         in2="shadowdiff"
+         operator="in"
+         id="feComposite51" />
+      <feComposite
+         in2="SourceGraphic"
+         operator="over"
+         result="sourceEffect"
+         id="feComposite53" />
+      <feMerge
+         id="feMerge57">
+        <feMergeNode
+           in="sourceEffect"
+           id="feMergeNode55" />
+      </feMerge>
+    </filter>
+    <filter
+       id="ead363fe-bbe0-44b2-8f1f-cd6b843f1f7a"
+       x="-0.90238667"
+       y="-0.90238667"
+       width="2.8047733"
+       height="2.8047733">
+      <feFlood
+         flood-color="#D694B2"
+         result="flood"
+         id="feFlood60" />
+      <feComposite
+         in="flood"
+         in2="SourceAlpha"
+         operator="in"
+         result="mask"
+         id="feComposite62" />
+      <feGaussianBlur
+         in="mask"
+         stdDeviation="6.745312500984147"
+         result="oEffect0"
+         id="feGaussianBlur64" />
+      <feMerge
+         id="feMerge70">
+        <feMergeNode
+           in="oEffect0"
+           id="feMergeNode66" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode68" />
+      </feMerge>
+    </filter>
+    <filter
+       id="88c8f8e9-b9f9-4a68-8f5f-705f0ffb6ffb"
+       x="-0.14849934"
+       y="-0.14849934"
+       width="1.2969987"
+       height="1.2969987">
+      <feGaussianBlur
+         in="SourceAlpha"
+         stdDeviation="1.1376894148744525"
+         id="feGaussianBlur73" />
+      <feComposite
+         in2="SourceAlpha"
+         operator="arithmetic"
+         k2="-1"
+         k3="1"
+         result="shadowdiff"
+         id="feComposite75" />
+      <feFlood
+         flood-color="#FFFFFF"
+         flood-opacity="1"
+         id="feFlood77" />
+      <feComposite
+         in2="shadowdiff"
+         operator="in"
+         id="feComposite79" />
+      <feComposite
+         in2="SourceGraphic"
+         operator="over"
+         result="sourceEffect"
+         id="feComposite81" />
+      <feMerge
+         id="feMerge85">
+        <feMergeNode
+           in="sourceEffect"
+           id="feMergeNode83" />
+      </feMerge>
+    </filter>
+    <filter
+       id="26e5a408-2c13-4413-8c46-b1ba9f365594"
+       x="-0.90158971"
+       y="-0.90158971"
+       width="2.8031795"
+       height="2.8031795">
+      <feFlood
+         flood-color="#D694B2"
+         result="flood"
+         id="feFlood88" />
+      <feComposite
+         in="flood"
+         in2="SourceAlpha"
+         operator="in"
+         result="mask"
+         id="feComposite90" />
+      <feGaussianBlur
+         in="mask"
+         stdDeviation="6.826136489246715"
+         result="oEffect0"
+         id="feGaussianBlur92" />
+      <feMerge
+         id="feMerge98">
+        <feMergeNode
+           in="oEffect0"
+           id="feMergeNode94" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode96" />
+      </feMerge>
+    </filter>
+    <filter
+       id="2ee9a6ec-8f8e-4261-8095-70bafe445191"
+       x="-0.14528344"
+       y="-0.14528344"
+       width="1.2905669"
+       height="1.2905669">
+      <feGaussianBlur
+         in="SourceAlpha"
+         stdDeviation="1.2760397347987962"
+         id="feGaussianBlur101" />
+      <feComposite
+         in2="SourceAlpha"
+         operator="arithmetic"
+         k2="-1"
+         k3="1"
+         result="shadowdiff"
+         id="feComposite103" />
+      <feFlood
+         flood-color="#FFFFFF"
+         flood-opacity="1"
+         id="feFlood105" />
+      <feComposite
+         in2="shadowdiff"
+         operator="in"
+         id="feComposite107" />
+      <feComposite
+         in2="SourceGraphic"
+         operator="over"
+         result="sourceEffect"
+         id="feComposite109" />
+      <feMerge
+         id="feMerge113">
+        <feMergeNode
+           in="sourceEffect"
+           id="feMergeNode111" />
+      </feMerge>
+    </filter>
+    <filter
+       id="aa12c374-23ad-428b-8ba0-ff43c6b1b5eb"
+       x="-0.89464002"
+       y="-0.89464002"
+       width="2.7892801"
+       height="2.7892801">
+      <feFlood
+         flood-color="#D694B2"
+         result="flood"
+         id="feFlood116" />
+      <feComposite
+         in="flood"
+         in2="SourceAlpha"
+         operator="in"
+         result="mask"
+         id="feComposite118" />
+      <feGaussianBlur
+         in="mask"
+         stdDeviation="7.656238408792777"
+         result="oEffect0"
+         id="feGaussianBlur120" />
+      <feMerge
+         id="feMerge126">
+        <feMergeNode
+           in="oEffect0"
+           id="feMergeNode122" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode124" />
+      </feMerge>
+    </filter>
+    <filter
+       id="6f6d895c-1d59-43f2-8784-4415aba95763"
+       x="-0.14528344"
+       y="-0.14528344"
+       width="1.2905669"
+       height="1.2905669">
+      <feGaussianBlur
+         in="SourceAlpha"
+         stdDeviation="1.2760397347987975"
+         id="feGaussianBlur129" />
+      <feComposite
+         in2="SourceAlpha"
+         operator="arithmetic"
+         k2="-1"
+         k3="1"
+         result="shadowdiff"
+         id="feComposite131" />
+      <feFlood
+         flood-color="#FFFFFF"
+         flood-opacity="1"
+         id="feFlood133" />
+      <feComposite
+         in2="shadowdiff"
+         operator="in"
+         id="feComposite135" />
+      <feComposite
+         in2="SourceGraphic"
+         operator="over"
+         result="sourceEffect"
+         id="feComposite137" />
+      <feMerge
+         id="feMerge141">
+        <feMergeNode
+           in="sourceEffect"
+           id="feMergeNode139" />
+      </feMerge>
+    </filter>
+    <filter
+       id="10d71654-70cc-48ce-8ac9-a7495fbd76a9"
+       x="-0.89464002"
+       y="-0.89464002"
+       width="2.7892801"
+       height="2.7892801">
+      <feFlood
+         flood-color="#D694B2"
+         result="flood"
+         id="feFlood144" />
+      <feComposite
+         in="flood"
+         in2="SourceAlpha"
+         operator="in"
+         result="mask"
+         id="feComposite146" />
+      <feGaussianBlur
+         in="mask"
+         stdDeviation="7.656238408792785"
+         result="oEffect0"
+         id="feGaussianBlur148" />
+      <feMerge
+         id="feMerge154">
+        <feMergeNode
+           in="oEffect0"
+           id="feMergeNode150" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode152" />
+      </feMerge>
+    </filter>
+    <filter
+       id="3658df0b-e57f-48cd-87aa-ca268fccc236"
+       x="-0.14475168"
+       y="-0.14475168"
+       width="1.2895034"
+       height="1.2895034">
+      <feGaussianBlur
+         in="SourceAlpha"
+         stdDeviation="1.3025123440026392"
+         id="feGaussianBlur157" />
+      <feComposite
+         in2="SourceAlpha"
+         operator="arithmetic"
+         k2="-1"
+         k3="1"
+         result="shadowdiff"
+         id="feComposite159" />
+      <feFlood
+         flood-color="#FFFFFF"
+         flood-opacity="1"
+         id="feFlood161" />
+      <feComposite
+         in2="shadowdiff"
+         operator="in"
+         id="feComposite163" />
+      <feComposite
+         in2="SourceGraphic"
+         operator="over"
+         result="sourceEffect"
+         id="feComposite165" />
+      <feMerge
+         id="feMerge169">
+        <feMergeNode
+           in="sourceEffect"
+           id="feMergeNode167" />
+      </feMerge>
+    </filter>
+    <filter
+       id="3fcbca71-787f-4de1-8bde-976b822fe8a6"
+       x="-0.89350128"
+       y="-0.89350128"
+       width="2.7870027"
+       height="2.7870027">
+      <feFlood
+         flood-color="#D694B2"
+         result="flood"
+         id="feFlood172" />
+      <feComposite
+         in="flood"
+         in2="SourceAlpha"
+         operator="in"
+         result="mask"
+         id="feComposite174" />
+      <feGaussianBlur
+         in="mask"
+         stdDeviation="7.8150740640158345"
+         result="oEffect0"
+         id="feGaussianBlur176" />
+      <feMerge
+         id="feMerge182">
+        <feMergeNode
+           in="oEffect0"
+           id="feMergeNode178" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode180" />
+      </feMerge>
+    </filter>
+    <filter
+       id="8935e756-8ac5-437c-8061-35dc1236fb5f"
+       x="-0.14514294"
+       y="-0.14514294"
+       width="1.2902859"
+       height="1.2902859">
+      <feGaussianBlur
+         in="SourceAlpha"
+         stdDeviation="1.2828289733865461"
+         id="feGaussianBlur185" />
+      <feComposite
+         in2="SourceAlpha"
+         operator="arithmetic"
+         k2="-1"
+         k3="1"
+         result="shadowdiff"
+         id="feComposite187" />
+      <feFlood
+         flood-color="#FFFFFF"
+         flood-opacity="1"
+         id="feFlood189" />
+      <feComposite
+         in2="shadowdiff"
+         operator="in"
+         id="feComposite191" />
+      <feComposite
+         in2="SourceGraphic"
+         operator="over"
+         result="sourceEffect"
+         id="feComposite193" />
+      <feMerge
+         id="feMerge197">
+        <feMergeNode
+           in="sourceEffect"
+           id="feMergeNode195" />
+      </feMerge>
+    </filter>
+    <filter
+       id="49c4eefd-41c0-4bea-8e41-c547b4a0d9a8"
+       x="-0.89433129"
+       y="-0.89433129"
+       width="2.7886626"
+       height="2.7886626">
+      <feFlood
+         flood-color="#D694B2"
+         result="flood"
+         id="feFlood200" />
+      <feComposite
+         in="flood"
+         in2="SourceAlpha"
+         operator="in"
+         result="mask"
+         id="feComposite202" />
+      <feGaussianBlur
+         in="mask"
+         stdDeviation="7.696973840319276"
+         result="oEffect0"
+         id="feGaussianBlur204" />
+      <feMerge
+         id="feMerge210">
+        <feMergeNode
+           in="oEffect0"
+           id="feMergeNode206" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode208" />
+      </feMerge>
+    </filter>
+    <filter
+       id="65127612-b4dc-48d9-85aa-c08b5b94c569"
+       x="-0.14211759"
+       y="-0.14211759"
+       width="1.2842352"
+       height="1.2842352">
+      <feGaussianBlur
+         in="SourceAlpha"
+         stdDeviation="1.451540955723931"
+         id="feGaussianBlur213" />
+      <feComposite
+         in2="SourceAlpha"
+         operator="arithmetic"
+         k2="-1"
+         k3="1"
+         result="shadowdiff"
+         id="feComposite215" />
+      <feFlood
+         flood-color="#FFFFFF"
+         flood-opacity="1"
+         id="feFlood217" />
+      <feComposite
+         in2="shadowdiff"
+         operator="in"
+         id="feComposite219" />
+      <feComposite
+         in2="SourceGraphic"
+         operator="over"
+         result="sourceEffect"
+         id="feComposite221" />
+      <feMerge
+         id="feMerge225">
+        <feMergeNode
+           in="sourceEffect"
+           id="feMergeNode223" />
+      </feMerge>
+    </filter>
+    <filter
+       id="8ef3e036-df87-4390-8972-5d0dd9e0cb63"
+       x="-0.88779879"
+       y="-0.88779879"
+       width="2.7755976"
+       height="2.7755976">
+      <feFlood
+         flood-color="#D694B2"
+         result="flood"
+         id="feFlood228" />
+      <feComposite
+         in="flood"
+         in2="SourceAlpha"
+         operator="in"
+         result="mask"
+         id="feComposite230" />
+      <feGaussianBlur
+         in="mask"
+         stdDeviation="8.709245734343584"
+         result="oEffect0"
+         id="feGaussianBlur232" />
+      <feMerge
+         id="feMerge238">
+        <feMergeNode
+           in="oEffect0"
+           id="feMergeNode234" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode236" />
+      </feMerge>
+    </filter>
+  </defs>
+  <g
+     id="g501">
+    <g
+       width="478.711"
+       height="62.314"
+       transform="scale(1,1) translate(70.25,76.983)"
+       filter="url(#e10580a9-40cd-4247-8bba-6c6c118808ca)"
+       id="g252">
+      <g
+         stroke="#CFE9F7"
+         stroke-opacity="1"
+         stroke-width="1"
+         stroke-dasharray="none"
+         width="478.711"
+         height="62.314"
+         transform="scale(1,1) translate(0,0)"
+         fill="url(#a664b5ce-1a73-4490-8cba-caa8d895a458)"
+         id="g250">
+        <linearGradient
+           id="a664b5ce-1a73-4490-8cba-caa8d895a458"
+           x1="0"
+           y1="0"
+           x2="478.711"
+           y2="62.314"
+           gradientUnits="userSpaceOnUse">
+          <stop
+             offset="0%"
+             style="stop-color:#E1BDAB;stop-opacity:1;"
+             id="stop243" />
+          <stop
+             offset="100%"
+             style="stop-color:#D33C3C;stop-opacity:1;"
+             id="stop245" />
+        </linearGradient>
+        <rect
+           width="478.711"
+           height="62.314"
+           id="rect248" />
+      </g>
+    </g>
+    <g
+       width="21.302"
+       height="21.302"
+       transform="scale(1,1) translate(121.089,97.832)"
+       filter="url(#e7a141a0-bb39-4007-8235-3bd57299ffe7)"
+       id="g264">
+      <g
+         transform="scale(1,1) translate(0,0)"
+         stroke="#CFE9F7"
+         fill="#E2AEE3"
+         fill-opacity="1"
+         stroke-opacity="1"
+         filter="url(#32e9020d-fbef-4df3-8670-d9ac2b87228d)"
+         id="g256">
+        <path
+           d="M0,5 a5,5 0 0,1 5,-5 l11.302,0 a5,5 0 0,1 5,5 l0,11.302 a5,5 0 0,1 -5,5 l-11.302,0 a5,5 0 0,1 -5,-5 z"
+           stroke-width="1"
+           stroke-dasharray="none"
+           id="path254" />
+      </g>
+      <g
+         width="17.372920152213254"
+         height="17.372920152213226"
+         transform="scale(1,1) translate(1.964,1.964)"
+         id="g262">
+        <text
+           width="17.372920152213254"
+           height="16.927082061767578"
+           transform="scale(1,1) translate(0,0.2229190452228238)"
+           xml:space="preserve"
+           id="text260"><tspan
+             xml:space="preserve"
+             text-rendering="optimizeSpeed"
+             font-size="13.88888888888889"
+             font-weight="bold"
+             font-style="normal"
+             text-decoration="none"
+             fill="#333333"
+             opacity="1"
+             x="5.167"
+             text-anchor="start"
+             y="13.346"
+             textLength="7.0393877029418945"
+             style="font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;"
+             id="tspan258">1</tspan></text>
+      </g>
+    </g>
+    <g
+       width="21.302"
+       height="21.302"
+       transform="scale(1,1) translate(169.383,97.832)"
+       filter="url(#e7a141a0-bb39-4007-8235-3bd57299ffe7)"
+       id="g276">
+      <g
+         transform="scale(1,1) translate(0,0)"
+         stroke="#CFE9F7"
+         fill="#E2AEE3"
+         fill-opacity="1"
+         stroke-opacity="1"
+         filter="url(#32e9020d-fbef-4df3-8670-d9ac2b87228d)"
+         id="g268">
+        <path
+           d="M0,5 a5,5 0 0,1 5,-5 l11.302,0 a5,5 0 0,1 5,5 l0,11.302 a5,5 0 0,1 -5,5 l-11.302,0 a5,5 0 0,1 -5,-5 z"
+           stroke-width="1"
+           stroke-dasharray="none"
+           id="path266" />
+      </g>
+      <g
+         width="17.372920152213254"
+         height="17.372920152213226"
+         transform="scale(1,1) translate(1.964,1.964)"
+         id="g274">
+        <text
+           width="17.372920152213254"
+           height="16.927082061767578"
+           transform="scale(1,1) translate(0,0.2229190452228238)"
+           xml:space="preserve"
+           id="text272"><tspan
+             xml:space="preserve"
+             text-rendering="optimizeSpeed"
+             font-size="13.88888888888889"
+             font-weight="bold"
+             font-style="normal"
+             text-decoration="none"
+             fill="#333333"
+             opacity="1"
+             x="5.167"
+             text-anchor="start"
+             y="13.346"
+             textLength="7.0393877029418945"
+             style="font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;"
+             id="tspan270">2</tspan></text>
+      </g>
+    </g>
+    <g
+       width="21.302"
+       height="21.302"
+       transform="scale(1,1) translate(221.024,97.832)"
+       filter="url(#e7a141a0-bb39-4007-8235-3bd57299ffe7)"
+       id="g288">
+      <g
+         transform="scale(1,1) translate(0,0)"
+         stroke="#CFE9F7"
+         fill="#E2AEE3"
+         fill-opacity="1"
+         stroke-opacity="1"
+         filter="url(#32e9020d-fbef-4df3-8670-d9ac2b87228d)"
+         id="g280">
+        <path
+           d="M0,5 a5,5 0 0,1 5,-5 l11.302,0 a5,5 0 0,1 5,5 l0,11.302 a5,5 0 0,1 -5,5 l-11.302,0 a5,5 0 0,1 -5,-5 z"
+           stroke-width="1"
+           stroke-dasharray="none"
+           id="path278" />
+      </g>
+      <g
+         width="17.372920152213254"
+         height="17.372920152213226"
+         transform="scale(1,1) translate(1.964,1.964)"
+         id="g286">
+        <text
+           width="17.372920152213254"
+           height="16.927082061767578"
+           transform="scale(1,1) translate(0,0.2229190452228238)"
+           xml:space="preserve"
+           id="text284"><tspan
+             xml:space="preserve"
+             text-rendering="optimizeSpeed"
+             font-size="13.88888888888889"
+             font-weight="bold"
+             font-style="normal"
+             text-decoration="none"
+             fill="#333333"
+             opacity="1"
+             x="5.167"
+             text-anchor="start"
+             y="13.346"
+             textLength="7.0393877029418945"
+             style="font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;"
+             id="tspan282">3</tspan></text>
+      </g>
+    </g>
+    <g
+       width="21.302"
+       height="21.302"
+       transform="scale(1,1) translate(267.844,97.832)"
+       filter="url(#e7a141a0-bb39-4007-8235-3bd57299ffe7)"
+       id="g300">
+      <g
+         transform="scale(1,1) translate(0,0)"
+         stroke="#CFE9F7"
+         fill="#E2AEE3"
+         fill-opacity="1"
+         stroke-opacity="1"
+         filter="url(#32e9020d-fbef-4df3-8670-d9ac2b87228d)"
+         id="g292">
+        <path
+           d="M0,5 a5,5 0 0,1 5,-5 l11.302,0 a5,5 0 0,1 5,5 l0,11.302 a5,5 0 0,1 -5,5 l-11.302,0 a5,5 0 0,1 -5,-5 z"
+           stroke-width="1"
+           stroke-dasharray="none"
+           id="path290" />
+      </g>
+      <g
+         width="17.372920152213226"
+         height="17.372920152213226"
+         transform="scale(1,1) translate(1.964,1.964)"
+         id="g298">
+        <text
+           width="17.372920152213226"
+           height="16.927082061767578"
+           transform="scale(1,1) translate(0,0.2229190452228238)"
+           xml:space="preserve"
+           id="text296"><tspan
+             xml:space="preserve"
+             text-rendering="optimizeSpeed"
+             font-size="13.88888888888889"
+             font-weight="bold"
+             font-style="normal"
+             text-decoration="none"
+             fill="#333333"
+             opacity="1"
+             x="5.167"
+             text-anchor="start"
+             y="13.346"
+             textLength="7.0393877029418945"
+             style="font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;"
+             id="tspan294">4</tspan></text>
+      </g>
+    </g>
+    <g
+       width="21.484"
+       height="21.484"
+       transform="scale(1,1) translate(318.941,97.649)"
+       filter="url(#ead363fe-bbe0-44b2-8f1f-cd6b843f1f7a)"
+       id="g312">
+      <g
+         transform="scale(1,1) translate(0,0)"
+         stroke="#CFE9F7"
+         fill="#E2AEE3"
+         fill-opacity="1"
+         stroke-opacity="1"
+         filter="url(#ea2c4bd2-2dc2-4890-8d63-b2f7bdd1b8c7)"
+         id="g304">
+        <path
+           d="M0,5 a5,5 0 0,1 5,-5 l11.484,0 a5,5 0 0,1 5,5 l0,11.484 a5,5 0 0,1 -5,5 l-11.484,0 a5,5 0 0,1 -5,-5 z"
+           stroke-width="1"
+           stroke-dasharray="none"
+           id="path302" />
+      </g>
+      <g
+         width="17.555442823280487"
+         height="17.555442823280487"
+         transform="scale(1,1) translate(1.964,1.964)"
+         id="g310">
+        <text
+           width="17.555442823280487"
+           height="16.927082061767578"
+           transform="scale(1,1) translate(0,0.31418038075645427)"
+           xml:space="preserve"
+           id="text308"><tspan
+             xml:space="preserve"
+             text-rendering="optimizeSpeed"
+             font-size="13.88888888888889"
+             font-weight="bold"
+             font-style="normal"
+             text-decoration="none"
+             fill="#333333"
+             opacity="1"
+             x="5.258"
+             text-anchor="start"
+             y="13.346"
+             textLength="7.0393877029418945"
+             style="font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;"
+             id="tspan306">5</tspan></text>
+      </g>
+    </g>
+    <g
+       width="21.302"
+       height="21.302"
+       transform="scale(1,1) translate(369.891,97.832)"
+       filter="url(#e7a141a0-bb39-4007-8235-3bd57299ffe7)"
+       id="g324">
+      <g
+         transform="scale(1,1) translate(0,0)"
+         stroke="#CFE9F7"
+         fill="#E2AEE3"
+         fill-opacity="1"
+         stroke-opacity="1"
+         filter="url(#32e9020d-fbef-4df3-8670-d9ac2b87228d)"
+         id="g316">
+        <path
+           d="M0,5 a5,5 0 0,1 5,-5 l11.302,0 a5,5 0 0,1 5,5 l0,11.302 a5,5 0 0,1 -5,5 l-11.302,0 a5,5 0 0,1 -5,-5 z"
+           stroke-width="1"
+           stroke-dasharray="none"
+           id="path314" />
+      </g>
+      <g
+         width="17.372920152213226"
+         height="17.372920152213226"
+         transform="scale(1,1) translate(1.964,1.964)"
+         id="g322">
+        <text
+           width="17.372920152213226"
+           height="16.927082061767578"
+           transform="scale(1,1) translate(0,0.2229190452228238)"
+           xml:space="preserve"
+           id="text320"><tspan
+             xml:space="preserve"
+             text-rendering="optimizeSpeed"
+             font-size="13.88888888888889"
+             font-weight="bold"
+             font-style="normal"
+             text-decoration="none"
+             fill="#333333"
+             opacity="1"
+             x="5.167"
+             text-anchor="start"
+             y="13.346"
+             textLength="7.0393877029418945"
+             style="font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;"
+             id="tspan318">6</tspan></text>
+      </g>
+    </g>
+    <g
+       width="21.302"
+       height="21.302"
+       transform="scale(1,1) translate(421.308,97.832)"
+       filter="url(#e7a141a0-bb39-4007-8235-3bd57299ffe7)"
+       id="g336">
+      <g
+         transform="scale(1,1) translate(0,0)"
+         stroke="#CFE9F7"
+         fill="#E2AEE3"
+         fill-opacity="1"
+         stroke-opacity="1"
+         filter="url(#32e9020d-fbef-4df3-8670-d9ac2b87228d)"
+         id="g328">
+        <path
+           d="M0,5 a5,5 0 0,1 5,-5 l11.302,0 a5,5 0 0,1 5,5 l0,11.302 a5,5 0 0,1 -5,5 l-11.302,0 a5,5 0 0,1 -5,-5 z"
+           stroke-width="1"
+           stroke-dasharray="none"
+           id="path326" />
+      </g>
+      <g
+         width="17.372920152213283"
+         height="17.372920152213226"
+         transform="scale(1,1) translate(1.964,1.964)"
+         id="g334">
+        <text
+           width="17.372920152213283"
+           height="16.927082061767578"
+           transform="scale(1,1) translate(0,0.2229190452228238)"
+           xml:space="preserve"
+           id="text332"><tspan
+             xml:space="preserve"
+             text-rendering="optimizeSpeed"
+             font-size="13.88888888888889"
+             font-weight="bold"
+             font-style="normal"
+             text-decoration="none"
+             fill="#333333"
+             opacity="1"
+             x="5.167"
+             text-anchor="start"
+             y="13.346"
+             textLength="7.0393877029418945"
+             style="font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;"
+             id="tspan330">7</tspan></text>
+      </g>
+    </g>
+    <g
+       width="21.302"
+       height="21.302"
+       transform="scale(1,1) translate(472.584,97.832)"
+       filter="url(#e7a141a0-bb39-4007-8235-3bd57299ffe7)"
+       id="g348">
+      <g
+         transform="scale(1,1) translate(0,0)"
+         stroke="#CFE9F7"
+         fill="#E2AEE3"
+         fill-opacity="1"
+         stroke-opacity="1"
+         filter="url(#32e9020d-fbef-4df3-8670-d9ac2b87228d)"
+         id="g340">
+        <path
+           d="M0,5 a5,5 0 0,1 5,-5 l11.302,0 a5,5 0 0,1 5,5 l0,11.302 a5,5 0 0,1 -5,5 l-11.302,0 a5,5 0 0,1 -5,-5 z"
+           stroke-width="1"
+           stroke-dasharray="none"
+           id="path338" />
+      </g>
+      <g
+         width="17.372920152213226"
+         height="17.372920152213226"
+         transform="scale(1,1) translate(1.964,1.964)"
+         id="g346">
+        <text
+           width="17.372920152213226"
+           height="16.927082061767578"
+           transform="scale(1,1) translate(0,0.2229190452228238)"
+           xml:space="preserve"
+           id="text344"><tspan
+             xml:space="preserve"
+             text-rendering="optimizeSpeed"
+             font-size="13.88888888888889"
+             font-weight="bold"
+             font-style="normal"
+             text-decoration="none"
+             fill="#333333"
+             opacity="1"
+             x="5.167"
+             text-anchor="start"
+             y="13.346"
+             textLength="7.0393877029418945"
+             style="font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;"
+             id="tspan342">8</tspan></text>
+      </g>
+    </g>
+    <g
+       width="478.711"
+       height="69.216"
+       transform="scale(1,1) translate(70.25,172.354)"
+       filter="url(#e10580a9-40cd-4247-8bba-6c6c118808ca)"
+       id="g359">
+      <g
+         stroke="#CFE9F7"
+         stroke-opacity="1"
+         stroke-width="1"
+         stroke-dasharray="none"
+         width="478.711"
+         height="69.216"
+         transform="scale(1,1) translate(0,0)"
+         fill="url(#46d123eb-beaf-4935-88cd-270c93b03d8a)"
+         id="g357">
+        <linearGradient
+           id="46d123eb-beaf-4935-88cd-270c93b03d8a"
+           x1="0"
+           y1="0"
+           x2="478.711"
+           y2="69.216"
+           gradientUnits="userSpaceOnUse">
+          <stop
+             offset="0%"
+             style="stop-color:#E1BDAB;stop-opacity:1;"
+             id="stop350" />
+          <stop
+             offset="100%"
+             style="stop-color:#D33C3C;stop-opacity:1;"
+             id="stop352" />
+        </linearGradient>
+        <rect
+           width="478.711"
+           height="69.216"
+           id="rect355" />
+      </g>
+    </g>
+    <g
+       width="21.754"
+       height="21.754"
+       transform="scale(1,1) translate(121.089,196.891)"
+       filter="url(#26e5a408-2c13-4413-8c46-b1ba9f365594)"
+       id="g371">
+      <g
+         transform="scale(1,1) translate(0,0)"
+         stroke="#CFE9F7"
+         fill="#E2AEE3"
+         fill-opacity="1"
+         stroke-opacity="1"
+         filter="url(#88c8f8e9-b9f9-4a68-8f5f-705f0ffb6ffb)"
+         id="g363">
+        <path
+           d="M0,5 a5,5 0 0,1 5,-5 l11.754,0 a5,5 0 0,1 5,5 l0,11.754 a5,5 0 0,1 -5,5 l-11.754,0 a5,5 0 0,1 -5,-5 z"
+           stroke-width="1"
+           stroke-dasharray="none"
+           id="path361" />
+      </g>
+      <g
+         width="17.824856117489052"
+         height="17.82485611748911"
+         transform="scale(1,1) translate(1.964,1.964)"
+         id="g369">
+        <text
+           width="17.824856117489052"
+           height="16.927082061767578"
+           transform="scale(1,1) translate(0,0.4488870278607653)"
+           xml:space="preserve"
+           id="text367"><tspan
+             xml:space="preserve"
+             text-rendering="optimizeSpeed"
+             font-size="13.88888888888889"
+             font-weight="bold"
+             font-style="italic"
+             text-decoration="none"
+             fill="#333333"
+             opacity="1"
+             x="7.206"
+             text-anchor="start"
+             y="13.346"
+             textLength="3.4128823280334473"
+             style="font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;"
+             id="tspan365">i</tspan></text>
+      </g>
+    </g>
+    <g
+       width="24.521"
+       height="24.521"
+       transform="scale(1,1) translate(167.645,195.508)"
+       filter="url(#aa12c374-23ad-428b-8ba0-ff43c6b1b5eb)"
+       id="g385">
+      <g
+         transform="scale(1,1) translate(0,0)"
+         stroke="#CFE9F7"
+         fill="#E2AEE3"
+         fill-opacity="1"
+         stroke-opacity="1"
+         filter="url(#2ee9a6ec-8f8e-4261-8095-70bafe445191)"
+         id="g375">
+        <path
+           d="M0,5 a5,5 0 0,1 5,-5 l14.521,0 a5,5 0 0,1 5,5 l0,14.521 a5,5 0 0,1 -5,5 l-14.521,0 a5,5 0 0,1 -5,-5 z"
+           stroke-width="1"
+           stroke-dasharray="none"
+           id="path373" />
+      </g>
+      <g
+         width="20.591862515975922"
+         height="20.59186251597595"
+         transform="scale(1,1) translate(1.964,1.964)"
+         id="g383">
+        <text
+           width="20.591862515975922"
+           height="16.927082061767578"
+           transform="scale(1,1) translate(0,1.8323902271041863)"
+           xml:space="preserve"
+           id="text381"><tspan
+             xml:space="preserve"
+             text-rendering="optimizeSpeed"
+             font-size="13.88888888888889"
+             font-weight="bold"
+             font-style="italic"
+             text-decoration="none"
+             fill="#333333"
+             opacity="1"
+             x="0.039"
+             text-anchor="start"
+             y="13.346"
+             textLength="3.4128823280334473"
+             style="font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;"
+             id="tspan377">i</tspan><tspan
+             xml:space="preserve"
+             text-rendering="optimizeSpeed"
+             font-size="13.88888888888889"
+             font-weight="normal"
+             font-style="normal"
+             text-decoration="none"
+             fill="#333333"
+             opacity="1"
+             x="6.596"
+             text-anchor="start"
+             y="13.346"
+             textLength="13.956705093383789"
+             style="font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;"
+             id="tspan379">+1</tspan></text>
+      </g>
+    </g>
+    <g
+       width="24.521"
+       height="24.521"
+       transform="scale(1,1) translate(219.182,195.452)"
+       filter="url(#10d71654-70cc-48ce-8ac9-a7495fbd76a9)"
+       id="g399">
+      <g
+         transform="scale(1,1) translate(0,0)"
+         stroke="#CFE9F7"
+         fill="#E2AEE3"
+         fill-opacity="1"
+         stroke-opacity="1"
+         filter="url(#6f6d895c-1d59-43f2-8784-4415aba95763)"
+         id="g389">
+        <path
+           d="M0,5 a5,5 0 0,1 5,-5 l14.521,0 a5,5 0 0,1 5,5 l0,14.521 a5,5 0 0,1 -5,5 l-14.521,0 a5,5 0 0,1 -5,-5 z"
+           stroke-width="1"
+           stroke-dasharray="none"
+           id="path387" />
+      </g>
+      <g
+         width="20.59186251597595"
+         height="20.59186251597595"
+         transform="scale(1,1) translate(1.964,1.964)"
+         id="g397">
+        <text
+           width="20.59186251597595"
+           height="16.927082061767578"
+           transform="scale(1,1) translate(0,1.8323902271041863)"
+           xml:space="preserve"
+           id="text395"><tspan
+             xml:space="preserve"
+             text-rendering="optimizeSpeed"
+             font-size="13.88888888888889"
+             font-weight="bold"
+             font-style="italic"
+             text-decoration="none"
+             fill="#333333"
+             opacity="1"
+             x="0.042"
+             text-anchor="start"
+             y="13.346"
+             textLength="3.4077959060668945"
+             style="font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;"
+             id="tspan391">i</tspan><tspan
+             xml:space="preserve"
+             text-rendering="optimizeSpeed"
+             font-size="13.88888888888889"
+             font-weight="normal"
+             font-style="normal"
+             text-decoration="none"
+             fill="#333333"
+             opacity="1"
+             x="6.593"
+             text-anchor="start"
+             y="13.346"
+             textLength="13.956705093383789"
+             style="font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;"
+             id="tspan393">+2</tspan></text>
+      </g>
+    </g>
+    <g
+       width="24.521"
+       height="24.521"
+       transform="scale(1,1) translate(266.235,195.452)"
+       filter="url(#10d71654-70cc-48ce-8ac9-a7495fbd76a9)"
+       id="g413">
+      <g
+         transform="scale(1,1) translate(0,0)"
+         stroke="#CFE9F7"
+         fill="#E2AEE3"
+         fill-opacity="1"
+         stroke-opacity="1"
+         filter="url(#6f6d895c-1d59-43f2-8784-4415aba95763)"
+         id="g403">
+        <path
+           d="M0,5 a5,5 0 0,1 5,-5 l14.521,0 a5,5 0 0,1 5,5 l0,14.521 a5,5 0 0,1 -5,5 l-14.521,0 a5,5 0 0,1 -5,-5 z"
+           stroke-width="1"
+           stroke-dasharray="none"
+           id="path401" />
+      </g>
+      <g
+         width="20.59186251597595"
+         height="20.59186251597595"
+         transform="scale(1,1) translate(1.964,1.964)"
+         id="g411">
+        <text
+           width="20.59186251597595"
+           height="16.927082061767578"
+           transform="scale(1,1) translate(0,1.8323902271041863)"
+           xml:space="preserve"
+           id="text409"><tspan
+             xml:space="preserve"
+             text-rendering="optimizeSpeed"
+             font-size="13.88888888888889"
+             font-weight="bold"
+             font-style="italic"
+             text-decoration="none"
+             fill="#333333"
+             opacity="1"
+             x="0.042"
+             text-anchor="start"
+             y="13.346"
+             textLength="3.4077959060668945"
+             style="font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;"
+             id="tspan405">i</tspan><tspan
+             xml:space="preserve"
+             text-rendering="optimizeSpeed"
+             font-size="13.88888888888889"
+             font-weight="normal"
+             font-style="normal"
+             text-decoration="none"
+             fill="#333333"
+             opacity="1"
+             x="6.593"
+             text-anchor="start"
+             y="13.346"
+             textLength="13.956705093383789"
+             style="font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;"
+             id="tspan407">+3</tspan></text>
+      </g>
+    </g>
+    <g
+       width="25.05"
+       height="25.05"
+       transform="scale(1,1) translate(316.668,195.025)"
+       filter="url(#3fcbca71-787f-4de1-8bde-976b822fe8a6)"
+       id="g427">
+      <g
+         transform="scale(1,1) translate(0,0)"
+         stroke="#CFE9F7"
+         fill="#E2AEE3"
+         fill-opacity="1"
+         stroke-opacity="1"
+         filter="url(#3658df0b-e57f-48cd-87aa-ca268fccc236)"
+         id="g417">
+        <path
+           d="M0,5 a5,5 0 0,1 5,-5 l15.05,0 a5,5 0 0,1 5,5 l0,15.05 a5,5 0 0,1 -5,5 l-15.05,0 a5,5 0 0,1 -5,-5 z"
+           stroke-width="1"
+           stroke-dasharray="none"
+           id="path415" />
+      </g>
+      <g
+         width="21.121314700052782"
+         height="21.121314700052782"
+         transform="scale(1,1) translate(1.964,1.964)"
+         id="g425">
+        <text
+           width="21.121314700052782"
+           height="16.927082061767578"
+           transform="scale(1,1) translate(0,2.097116319142602)"
+           xml:space="preserve"
+           id="text423"><tspan
+             xml:space="preserve"
+             text-rendering="optimizeSpeed"
+             font-size="13.88888888888889"
+             font-weight="bold"
+             font-style="italic"
+             text-decoration="none"
+             fill="#333333"
+             opacity="1"
+             x="0.307"
+             text-anchor="start"
+             y="13.346"
+             textLength="3.4077959060668945"
+             style="font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;"
+             id="tspan419">i</tspan><tspan
+             xml:space="preserve"
+             text-rendering="optimizeSpeed"
+             font-size="13.88888888888889"
+             font-weight="normal"
+             font-style="normal"
+             text-decoration="none"
+             fill="#333333"
+             opacity="1"
+             x="6.858"
+             text-anchor="start"
+             y="13.346"
+             textLength="13.956705093383789"
+             style="font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;"
+             id="tspan421">+4</tspan></text>
+      </g>
+    </g>
+    <g
+       width="24.657"
+       height="24.657"
+       transform="scale(1,1) translate(367.807,195.049)"
+       filter="url(#49c4eefd-41c0-4bea-8e41-c547b4a0d9a8)"
+       id="g441">
+      <g
+         transform="scale(1,1) translate(0,0)"
+         stroke="#CFE9F7"
+         fill="#E2AEE3"
+         fill-opacity="1"
+         stroke-opacity="1"
+         filter="url(#8935e756-8ac5-437c-8061-35dc1236fb5f)"
+         id="g431">
+        <path
+           d="M0,5 a5,5 0 0,1 5,-5 l14.657,0 a5,5 0 0,1 5,5 l0,14.657 a5,5 0 0,1 -5,5 l-14.657,0 a5,5 0 0,1 -5,-5 z"
+           stroke-width="1"
+           stroke-dasharray="none"
+           id="path429" />
+      </g>
+      <g
+         width="20.72764728773092"
+         height="20.72764728773092"
+         transform="scale(1,1) translate(1.964,1.964)"
+         id="g439">
+        <text
+           width="20.72764728773092"
+           height="16.927082061767578"
+           transform="scale(1,1) translate(0,1.9002826129816714)"
+           xml:space="preserve"
+           id="text437"><tspan
+             xml:space="preserve"
+             text-rendering="optimizeSpeed"
+             font-size="13.88888888888889"
+             font-weight="bold"
+             font-style="italic"
+             text-decoration="none"
+             fill="#333333"
+             opacity="1"
+             x="0.11"
+             text-anchor="start"
+             y="13.346"
+             textLength="3.4077959060668945"
+             style="font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;"
+             id="tspan433">i</tspan><tspan
+             xml:space="preserve"
+             text-rendering="optimizeSpeed"
+             font-size="13.88888888888889"
+             font-weight="normal"
+             font-style="normal"
+             text-decoration="none"
+             fill="#333333"
+             opacity="1"
+             x="6.661"
+             text-anchor="start"
+             y="13.346"
+             textLength="13.956705093383789"
+             style="font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;"
+             id="tspan435">+5</tspan></text>
+      </g>
+    </g>
+    <g
+       width="24.657"
+       height="24.657"
+       transform="scale(1,1) translate(420.38,195.778)"
+       filter="url(#49c4eefd-41c0-4bea-8e41-c547b4a0d9a8)"
+       id="g455">
+      <g
+         transform="scale(1,1) translate(0,0)"
+         stroke="#CFE9F7"
+         fill="#E2AEE3"
+         fill-opacity="1"
+         stroke-opacity="1"
+         filter="url(#8935e756-8ac5-437c-8061-35dc1236fb5f)"
+         id="g445">
+        <path
+           d="M0,5 a5,5 0 0,1 5,-5 l14.657,0 a5,5 0 0,1 5,5 l0,14.657 a5,5 0 0,1 -5,5 l-14.657,0 a5,5 0 0,1 -5,-5 z"
+           stroke-width="1"
+           stroke-dasharray="none"
+           id="path443" />
+      </g>
+      <g
+         width="20.72764728773092"
+         height="20.72764728773092"
+         transform="scale(1,1) translate(1.964,1.964)"
+         id="g453">
+        <text
+           width="20.72764728773092"
+           height="16.927082061767578"
+           transform="scale(1,1) translate(0,1.9002826129816714)"
+           xml:space="preserve"
+           id="text451"><tspan
+             xml:space="preserve"
+             text-rendering="optimizeSpeed"
+             font-size="13.88888888888889"
+             font-weight="bold"
+             font-style="italic"
+             text-decoration="none"
+             fill="#333333"
+             opacity="1"
+             x="0.11"
+             text-anchor="start"
+             y="13.346"
+             textLength="3.4077959060668945"
+             style="font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;"
+             id="tspan447">i</tspan><tspan
+             xml:space="preserve"
+             text-rendering="optimizeSpeed"
+             font-size="13.88888888888889"
+             font-weight="normal"
+             font-style="normal"
+             text-decoration="none"
+             fill="#333333"
+             opacity="1"
+             x="6.661"
+             text-anchor="start"
+             y="13.346"
+             textLength="13.956705093383789"
+             style="font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;"
+             id="tspan449">+6</tspan></text>
+      </g>
+    </g>
+    <g
+       width="28.031"
+       height="28.031"
+       transform="scale(1,1) translate(479.538,194.091)"
+       filter="url(#8ef3e036-df87-4390-8972-5d0dd9e0cb63)"
+       id="g469">
+      <g
+         transform="scale(1,1) translate(0,0)"
+         stroke="#CFE9F7"
+         fill="#E2AEE3"
+         fill-opacity="1"
+         stroke-opacity="1"
+         filter="url(#65127612-b4dc-48d9-85aa-c08b5b94c569)"
+         id="g459">
+        <path
+           d="M0,5 a5,5 0 0,1 5,-5 l18.031,0 a5,5 0 0,1 5,5 l0,18.031 a5,5 0 0,1 -5,5 l-18.031,0 a5,5 0 0,1 -5,-5 z"
+           stroke-width="1"
+           stroke-dasharray="none"
+           id="path457" />
+      </g>
+      <g
+         width="24.101886934478618"
+         height="24.101886934478618"
+         transform="scale(1,1) translate(1.964,1.964)"
+         id="g467">
+        <text
+           width="24.101886934478618"
+           height="16.927082061767578"
+           transform="scale(1,1) translate(0,3.5874024363555197)"
+           xml:space="preserve"
+           id="text465"><tspan
+             xml:space="preserve"
+             text-rendering="optimizeSpeed"
+             font-size="13.88888888888889"
+             font-weight="bold"
+             font-style="italic"
+             text-decoration="none"
+             fill="#333333"
+             opacity="1"
+             x="0"
+             text-anchor="start"
+             y="13.346"
+             textLength="6.5511064529418945"
+             style="font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;"
+             id="tspan461"> i</tspan><tspan
+             xml:space="preserve"
+             text-rendering="optimizeSpeed"
+             font-size="13.88888888888889"
+             font-weight="normal"
+             font-style="normal"
+             text-decoration="none"
+             fill="#333333"
+             opacity="1"
+             x="6.551"
+             text-anchor="start"
+             y="13.346"
+             textLength="17.094928741455078"
+             style="font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;"
+             id="tspan463"> +7</tspan></text>
+      </g>
+    </g>
+    <g
+       width="183.823"
+       height="22.135"
+       transform="scale(1,1) translate(205.845,29.583)"
+       id="g481">
+      <g
+         stroke="#545454"
+         stroke-opacity="1"
+         stroke-width="0"
+         stroke-dasharray="none"
+         width="183.823"
+         height="22.135"
+         transform="scale(1,1) translate(0,0)"
+         fill="none"
+         id="g473">
+        <rect
+           width="183.823"
+           height="22.135"
+           id="rect471" />
+      </g>
+      <g
+         width="183.82261657714844"
+         height="22.13541603088379"
+         transform="scale(1,1) translate(0,0)"
+         id="g479">
+        <text
+           width="183.82261657714844"
+           height="22.13541603088379"
+           transform="scale(1,1) translate(0,0)"
+           xml:space="preserve"
+           id="text477"><tspan
+             xml:space="preserve"
+             text-rendering="optimizeSpeed"
+             font-size="18.055555555555557"
+             font-weight="bold"
+             font-style="normal"
+             text-decoration="none"
+             fill="#333333"
+             opacity="1"
+             x="0"
+             text-anchor="start"
+             y="17.253"
+             textLength="183.82261657714844"
+             style="font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;"
+             id="tspan475">Sequential Data Streams</tspan></text>
+      </g>
+    </g>
+    <g
+       width="434.58"
+       height="118.815"
+       transform="scale(1,1) translate(107.141,288.911)"
+       id="g499">
+      <g
+         stroke="#545454"
+         stroke-opacity="1"
+         stroke-width="0"
+         stroke-dasharray="none"
+         width="434.58"
+         height="118.815"
+         transform="scale(1,1) translate(0,0)"
+         fill="none"
+         id="g485">
+        <rect
+           width="434.58"
+           height="118.815"
+           id="rect483" />
+      </g>
+      <g
+         width="434.58044433593756"
+         height="118.81509780883789"
+         transform="scale(1,1) translate(0,0)"
+         id="g497">
+        <text
+           width="434.58044433593756"
+           height="118.81509780883789"
+           transform="scale(1,1) translate(0,0)"
+           xml:space="preserve"
+           id="text495"><tspan
+             xml:space="preserve"
+             text-rendering="optimizeSpeed"
+             font-size="19.444444444444443"
+             font-weight="normal"
+             font-style="italic"
+             text-decoration="none"
+             fill="#333333"
+             opacity="1"
+             x="0"
+             text-anchor="start"
+             y="18.555"
+             textLength="310.6231384277344"
+             style="font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;"
+             id="tspan487">&quot;observations&quot; may occur nonuniformly</tspan><tspan
+             xml:space="preserve"
+             text-rendering="optimizeSpeed"
+             font-size="19.444444444444443"
+             font-weight="normal"
+             font-style="italic"
+             text-decoration="none"
+             fill="#333333"
+             opacity="1"
+             x="0"
+             text-anchor="start"
+             y="42.318"
+             textLength="434.5804443359375"
+             style="font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;"
+             id="tspan489">    (the time between successive observations may vary)</tspan><tspan
+             xml:space="preserve"
+             text-rendering="optimizeSpeed"
+             font-size="19.444444444444443"
+             font-weight="normal"
+             font-style="italic"
+             text-decoration="none"
+             fill="#333333"
+             opacity="1"
+             x="0"
+             text-anchor="start"
+             y="89.844"
+             textLength="312.9831848144531"
+             style="font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;"
+             id="tspan491">indices are presumed uniformly stepped</tspan><tspan
+             xml:space="preserve"
+             text-rendering="optimizeSpeed"
+             font-size="19.444444444444443"
+             font-weight="normal"
+             font-style="italic"
+             text-decoration="none"
+             fill="#333333"
+             opacity="1"
+             x="0"
+             text-anchor="start"
+             y="113.607"
+             textLength="387.9089050292969"
+             style="font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;"
+             id="tspan493">   (successive indices are equidistant, usually by 1)</tspan></text>
+      </g>
+    </g>
+  </g>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:'Libertinus Sans';-inkscape-font-specification:'Libertinus Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#7c04a3;fill-opacity:1"
+     x="134.16673"
+     y="159.67639"
+     id="text784"><tspan
+       sodipodi:role="line"
+       id="tspan782"
+       x="134.16673"
+       y="159.67639">observations are identified by ordinal number (not by interval)</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.3333px;font-family:'Libertinus Sans';-inkscape-font-specification:'Libertinus Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;overflow:hidden;fill:#7c04a3;fill-opacity:1"
+     x="127.23624"
+     y="266.95026"
+     id="text784-0"><tspan
+       sodipodi:role="line"
+       id="tspan782-1"
+       x="127.23624"
+       y="266.95026">indices are identified by sequential offsets (given at equal intervals)</tspan></text>
+</svg>
