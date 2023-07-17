@@ -1,7 +1,8 @@
 ### Sequential Data
 
-![sequential data streams](https://github.com/JeffreySarnoff/WindowedFunctions.jl/blob/main/docs/assets/png/SequentiallData.png)
+![png](https://github.com/JeffreySarnoff/WindowedFunctions.jl/blob/main/docs/assets/png/SequentialData.png)
 
-![Tiling Windows Over Data](https://github.com/JeffreySarnoff/WindowedFunctions.jl/blob/main/docs/assets/svg/TilingWindowsOverData.svg)
+![pdf](https://github.com/JeffreySarnoff/WindowedFunctions.jl/blob/main/docs/assets/pdf/SequentialDataStreams.pdf)
 
+![svg](https://github.com/JeffreySarnoff/WindowedFunctions.jl/blob/main/docs/assets/svg/SequentialDataStreams.svg)
 
