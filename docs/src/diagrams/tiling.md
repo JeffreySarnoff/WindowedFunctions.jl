@@ -1,6 +1,5 @@
-[png](https://github.com/JeffreySarnoff/WindowedFunctions/blob/main/docs/assets/png/TilingWindowsOverData.png)
+Tiling covers adjacent subsequences of a given extent 
+with a corresponding sequence of adjacent windows.
 
-[png](https://github.com/JeffreySarnoff/WindowedFunctions/main/blob/docs/assets/png/TilingWindowsOverData.png)
 
-![png](.//docs//assets//png//TilingWindowsOverData.png)
 
