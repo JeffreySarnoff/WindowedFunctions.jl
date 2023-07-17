@@ -14,7 +14,10 @@ makedocs(
     ),
     pages = Any[
         "Home" => "index.md",
-        "Diagrams" => "design/diagrams.md",
+        "Diagrams" => Any[
+            "sequential data" => "diagrams/sequentialdata.md",
+            "tiling"=>"diagrams/tiling.md"
+        ],
         "Capabilites" => Any[
            "Shared Example" => "approach/sharedexample.md",
            "padding" => "approach/padding.md",
