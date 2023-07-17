@@ -14,7 +14,7 @@ makedocs(
     ),
     pages = Any[
         "Home" => "index.md",
-        "Diagrams" => "diagrams.md",
+        "Diagrams" => "design/diagrams.md",
         "Capabilites" => Any[
            "Shared Example" => "approach/sharedexample.md",
            "padding" => "approach/padding.md",
