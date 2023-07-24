@@ -11,7 +11,7 @@ __This package lets you apply functions over data through moving windows, provid
 
 ### rolling
 
-```
+``` julia
 data  = [1, 2, 3, 4, 5, 6]  # here, a single vector
 width = 3  # a window covering 3 indices at a time
 slide = 1  # the window advances in steps of 1 index
@@ -37,7 +37,7 @@ The call to `rolling` above has two keyword arguments.  In the first example,
 their default values were used.  Fully elaborated, that call becomes:
 > `rolling(sum, width, data; padding=nopadding, atend=false)`
 
-```
+``` julia
 data    = [1, 2, 3, 4, 5, 6]
 width   = 3 # a window covering 3 indices at a time
 slide   = 1 # the window advances in steps of 1 index
@@ -63,7 +63,7 @@ rolling(sum, width, data; padding=0, atend=true) == (6, 9, 12, 15, 0, 0)
 `tiling` slides the window just past its current ending index.
 - it is similar to `rolling`, and it is used the same way.
 
-```
+``` julia
 data  = [1, 2, 3, 4, 5, 6]  # here, a single vector
 width = 3      # a window covering 3 indices at a time
 slide = width  # the window advances over itself
@@ -81,7 +81,11 @@ In the above example, all of the data was used (seen by the moving window).
 When `tiling`, that occurs if and only if `mod(length(data), width) == 0`.
 Otherwise, one or more (at most `width-1`) data items will not be seen.
 
-```
+The call to `tiling` above has two keyword arguments.  In the first example,
+their default values were used.  Fully elaborated, that call becomes:
+> `tiling(sum, width, data; padding=nopadding, atend=false)`
+
+``` julia
 data  = [1, 2, 3, 4, 5, 6, 7, 8]
 width = 3      # a window covering 3 indices at a time
 slide = width  # the window advances over itself
@@ -105,7 +109,7 @@ tiling(sum, width, data; atend=true) == (12, 21)  # this package
 - that omitted tile is replaced with the padding value
 - at most 1 tile is incomplete, so there can be at most 1 index padded
 
-```
+``` julia
 tiling(sum, width, data; padding=missing)              == (missing, 6, 15)
 tiling(sum, width, data; padding=missing, atend=false) == (missing, 6, 15)
 tiling(sum, width, data; padding=missing, atend=true)  == (12, 21, missing)
@@ -135,7 +139,7 @@ successively forshortened windows.
 
 `running` is a variation on `rolling` that replaces `padding` with `tapering`.
 
-```
+``` julia
 data    = [1, 2, 3, 4, 5, 6]
 width   = 3 # a window covering 3 indices at a time
 slide   = 1 # the window advances in steps of 1 index
@@ -151,24 +155,20 @@ slide   = 1 # the window advances in steps of 1 index
         (1,), (1+2), (1+2+3), (2+3+4), (3+4+5), (4+5+6)
         (1,    3,     6,       9,       12,      15)      # the result
 running(sum, width, data) == (1, 3, 6, 9, 12, 15)         # this package
-```
-running a function and using `atend=true` can be problematic
-```
-# using sum with tapering at the end
-        (1+2+3), (2+3+4), (3+4+5), (4+5+6), (5+6), (6,)
-        (6, 9, 12, 15, 11, 5)                             # the result
-running(sum, width, data; atend=true) == (6, 9, 12, 15, 11, 5)
-```
-
-There is a keyword argument `scale::Bool=false` that does nothing
-by default and scales each tapered value by `width / current_taper_length`
-when set to `true`.
 
 ```
+
+The call to `running` above has three keyword arguments.  In the first example,
+their default values were used.  Fully elaborated, that call becomes:
+> `running(sum, width, data; padding=nopadding, atend=false, scale=false)`
+
+To scale tapered value by `width / current_taper_length`,use `scale=true`.
+
+``` julia
 # using sum with scaled tapering (at start, the default)
         (1 * 3/1,), ((1+2) * 3/2), (1+2+3), (2+3+4), (3+4+5), (4+5+6)
         (3.0,         4.5,          6.0,     9.0,     12.0,    15.0)
-running(sum, width, data; scale=true) == (3.0, 4.5, 6.0, 9.0, 12.0, 15.0)
+running(sum, width, data; scale=true)              == (3.0, 4.5, 6.0, 9.0, 12.0, 15.0)
 running(sum, width, data; atend=false, scale=true) == (3.0, 4.5, 6.0, 9.0, 12.0, 15.0)
 
 # using sum with scaled tapering at the end
