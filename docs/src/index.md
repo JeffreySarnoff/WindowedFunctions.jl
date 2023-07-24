@@ -160,6 +160,25 @@ running a function and using `atend=true` can be problematic
 running(sum, width, data; atend=true) == (6, 9, 12, 15, 11, 5)
 ```
 
+There is a keyword argument `scale::Bool=false` that does nothing
+by default and scales each tapered value by `width / current_taper_length`
+when set to `true`.
+
+```
+# using sum with scaled tapering (at start, the default)
+        (1 * 3/1,), ((1+2) * 3/2), (1+2+3), (2+3+4), (3+4+5), (4+5+6)
+        (3.0,         4.5,          6.0,     9.0,     12.0,    15.0)
+running(sum, width, data; scale=true) == (3.0, 4.5, 6.0, 9.0, 12.0, 15.0)
+running(sum, width, data; atend=false, scale=true) == (3.0, 4.5, 6.0, 9.0, 12.0, 15.0)
+
+# using sum with scaled tapering at the end
+        (1+2+3), (2+3+4), (3+4+5), (4+5+6), ((5+6) * 3/2,), (6 * 3/1,)
+        (6.0,     9.0,     12.0,    15.0,    16.5,           18.0)
+running(sum, width, data; atend=true, scale=true) == (6.0, 9.0, 12.0, 15.0, 16.5, 18.0)
+```
+
+
+
 
 
 
