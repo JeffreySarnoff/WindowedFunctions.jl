@@ -1,4 +1,68 @@
-#### functions move over data windows
+
+__This package lets you apply functions over data through moving windows, providing insight.__
+
+|                                                       |
+|:-----------------------------------------------------:|
+| WindowedFunctions.jl © 2017-2023 by Jeffrey Sarnoff.  |
+| This work product is released under the MIT License.  |
+|                                                       |
+
+## a function, a moving window, and a data sequence
+
+### rolling
+
+```
+data  = [1, 2, 3, 4, 5, 6]
+width = 3 # a window covering 3 indices at a time
+slide = 1 # the window advances in steps of 1 index
+the moving window covers
+        (1,2,3), (2,3,4), (3,4,5), (4,5,6)   # windowed data
+using sum
+        (1+2+3), (2+3+4), (3+4+5), (4+5+6)
+        (6,       9,       12,      15)      # the result
+
+rolling(sum, width, data) == (6, 9, 12, 15)  # this package
+```
+
+_`rolling` means the slide == 1_
+With basic `rolling`, the result has `length(data) - (width - 1)` entries.
+Often, it is useful to generate a result with length matching the length of the data.
+This requires `padding` the `(width - 1)` entries that would have been omitted
+with some designated filler value. These fillers may be placed at the start of
+the result or at the end of the result.
+
+The call to `rolling` above has two keyword arguments.  In the first example,
+their default values were used.  Fully elaborated, that call becomes:
+> `rolling(sum, width, data; padding=nopadding, atend=false)`
+
+```
+data    = [1, 2, 3, 4, 5, 6]
+width   = 3 # a window covering 3 indices at a time
+slide   = 1 # the window advances in steps of 1 index
+padding = 0 # the filler value
+
+the moving window covers
+        (1,2,3), (2,3,4), (3,4,5), (4,5,6)   # windowed data
+
+using sum
+        (6,       9,       12,      15)      # the result
+rolling(sum, width, data) == (6, 9, 12, 15)  # this package
+
+using sum with padding (at start, the default)
+        (0, 0, 6, 9, 12, 15)                 # the result
+rolling(sum, width, data; padding=0) == (0, 0, 6, 9, 12, 15)
+
+using sum with padding at the end
+        (6, 9, 12, 15, 0, 0)                 # the result
+rolling(sum, width, data; padding=0, atend=true) == (6, 9, 12, 15, 0, 0)
+```
+### tiling
+
+
+
+
+
+
 
        data into subparts
        subparts recieve focus as windows move
@@ -8,10 +72,7 @@
 
 
 
-|                                                       |
-|:-----------------------------------------------------:|
-| WindowedFunctions.jl © 2017-2023 by Jeffrey Sarnoff   |
-|                                                       |
+
 
 ### Worked Examples
 
@@ -21,16 +82,19 @@ Concepts are illustrated and developed with shared data.
 ----
 
 ##### in three different ways
+
 - [__rolling__](approach/rolling.md)
 - [__tiling__](approach/tiling.md)
 - [__running__](approach/running.md)
 
 ##### optionally specifying
+
 - [__weights__](approach/weights.md)
 - [__padding__](approach/padding.md)
 - [__pad placement__](approach/atend.md)
 
 ##### with these data sequences
+
 - [__datastreams__](approach/datastreams.md)
 
 
