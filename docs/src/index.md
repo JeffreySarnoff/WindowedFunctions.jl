@@ -60,8 +60,8 @@ rolling(sum, width, data; padding=0, atend=true) == (6, 9, 12, 15, 0, 0)
 ```
 ### tiling
 
-`tiling` slides the window by an amount equal to the window width.
-So, it is similar to `rolling` and it is used the same way.
+`tiling` slides the window just past its current ending index.
+- it is similar to `rolling`, and it is used the same way.
 
 ```
 data  = [1, 2, 3, 4, 5, 6]  # here, a single vector
@@ -127,26 +127,42 @@ be inelegant with certain data sequences.  You may want to take some
 local estimator as the pad value, precomputing a short sample.
 
 This package offers an alternative approach, `tapering`.
-
-To taper is to apply the windowing function to a subsequence of the
-data that is shorter than the window width.  This gives an approximation
-of the expected value of the windowing function when applied to a
-partial window in the absence of other contextual information.
-
-
+Rather than pad with a preselected value, `tapering` determines the
+values to be appended using the same windowing function over
+successively forshortened windows.
 
 ### Running
 
+`running` is a variation on `rolling` that replaces `padding` with `tapering`.
+
+```
+data    = [1, 2, 3, 4, 5, 6]
+width   = 3 # a window covering 3 indices at a time
+slide   = 1 # the window advances in steps of 1 index
+
+# the moving window covers
+        (1,2,3), (2,3,4), (3,4,5), (4,5,6)   # windowed data
+
+# using sum
+        (1+2+3), (2+3+4), (3+4+5), (4+5+6)
+        (6,       9,       12,      15)      # the result
+
+# using sum with tapering (at start, the default)
+        (1,), (1+2), (1+2+3), (2+3+4), (3+4+5), (4+5+6)
+        (1,    3,     6,       9,       12,      15)      # the result
+running(sum, width, data) == (1, 3, 6, 9, 12, 15)         # this package
+```
+running a function and using `atend=true` can be problematic
+```
+# using sum with tapering at the end
+        (1+2+3), (2+3+4), (3+4+5), (4+5+6), (5+6), (6,)
+        (6, 9, 12, 15, 11, 5)                             # the result
+running(sum, width, data; atend=true) == (6, 9, 12, 15, 11, 5)
+```
 
 
 
 
-
-       data into subparts
-       subparts recieve focus as windows move
-       functions apply to successive subparts
-       window reveals subpart values
-       function applies over window onto subpart
 
 
 
