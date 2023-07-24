@@ -12,12 +12,14 @@ __This package lets you apply functions over data through moving windows, provid
 ### rolling
 
 ```
-data  = [1, 2, 3, 4, 5, 6]
-width = 3 # a window covering 3 indices at a time
-slide = 1 # the window advances in steps of 1 index
-the moving window covers
+data  = [1, 2, 3, 4, 5, 6]  # here, a single vector
+width = 3  # a window covering 3 indices at a time
+slide = 1  # the window advances in steps of 1 index
+
+# the moving window covers
         (1,2,3), (2,3,4), (3,4,5), (4,5,6)   # windowed data
-using sum
+
+# using sum
         (1+2+3), (2+3+4), (3+4+5), (4+5+6)
         (6,       9,       12,      15)      # the result
 
@@ -41,25 +43,73 @@ width   = 3 # a window covering 3 indices at a time
 slide   = 1 # the window advances in steps of 1 index
 padding = 0 # the filler value
 
-the moving window covers
+# the moving window covers
         (1,2,3), (2,3,4), (3,4,5), (4,5,6)   # windowed data
 
-using sum
+# using sum
         (6,       9,       12,      15)      # the result
 rolling(sum, width, data) == (6, 9, 12, 15)  # this package
 
-using sum with padding (at start, the default)
+# using sum with padding (at start, the default)
         (0, 0, 6, 9, 12, 15)                 # the result
 rolling(sum, width, data; padding=0) == (0, 0, 6, 9, 12, 15)
 
-using sum with padding at the end
+# using sum with padding at the end
         (6, 9, 12, 15, 0, 0)                 # the result
 rolling(sum, width, data; padding=0, atend=true) == (6, 9, 12, 15, 0, 0)
 ```
 ### tiling
 
+`tiling` slides the window by an amount equal to the window width.
+So, it is similar to `rolling` and it is used the same way.
 
+```
+data  = [1, 2, 3, 4, 5, 6]  # here, a single vector
+width = 3      # a window covering 3 indices at a time
+slide = width  # the window advances over itself
 
+# the moving window covers
+        (1,2,3), (4,5,6)      # windowed data
+
+# using sum
+        (1+2+3), (4+5+6)
+        (6,       15,  )      # the result
+
+tiling(sum, width, data) == (6, 15)  # this package
+```
+In the above example, all of the data was used (seen by the moving window).
+When `tiling`, that occurs if and only if `mod(length(data), width) == 0`.
+Otherwise, one or more (at most `width-1`) data items will not be seen.
+
+```
+data  = [1, 2, 3, 4, 5, 6, 7, 8]
+width = 3      # a window covering 3 indices at a time
+slide = width  # the window advances over itself
+omitted = mod(length(data), width) # 2 indices do not contribute to the result
+
+# the moving window either
+#       covers [default]  or  covers [atend=true]
+        (1,2,3), (4,5,6)      (3,4,5), (6,7,8)    # the possible windowed data
+
+# using sum
+        (1+2+3), (4+5+6)  or  (3+4+5), (6+7+8)
+        (6,       15,  )      (12,      21   )    # the possible results
+
+tiling(sum, width, data) == (6, 15)               # this package
+tiling(sum, width, data; atend=true) == (12, 21)  # this package
+```
+
+`padding` can be used when `tiling` (it is ignored where all data is used):
+
+- if there is an incomplete tile `mod(length(data), width) != 0`
+- that omitted tile is replaced with the padding value
+- at most 1 tile is incomplete, so there can be at most 1 index padded
+
+```
+tiling(sum, width, data; padding=missing)              == (missing, 6, 15)
+tiling(sum, width, data; padding=missing, atend=false) == (missing, 6, 15)
+tiling(sum, width, data; padding=missing, atend=true)  == (12, 21, missing)
+```
 
 
 
