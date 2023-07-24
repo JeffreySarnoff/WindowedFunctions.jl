@@ -111,6 +111,34 @@ tiling(sum, width, data; padding=missing, atend=false) == (missing, 6, 15)
 tiling(sum, width, data; padding=missing, atend=true)  == (12, 21, missing)
 ```
 
+### Tapering
+
+Padding is very helpful, it simplifies handling.  It does require selecting
+a single value to use as the _pad_. While any value that makes sense within
+the context of the data sequence may be used, it is not always obvious what
+value is best. If your handling supports (even better, resolves) `missing`,
+then that is a fine and generally robust choice.
+
+Otherwise, with numeric data it is desireable to use a padding value that
+is unlikely to warp the information you are gathering.  Zero is the neutral
+value for additive processing. One is the neutral value for multiplicative
+processing.  For more involved processing, any predetermined choice may
+be inelegant with certain data sequences.  You may want to take some
+local estimator as the pad value, precomputing a short sample.
+
+This package offers an alternative approach, `tapering`.
+
+To taper is to apply the windowing function to a subsequence of the
+data that is shorter than the window width.  This gives an approximation
+of the expected value of the windowing function when applied to a
+partial window in the absence of other contextual information.
+
+
+
+### Running
+
+
+
 
 
 
