@@ -1,9 +1,3 @@
-__under construction__
-(_see tests_)
-
-- You have a data sequence 𝐷𝑎𝑡𝑎, the Vector[1, 2, 3, 4, 5].
-- The window width 𝑆𝑝𝑎𝑛 of each subsequence is 3.
-- The function 𝐹𝑢𝑛𝑐 to be applied over subsequences of 𝐷𝑎𝑡𝑎 is sum.
 
 ```
 using RollingFunctions

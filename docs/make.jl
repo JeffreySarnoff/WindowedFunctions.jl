@@ -20,12 +20,6 @@ makedocs(
             "weights" => "approach/weights.md",
             "datastreams" => "approach/datastreams.md"
         ],
-        "Uses" => Any[
-                "rolling" => "use/rolling.md",
-                "tiling"=>"use/tiling.md",
-                "running"=>"use/running.md",
-                "datastreams" => "use/datastreams.md"
-        ],
         "References" => "references.md",
         "Thanks" => "thanks.md"
     ]
