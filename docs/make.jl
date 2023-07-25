@@ -14,40 +14,17 @@ makedocs(
     ),
     pages = Any[
         "Home" => "index.md",
-        "Diagrams" => Any[
-            "sequential data" => "diagrams/sequentialdata.md",
-            "tiling"=>"diagrams/tiling.md"
+        "Options" => Any[
+            "padding"=>"approach/padding.md",
+            "atend"=>"approach/atend.md",
+            "weights" => "approach/weights.md",
+            "datastreams" => "approach/datastreams.md"
         ],
-        "Capabilites" => Any[
-           "Shared Example" => "approach/sharedexample.md",
-           "padding" => "approach/padding.md",
-           "weights" => "approach/weights.md"
-        ],
-        "Approaches" => Any[
-            "Designs" => Any[
-                "rolling" => "approach/rolling.md",
-                "tiling"  => "approach/tiling.md",
-                "running" => "approach/running.md",
-                "datastreams" => "approach/datastreams.md"
-            ],
-            "Uses" => Any[
+        "Uses" => Any[
                 "rolling" => "use/rolling.md",
                 "tiling"=>"use/tiling.md",
                 "running"=>"use/running.md",
-                "datastreams" => "use/datastreams.md",
-            ],
-        ],
-        "Options" => Any[
-            "Designs" => Any[
-                "padding"=>"approach/padding.md",
-                "atend"=>"approach/atend.md",
-                "weights" => "approach/weights.md"
-            ],
-            "Uses"=>Any[
-                "padding"=>"use/padding.md",
-                "atend"=>"use/atend.md",
-                "weights"=>"use/weights.md",
-            ],
+                "datastreams" => "use/datastreams.md"
         ],
         "References" => "references.md",
         "Thanks" => "thanks.md"

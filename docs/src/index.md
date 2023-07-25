@@ -1,5 +1,7 @@
 
-__This package lets you apply functions over data through moving windows, providing insight.__
+
+# Introducing Windowed Functions
+#### __apply functions over data through moving windows__
 
 |                                                       |
 |:-----------------------------------------------------:|
@@ -7,9 +9,7 @@ __This package lets you apply functions over data through moving windows, provid
 | This work product is released under the MIT License.  |
 |                                                       |
 
-## a function, a moving window, and a data sequence
-
-### rolling
+## Rolling
 
 ``` julia
 data  = [1, 2, 3, 4, 5, 6]  # here, a single vector
@@ -58,7 +58,7 @@ rolling(sum, width, data; padding=0) == (0, 0, 6, 9, 12, 15)
         (6, 9, 12, 15, 0, 0)                 # the result
 rolling(sum, width, data; padding=0, atend=true) == (6, 9, 12, 15, 0, 0)
 ```
-### tiling
+## Tiling
 
 `tiling` slides the window just past its current ending index.
 - it is similar to `rolling`, and it is used the same way.
@@ -103,7 +103,7 @@ tiling(sum, width, data) == (6, 15)               # this package
 tiling(sum, width, data; atend=true) == (12, 21)  # this package
 ```
 
-`padding` can be used when `tiling` (it is ignored where all data is used):
+When `tiling` covers the data incompletely, `padding` is available:
 
 - if there is an incomplete tile `mod(length(data), width) != 0`
 - that omitted tile is replaced with the padding value
@@ -115,7 +115,8 @@ tiling(sum, width, data; padding=missing, atend=false) == (missing, 6, 15)
 tiling(sum, width, data; padding=missing, atend=true)  == (12, 21, missing)
 ```
 
-### Tapering
+## Running
+#### _tapering functions_
 
 Padding is very helpful, it simplifies handling.  It does require selecting
 a single value to use as the _pad_. While any value that makes sense within
@@ -135,7 +136,7 @@ Rather than pad with a preselected value, `tapering` determines the
 values to be appended using the same windowing function over
 successively forshortened windows.
 
-### Running
+#### running functions through moving windows onto data
 
 `running` is a variation on `rolling` that replaces `padding` with `tapering`.
 
@@ -158,6 +159,11 @@ running(sum, width, data) == (1, 3, 6, 9, 12, 15)         # this package
 
 ```
 
+----
+
+#### __FUTURE CAPABILITY__
+##### Not Yet Implemented
+
 The call to `running` above has three keyword arguments.  In the first example,
 their default values were used.  Fully elaborated, that call becomes:
 > `running(sum, width, data; padding=nopadding, atend=false, scale=false)`
@@ -178,110 +184,3 @@ running(sum, width, data; atend=true, scale=true) == (6.0, 9.0, 12.0, 15.0, 16.5
 ```
 
 
-
-
-
-
-
-
-
-
-
-### Worked Examples
-
-Each method is shown, examples clarify proper use.
-Concepts are illustrated and developed with shared data.
-
-----
-
-##### in three different ways
-
-- [__rolling__](approach/rolling.md)
-- [__tiling__](approach/tiling.md)
-- [__running__](approach/running.md)
-
-##### optionally specifying
-
-- [__weights__](approach/weights.md)
-- [__padding__](approach/padding.md)
-- [__pad placement__](approach/atend.md)
-
-##### with these data sequences
-
-- [__datastreams__](approach/datastreams.md)
-
-
-----
-
-## Capabilities
-
-----
-
-#### __padding__
-###### - extends the length of an obtained result
-###### - may be placed at the start or at the end of the result
-###### - is controlled with keyword args
-
-| _keyword_  | _default_    | _action_     |
-|:-----------|:-------------|:-------------|
-| `padding`  | `nopadding`  | do not pad   |
-| `atend`    | false        | pad at start |
-
-   - where `padding = nopadding`, `atend` is ignored.
------
-
-#### __data sources__
-
-##### sequence
-- _unweighted_
-   - ≺ rolling | tiling | running ≻(fn, width, seq)
-- _weighted_
-   - ≺ rolling | tiling | running ≻(fn, width, seq, weights)
-
-##### multisequence
-- _unweighted_
-   - ≺ rolling | tiling | running ≻(fn, width, seq1, seq2)
-   - ≺ rolling | tiling | running ≻(fn, width, seq1, seq2, seq3)
-- _weighted_
-   - ≺ rolling | tiling | running ≻(fn, width, seq1, seq2, _weighting_)
-   - ≺ rolling | tiling | running ≻(fn, width, seq1, seq2, seq3, _weighting_)
-
-
-| multisequence     |   |      signature                                            |
-|:------------------|---|:----------------------------------------------------------|
-|                   |   | ≺ rolling \| tiling \| running ≻(fn, width, _`rest`_...)  |
-|                   |   | _`rest`_ are the remaining args, they follow `width`      |
-|                   |   |                                                           |
-| _unweighted_      |   |                                                           |
-|                   |   |(seq1, seq2)                                               |
-|                   |   |(seq1, seq2, seq3)                                         |
-|                   |   |                                                           |
-| _shared weights_  |   |                                                           |
-|                   |   |(seq1, seq2, weights)                                      |
-|                   |   |(seq1, seq2, seq3, weights)                                |
-|                   |   |                                                           |
-| _unique weights_  |   |                                                           |
-|                   |   |(seq1, seq2, [weights1, weights2])                         |
-|                   |   |(seq1, seq2, seq3, [weights1, weights2, weights3])         |
-|                   |   |                                                           |
-
-
-
-
-##### matrix
-
-- columns are data sequences
-   - _each column is processed independently_
-   - _the windowed fn is applied columnwise_
-
-###### _unweighted_
-- ≺ rolling | tiling | running ≻(fn, width, datamatrix)
-
-###### _weighted (shared weights)_
-- ≺ rolling | tiling | running ≻(fn, width, datamatrix, weights)
-
-###### _weighted (column weights)_
- - ≺ rolling | tiling | running ≻(fn, width, datamatrix, weightmatrix)
-
-
-----
