@@ -112,3 +112,13 @@ next_window_content =
 =#
 ```
 
+#### moving through a recursive Z pattern
+
+uses
+- [erosion, dilation, opening, closing, thinning, thickening](https://homepages.inf.ed.ac.uk/rbf/HIPR2/hitmiss.htm)
+
+refs
+- [wikipedia](https://en.wikipedia.org/wiki/Z-order_curve)
+- [Morton coding](https://github.com/JaneliaSciComp/Morton.jl)
+- [TiledViews](https://github.com/bionanoimaging/TiledViews.jl)
+- [TiledIteration](https://github.com/JuliaArrays/TiledIteration.jl)
