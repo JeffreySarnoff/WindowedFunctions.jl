@@ -20,6 +20,7 @@ makedocs(
             "weights" => "approach/weights.md",
             "datastreams" => "approach/datastreams.md"
         ],
+        "Future Dev" => "design/futures.md",
         "References" => "references.md",
         "Thanks" => "thanks.md"
     ]
