@@ -112,10 +112,25 @@ next_window_content =
 =#
 ```
 
-#### moving through a recursive Z pattern
+#### _moving through a recursive Z pattern_
 
 uses
 - [erosion, dilation, opening, closing, thinning, thickening](https://homepages.inf.ed.ac.uk/rbf/HIPR2/hitmiss.htm)
+
+max indices
+
+```
+# 2D
+julia> x=2^16; morton=cartesian2morton([x,x]); match= ([x,x]==morton2cartesian(morton));
+julia> (; coords=:xy, x, morton, match)
+(coords = :xy, x = 65536, morton = 4294967296, match = true)
+
+# 3D
+julia> x=2^10; morton=cartesian3morton([x,x,x]); match= ([x,x,x]==morton3cartesian(morton));
+julia> (; coords=:xyz, x, morton, match)
+(coords = :xyz, x = 1024, morton = 1073741824, match = true)
+
+```
 
 refs
 - [wikipedia](https://en.wikipedia.org/wiki/Z-order_curve)
