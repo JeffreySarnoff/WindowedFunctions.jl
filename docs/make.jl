@@ -20,12 +20,7 @@ makedocs(
             "weights" => "approach/weights.md",
             "datastreams" => "approach/datastreams.md"
         ],
-        "Diagrams" => Any[
-            "iconography" => "diagrams/valuestatistics.md",
-            "rolling" => "diagrams/sequentialdata.md",
-            "tiling" => "diagrams/tiling.md",
-            "running" => "diagrams/running.md"
-        ],
+        "Diagrams" => "diagrams/index.md",
         "Future Dev" => "design/futures.md",
         "References" => "references.md",
         "Thanks" => "thanks.md"
