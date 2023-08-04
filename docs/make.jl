@@ -21,7 +21,7 @@ makedocs(
             "datastreams" => "approach/datastreams.md"
         ],
         "Diagrams" => Any[
-            "iconography" => "diagrams/valuesandstatistics.md",
+            "iconography" => "diagrams/valuestatistics.md",
             "rolling" => "diagrams/sequentialdata.md",
             "tiling" => "diagrams/tiling.md",
             "running" => "diagrams/running.md"
