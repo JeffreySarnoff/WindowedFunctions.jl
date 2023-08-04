@@ -23,3 +23,10 @@ result = running(F, W, D₁, D₂)
 @test result[2:end] == expected[2:end]
 @test any((isnan).(result))
 
+expected = [0.0, -1.0, -1.0, -1.0, -1.0];
+result = running(F, W, D₁, D₂; padding = 0.0)
+@test result == expected
+
+expected = [-1.0, -1.0, -1.0, -1.0, 0.0];
+result = running(F, W, D₁, D₂; padding = 0.0, atend = true)
+@test result == expected
