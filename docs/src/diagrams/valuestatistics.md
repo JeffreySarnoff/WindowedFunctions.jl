@@ -1,1 +1,1 @@
-![ValuesAndStatistics](https://github.com/JeffreySarnoff/WindowedFunctions.jl/assets/1682118/4aeb1067-cc75-44dd-b21f-0dab6b98c236)
+![ValuesAndStatistics](https://github.com/JeffreySarnoff/WindowedFunctions.jl/assets/1682118/5a3ca235-c946-4a38-a0f3-f261e7277ee6)
