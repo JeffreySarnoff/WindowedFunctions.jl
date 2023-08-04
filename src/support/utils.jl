@@ -82,46 +82,30 @@ ncols(x) = isempty(size(x)) ? 1 : size(x)[2]
 @inline rts(fn) = Base.return_types(fn)[max(1, end - 1)]
 @inline rts(fn, typs) = Base.return_types(fn, typs)[max(1, end - 1)]
 
-@inline function maybewiden(fn::F) where {F<:Function}
-    F === typeof(sum) || F === typeof(prod) || F === typeof(^) || F === typeof(exp)
-end
-
 # cover 1..4 args to match with the interface that accepts 1..4 data vectors
 
-@inline function eltype_returned(fn::F, typ::Type{T}) where {F<:Function, T<:Real}
-    typeof(fn(one(T)))
-end
-
-@inline function eltype_returned(fn::F, typ::T) where {T1,T2,T<:Tuple{T1,T2},F<:Function}
-    typeof(fn(one(T1), one(T2)))
-end
-
-@inline function eltype_returned(fn::F, typs::T) where {T1,T2,T3,T<:Tuple{T1,T2,T3},F<:Function}
-    typeof(fn(one(T1), one(T2), one(T3)))
-end
-
-@inline function eltype_returned(fn::F, typs::T) where {T1,T2,T3,T4,T<:Tuple{T1,T2,T3,T4},F<:Function}
-    typeof(fn(one(T1), one(T2), one(T3), one(T4)))
-end
-
 @inline function fastrts(fn::F, typ::Type{T}) where {F<:Function,T<:Real}
-    eltype_returned(fn, typ)
+    t1 = one(T)
+    typeof(fn( (t1,) ))
 end
 
 @inline function fastrts(fn::F, typ::T) where {Typ,T<:Tuple{Typ},F<:Function}
-    eltype_returned(fn, typ[1])
+    fastrts(fn, typ[1])
 end
 
 @inline function fastrts(fn::F, typs::T) where {T1,T2,T<:Tuple{T1,T2},F<:Function}
-    eltype_returned(fn, typs)
+    v1, v2 = map(one, typs)
+    typeof(fn( (v1,v2) ))
 end
 
 @inline function fastrts(fn::F, typs::T) where {T1,T2,T3,T<:Tuple{T1,T2,T3},F<:Function}
-    eltype_returned(fn, typ)
+    v1, v2, v3 = map(one, typs)
+    typeof(fn((v1, v2, v3)))
 end
 
 @inline function fastrts(fn::F, typs::T) where {T1,T2,T3,T4,T<:Tuple{T1,T2,T3,T4},F<:Function}
-    eltype_returned(fn, typs)
+    v1, v2, v3, v4 = map(one, typs)
+    typeof(fn((v1, v2, v3, v4)))
 end
 
 @inline function fastrts(fn::F, typs::Tuple) where {F<:Function}
