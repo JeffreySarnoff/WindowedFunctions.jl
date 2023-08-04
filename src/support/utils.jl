@@ -9,6 +9,7 @@
 - mapcols
 
 - rts  (r[eturned] t[ype]s)
+- fastrts
 
 - FixTwo
 - FixThree
@@ -80,6 +81,27 @@ ncols(x) = isempty(size(x)) ? 1 : size(x)[2]
 
 @inline rts(fn) = Base.return_types(fn)[max(1, end - 1)]
 @inline rts(fn, typs) = Base.return_types(fn, typs)[max(1, end - 1)]
+
+@inline function maybewiden(fn::F) where {F<:Function}
+    F === typeof(sum) || F === typeof(prod) || F === typeof(^) || F === typeof(exp)
+end
+
+@inline function eltype_returned(fn::F, typ::Type{T}) where {F<:Function, T<:Real}
+    Tresult = typeof(fn(one(T)))
+    if maybewiden(fn)
+        sizeof(Tresult) < sizeof(Float64) ? widen(Tresult) : Tresult
+    else
+        Tresult
+    end
+end
+
+@inline function fastrts(fn::F, typ::Tuple{T}) where {F<:Function, T<:Real}
+    eltype_returned(fn, typ)
+end
+
+@inline function fastrts(fn::F, typs::Tuple) where {F<:Function}
+    rts(fn, typs)
+end
 
 # mapcols
 

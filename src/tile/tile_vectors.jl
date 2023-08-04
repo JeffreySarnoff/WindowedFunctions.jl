@@ -81,7 +81,7 @@ function basic_tiling(fn::Function, width::Integer,
 
     nvalues = ntiling(n, width)
 
-    rettype = rts(fn, (Vector{T},))
+    rettype = fastrts(fn, (Vector{T},))
     result = Vector{rettype}(undef, nvalues)
 
     ilow, ihigh = 1, width
@@ -101,7 +101,7 @@ function basic_tiling(fn::Function, width::Integer,
 
     nvalues = ntiling(n, width)
 
-    rettype = rts(fn, (Vector{T}, Vector{T}))
+    rettype = fastrts(fn, (Vector{T}, Vector{T}))
     result = Vector{rettype}(undef, nvalues)
 
     ilow, ihigh = 1, width
@@ -121,7 +121,7 @@ function basic_tiling(fn::Function, width::Integer,
 
     nvalues = ntiling(n, width)
 
-    rettype = rts(fn, (Vector{T}, Vector{T}, Vector{T}))
+    rettype = fastrts(fn, (Vector{T}, Vector{T}, Vector{T}))
     result = Vector{rettype}(undef, nvalues)
 
     ilow, ihigh = 1, width
@@ -145,7 +145,7 @@ function padfirst_tiling(fn::Function, width::Integer, ᵛʷdata1::ViewVector{T}
         return basic_tiling(fn, width, ᵛʷdata1)
     end
 
-    rettype = rts(fn, (Vector{T},))
+    rettype = fastrts(fn, (Vector{T},))
     result = Vector{Union{typeof(padding),rettype}}(undef, nvalues + 1)
     result[1] = padding
 
@@ -168,7 +168,7 @@ function padfirst_tiling(fn::Function, width::Integer, ᵛʷdata1::ViewVector{T}
         return basic_tiling(fn, width, ᵛʷdata1, ᵛʷdata2)
     end
 
-    rettype = rts(fn, (Vector{T}, Vector{T}))
+    rettype = fastrts(fn, (Vector{T}, Vector{T}))
     result = Vector{Union{typeof(padding),rettype}}(undef, nvalues + 1)
     result[1] = padding
 
@@ -191,7 +191,7 @@ function padfirst_tiling(fn::Function, width::Integer, ᵛʷdata1::ViewVector{T}
         return basic_tiling(fn, width, ᵛʷdata1, ᵛʷdata2, ᵛʷdata3)
     end
 
-    rettype = rts(fn, (Vector{T}, Vector{T}, Vector{T}))
+    rettype = fastrts(fn, (Vector{T}, Vector{T}, Vector{T}))
     result = Vector{Union{typeof(padding),rettype}}(undef, nvalues + 1)
     result[1] = padding
 
@@ -216,7 +216,7 @@ function padfinal_tiling(fn::Function, width::Integer, ᵛʷdata1::ViewVector{T}
         return basic_tiling(fn, width, ᵛʷdata1)
     end
 
-    rettype = rts(fn, (Vector{T},))
+    rettype = fastrts(fn, (Vector{T},))
     result = Vector{Union{typeof(padding),rettype}}(undef, nvalues + 1)
     result[end] = padding
 
@@ -239,7 +239,7 @@ function padfinal_tiling(fn::Function, width::Integer, ᵛʷdata1::ViewVector{T}
         return basic_tiling(fn, width, ᵛʷdata1, ᵛʷdata2)
     end
 
-    rettype = rts(fn, (Vector{T}, Vector{T}))
+    rettype = fastrts(fn, (Vector{T}, Vector{T}))
     result = Vector{Union{typeof(padding),rettype}}(undef, nvalues + 1)
     result[end] = padding
 
@@ -262,7 +262,7 @@ function padfinal_tiling(fn::Function, width::Integer, ᵛʷdata1::ViewVector{T}
         return basic_tiling(fn, width, ᵛʷdata1, ᵛʷdata2, ᵛʷdata3)
     end
 
-    rettype = rts(fn, (Vector{T}, Vector{T}, Vector{T}))
+    rettype = fastrts(fn, (Vector{T}, Vector{T}, Vector{T}))
     result = Vector{Union{typeof(padding),rettype}}(undef, nvalues + 1)
     result[end] = padding
 

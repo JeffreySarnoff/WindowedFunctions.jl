@@ -13,7 +13,7 @@ function basic_tiling(fn::Function, width::Integer, data::AbstractMatrix{T}) whe
     n = nrows(ᵛʷdata)
     nvalues = ntiling(n, width)
 
-    rettype = rts(fn, (T,))
+    rettype = fastrts(fn, (T,))
     results = Matrix{rettype}(undef, (nvalues, ncols(ᵛʷdata)))
 
     ilow, ihigh = 1, width
@@ -39,7 +39,7 @@ function padfirst_tiling(fn::Function, width::Integer, data::AbstractMatrix{T}, 
         return basic_tiling(fn, width, ᵛʷdata)
     end
 
-    rettype = rts(fn, (T,))
+    rettype = fastrts(fn, (T,))
     results = Matrix{Union{typeof(padding),rettype}}(undef, (nvalues+1, ncols(ᵛʷdata)))
 
     results[1,:] .= padding
@@ -67,7 +67,7 @@ function padfinal_tiling(fn::Function, width::Integer, data::AbstractMatrix{T}, 
         return basic_tiling(fn, width, ᵛʷdata)
     end
 
-    rettype = rts(fn, (T,))
+    rettype = fastrts(fn, (T,))
     results = Matrix{Union{typeof(padding),rettype}}(undef, (nvalues + 1, ncols(ᵛʷdata)))
 
     results[end, :] .= padding
@@ -144,7 +144,7 @@ function basic_tiling(fn::Function, width::Integer, ᵛʷdata::ViewMatrix{T}, �
     n = nrows(ᵛʷdata)
     nvalues = rolling_wholes(n, width)
     # there are 1 or more columns, each holds `n` values
-    rettype = rts(fn, (T,))
+    rettype = fastrts(fn, (T,))
     results = Matrix{rettype}(undef, (nvalues, ncols(ᵛʷdata)))
 
     ilow, ihigh = 1, width

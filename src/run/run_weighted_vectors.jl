@@ -201,7 +201,7 @@ function taperfirst(fn::F, width::Integer, ᵛʷdata1::ViewVector{T}, ᵛʷweigh
     nvalues = rolling_wholes(n, width)
 
     taper_idxs = 1:n-nvalues
-    rettype = rts(fn, (Vector{T},))
+    rettype = fastrts(fn, (Vector{T},))
     result = Vector{rettype}(undef, n)
 
     @inbounds for idx in taper_idxs
@@ -232,7 +232,7 @@ function taperfirst(fn::F, width::Integer, data1::AbstractVector{T}, data2::Abst
     nvalues = rolling_wholes(n, width)
 
     taper_idxs = 1:n-nvalues
-    rettype = rts(fn, (Vector{T}, Vector{T}))
+    rettype = fastrts(fn, (Vector{T}, Vector{T}))
     result = Vector{rettype}(undef, n)
 
     @inbounds for idx in taper_idxs
@@ -265,7 +265,7 @@ function taperfirst(fn::F, width::Integer, data1::AbstractVector{T}, data2::Abst
     nvalues = rolling_wholes(n, width)
 
     taper_idxs = 1:n-nvalues
-    rettype = rts(fn, (Vector{T}, Vector{T}, Vector{T}))
+    rettype = fastrts(fn, (Vector{T}, Vector{T}, Vector{T}))
     result = Vector{rettype}(undef, n)
 
     @inbounds for idx in taper_idxs
@@ -330,7 +330,7 @@ function taperfinal(fn::F, width::Integer, ᵛʷdata1::ViewVector{T},
         return basic_rolling(fn, width, ᵛʷdata1)
     end
 
-    rettype = rts(fn, (Vector{T},))
+    rettype = fastrts(fn, (Vector{T},))
     result = Vector{rettype}(undef, n)
 
     ilow, ihigh = 1, width
@@ -361,7 +361,7 @@ function taperfinal(fn::F, width::Integer, ᵛʷdata1::ViewVector{T}, ᵛʷdata2
     tapering_width = width - 1
     tapering_idxs = n-tapering_width-1:n
 
-    rettype = rts(fn, (Vector{T}, Vector{T}))
+    rettype = fastrts(fn, (Vector{T}, Vector{T}))
     result = Vector{Union{typeof(tapering),rettype}}(undef, n)
     result[tapering_idxs] .= tapering
 
@@ -389,7 +389,7 @@ function taperfinal(fn::F, width::Integer, ᵛʷdata1::ViewVector{T}, ᵛʷdata2
     tapering_width = width - 1
     tapering_idxs = n-tapering_width-1:n
 
-    rettype = rts(fn, (Vector{T}, Vector{T}, Vector{T}))
+    rettype = fastrts(fn, (Vector{T}, Vector{T}, Vector{T}))
     result = Vector{Union{typeof(tapering),rettype}}(undef, n)
     result[tapering_idxs] .= tapering
 

@@ -3,7 +3,7 @@ function basic_rolling(fn::F, width::Integer, data::AbstractMatrix{T}) where {T,
     n = nrows(ᵛʷdata)
     nvalues = rolling_wholes(n, width)
     # there are 1 or more columns, each holds `n` values
-    rettype = rts(fn, (T,))
+    rettype = fastrts(fn, (T,))
     results = Matrix{rettype}(undef, (nvalues, ncols(ᵛʷdata)))
 
     ilow, ihigh = 1, width
@@ -134,7 +134,7 @@ end
                        ᵛʷdata::ViewMatrix{T}, ᵛʷweights::ViewMatrix{T}) where {T, F<:Function}
     rowcount, colcount = size(ᵛʷdata)
     nvalues = rolling_wholes(rowcount, width)
-    rettype = rts(fn, (T,))
+    rettype = fastrts(fn, (T,))
     results = newmatrix(rettype, (nvalues, colcount))
 
     ilow, ihigh = 1, width

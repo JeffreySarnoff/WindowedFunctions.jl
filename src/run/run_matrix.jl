@@ -32,7 +32,7 @@ end
 
 function taperfirst(fn::F, width::Integer, ᵛʷdata::ViewMatrix{T}) where {T,F<:Function}
     n = nrows(ᵛʷdata)
-    rettype = rts(fn, (T,))
+    rettype = fastrts(fn, (T,))
 
     # only completed width coverings are fully resolvable
     # the first (width - 1) values are to be tapered
@@ -80,7 +80,7 @@ end
 
 function taperfinal(fn::F, width::Integer, ᵛʷdata::ViewMatrix{T}) where {T, F<:Function}
     n = nrows(ᵛʷdata)
-    rettype = rts(fn, (T,))
+    rettype = fastrts(fn, (T,))
 
     # only completed width coverings are fully resolvable
     # the last (width - 1) values are to be tapered
@@ -162,7 +162,7 @@ end
 
 function taperfirst(fn::F, width::Integer, 
                     ᵛʷdata1::ViewMatrix{T}, ᵛʷweights::ViewMatrix{T}) where {T,F<:Function}
-    rettype = rts(fn, (T,))
+    rettype = fastrts(fn, (T,))
     results = Matrix{rettype}(undef, size(ᵛʷdata1))
 
     # only completed width coverings are fully resolvable
@@ -299,7 +299,7 @@ end
 function taperfinal(fn::F, width::Integer, 
     ᵛʷdata::ViewMatrix{T}, ᵛʷweights::ViewMatrix{T}) where {T,F<:Function}
     nr = nrows(ᵛʷdata)
-    rettype = rts(fn, (T,))
+    rettype = fastrts(fn, (T,))
     results = Matrix{rettype}(undef, size(ᵛʷdata))
 
     # only completed width coverings are fully resolvable

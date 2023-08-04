@@ -20,7 +20,7 @@ function basic_tupled_rolling(fn::Function, width::Integer, data::TupleOfVectors
     ᵛʷdata = map(dta -> asviewtype(typ, dta), data)
 
     nvalues = rolling_wholes(minimum(map(length, data)), width)
-    rettype = rts(fn, map(typeof, ᵛʷdata))
+    rettype = fastrts(fn, map(typeof, ᵛʷdata))
     results = Vector{rettype}(undef, nvalues)
 
     ilow, ihigh = 1, width
@@ -49,7 +49,7 @@ function padfirst_tupled_rolling(fn::Function, width::Integer, data::TupleOfVect
     ᵛʷdata = map(dta -> asviewtype(typ, dta), data)
 
     nvalues = rolling_wholes(minimum(map(length, data)), width)
-    rettype = rts(fn, map(typeof, ᵛʷdata))
+    rettype = fastrts(fn, map(typeof, ᵛʷdata))
     results = Vector{rettype}(undef, nvalues)
 
     padding_width = width - 1
@@ -83,7 +83,7 @@ function padfinal_tupled_rolling(fn::Function, width::Integer, data::TupleOfVect
     ᵛʷdata = map(dta -> asviewtype(typ, dta), data)
 
     nvalues = rolling_wholes(minimum(map(length, data)), width)
-    rettype = rts(fn, map(typeof, ᵛʷdata))
+    rettype = fastrts(fn, map(typeof, ᵛʷdata))
     results = Vector{rettype}(undef, nvalues)
 
     padding_width = width - 1
@@ -121,7 +121,7 @@ function basic_tupled_rolling(fn::Function, width::Integer, data::TupleOfVectors
     ᵛʷweight = (map(dta -> asviewtype(typ, dta), map(Vector{typ},weights)))
 
     nvalues = rolling_wholes(minimum(map(length, data)), width)
-    rettype = rts(fn, map(typeof, ᵛʷdata))
+    rettype = fastrts(fn, map(typeof, ᵛʷdata))
     results = Vector{rettype}(undef, nvalues)
 
     ilow, ihigh = 1, width
@@ -155,7 +155,7 @@ function padfirst_tupled_rolling(fn::Function, width::Integer, data::TupleOfVect
     ᵛʷweight = (map(dta -> asviewtype(wtyp, dta), map(Vector{wtyp}, weights)))
 
     nvalues = rolling_wholes(minimum(map(length, data)), width)
-    rettype = rts(fn, map(typeof, ᵛʷdata))
+    rettype = fastrts(fn, map(typeof, ᵛʷdata))
     results = Vector{rettype}(undef, nvalues)
 
     padding_width = width - 1
@@ -193,7 +193,7 @@ function padfinal_tupled_rolling(fn::Function, width::Integer, data::TupleOfVect
     ᵛʷweight = (map(dta -> asviewtype(wtyp, dta), map(Vector{wtyp}, weights)))
 
     nvalues = rolling_wholes(minimum(map(length, data)), width)
-    rettype = rts(fn, map(typeof, ᵛʷdata))
+    rettype = fastrts(fn, map(typeof, ᵛʷdata))
     results = Vector{rettype}(undef, nvalues)
 
     padding_width = width - 1
