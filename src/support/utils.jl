@@ -87,12 +87,7 @@ ncols(x) = isempty(size(x)) ? 1 : size(x)[2]
 end
 
 @inline function eltype_returned(fn::F, typ::Type{T}) where {F<:Function, T<:Real}
-    Tresult = typeof(fn(one(T)))
-    if maybewiden(fn)
-        sizeof(Tresult) < sizeof(Float64) ? widen(Tresult) : Tresult
-    else
-        Tresult
-    end
+    typeof(fn(one(T)))
 end
 
 @inline function fastrts(fn::F, typ::Tuple{T}) where {F<:Function, T<:Real}
