@@ -1,1 +1,1 @@
-![ValuesAndStatistics](https://github.com/JeffreySarnoff/WindowedFunctions.jl/assets/1682118/5a3ca235-c946-4a38-a0f3-f261e7277ee6)
+![ValuesAndStatistics](![DataSequencing8-Page-9-Page-9-Page-10](https://github.com/JeffreySarnoff/WindowedFunctions.jl/assets/1682118/166e0dde-d112-4074-949d-ad58a174b662)
