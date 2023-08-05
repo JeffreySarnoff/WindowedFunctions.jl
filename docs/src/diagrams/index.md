@@ -4,14 +4,13 @@
 
 ## Sequential Data Streams
 
-![SequentialDataStreams](https://github.com/JeffreySarnoff/WindowedFunctions.jl/assets/1682118/793573ea-5f32-4420-b434-4cac2501df1b)
-
+![SequentialDataStreams](https://github.com/JeffreySarnoff/WindowedFunctions.jl/assets/1682118/5128d53b-f30e-4808-ba11-e6fb62cac127)
 ## Tiling Illustrated
 
 > Tiling covers adjacent, nonoverlapping subsequences
 > with a moving window that advances by its own width.
 
-![tiling image](https://github.com/JeffreySarnoff/WindowedFunctions.jl/assets/1682118/ace2ba08-0b04-4e61-93e8-8a663a908e73)
+![tiling image](https://github.com/JeffreySarnoff/WindowedFunctions.jl/assets/1682118/f642903c-5d3a-43fe-9515-b9f179332a01)
 
 ## Running Illustrated
 
