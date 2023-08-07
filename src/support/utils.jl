@@ -89,6 +89,11 @@ ncols(x) = isempty(size(x)) ? 1 : size(x)[2]
     typeof(fn( (t1,) ))
 end
 
+@inline function fastrts(fn::F, typ::Type{Vector{T}}) where {F<:Function,T<:Real}
+    t1 = one(T)
+    typeof(fn((t1,t1)))
+end
+
 @inline function fastrts(fn::F, typ::T) where {Typ,T<:Tuple{Typ},F<:Function}
     fastrts(fn, typ[1])
 end
