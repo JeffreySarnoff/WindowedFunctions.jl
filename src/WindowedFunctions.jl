@@ -41,7 +41,7 @@ using StatsBase: mean, median, std, var, cor, cov,
        AbstractWeights, Weights,
        FrequencyWeights, AnalyticWeights, ProbabilityWeights
 
-using VectorizedStatistics
+using VectorizedStatistics, FastRunningMedian
 
 include("support/types.jl")
 include("support/exceptions.jl")
