@@ -5,7 +5,7 @@ license = "MIT"
 desc = "Roll a window over data, applying a function over the window."
 authors = ["Jeffrey Sarnoff and other contributors"]
 repo = "https://github.com/JeffreySarnoff/WindowedFunctions.jl.git"
-version = "0.9.995"
+version = "0.9.996"
 
 [deps]
 BenchmarkTools = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
