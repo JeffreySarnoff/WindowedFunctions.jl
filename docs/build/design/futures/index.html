@@ -13,7 +13,54 @@ nitems    = n  # length(data)
 width     = w  # a window covering `w` indices at a time
 slide     = s  # the window advances in steps of `±s` indices
 hop       = h  # the window skips `±h` indices before sliding
-indexfrom = i  # the initial window starts at index `i`</code></pre><p><em><code>slide</code>, <code>hop</code>, <code>indexfrom</code> must make sense given <code>nitems</code> and <code>width</code></em></p><h4 id="constraints"><a class="docs-heading-anchor" href="#constraints">constraints</a><a id="constraints-1"></a><a class="docs-heading-anchor-permalink" href="#constraints" title="Permalink"></a></h4><ul><li><code>1 &lt;= width     &lt;= nitems</code></li><li><code>1 &lt;= indexfrom &lt;= nitems</code></li><li><code>(width-nitems) &lt;= slide &lt;= (nitems-width)</code></li><li><code>(width-nitems) &lt;= hop   &lt;= (nitems-width)</code></li></ul><h4 id="orientation"><a class="docs-heading-anchor" href="#orientation">orientation</a><a id="orientation-1"></a><a class="docs-heading-anchor-permalink" href="#orientation" title="Permalink"></a></h4><p><code>orientation = sign(hop + slide)</code></p><ul><li>orientation is positive<ul><li>the window moves from lower indices to higher indices</li><li><code>indexfrom + width &lt;= nitems</code></li></ul></li><li>orientation is negative<ul><li>the window moves from higher indices to lower indices</li><li><code>indexfrom - width &gt;= 1</code></li></ul></li><li>orientation is zero<ul><li>(the moving window does not move)</li><li>the function is applied once, the result is a single value</li><li><em>it is likely that this is a client error</em></li></ul></li></ul><h3 id="Windowing-in-2D"><a class="docs-heading-anchor" href="#Windowing-in-2D">Windowing in 2D</a><a id="Windowing-in-2D-1"></a><a class="docs-heading-anchor-permalink" href="#Windowing-in-2D" title="Permalink"></a></h3><p>Substantive image processing becomes available with 2D moving windows.</p><ul><li><strong>image</strong> [is an image stored as] pixel values within a [rectangular] matrix.</li><li>winsize = (rows spanned, columns spanned) by the window</li><li>winoffset = winsize .- 1</li><li>winmove = advance window by (nrows, ncolumns)</li><li>winstart = (initial row, initial column) for window upper left</li><li>winstop  = winstart .+ winoffset</li></ul><h5 id="*the-initial-and-the-next-windows*"><a class="docs-heading-anchor" href="#*the-initial-and-the-next-windows*"><em>the initial and the next windows</em></a><a id="*the-initial-and-the-next-windows*-1"></a><a class="docs-heading-anchor-permalink" href="#*the-initial-and-the-next-windows*" title="Permalink"></a></h5><pre><code class="language-julia hljs">Base.:(+)(start::T, move::T) where {I&lt;:Integer, T&lt;:NTuple{2,I}} =
+indexfrom = i  # the initial window starts at index `i`</code></pre><p><em><code>slide</code>, <code>hop</code>, <code>indexfrom</code> must make sense given <code>nitems</code> and <code>width</code></em></p><h4 id="constraints"><a class="docs-heading-anchor" href="#constraints">constraints</a><a id="constraints-1"></a><a class="docs-heading-anchor-permalink" href="#constraints" title="Permalink"></a></h4><ul><li><code>1 &lt;= width     &lt;= nitems</code></li><li><code>1 &lt;= indexfrom &lt;= nitems</code></li><li><code>(width-nitems) &lt;= slide &lt;= (nitems-width)</code></li><li><code>(width-nitems) &lt;= hop   &lt;= (nitems-width)</code></li></ul><h4 id="orientation"><a class="docs-heading-anchor" href="#orientation">orientation</a><a id="orientation-1"></a><a class="docs-heading-anchor-permalink" href="#orientation" title="Permalink"></a></h4><p><code>orientation = sign(hop + slide)</code></p><ul><li>orientation is positive<ul><li>the window moves from lower indices to higher indices</li><li><code>indexfrom + width &lt;= nitems</code></li></ul></li><li>orientation is negative<ul><li>the window moves from higher indices to lower indices</li><li><code>indexfrom - width &gt;= 1</code></li></ul></li><li>orientation is zero<ul><li>(the moving window does not move)</li><li>the function is applied once, the result is a single value</li><li><em>it is likely that this is a client error</em></li></ul></li></ul><h3 id="Varying-Window-Width"><a class="docs-heading-anchor" href="#Varying-Window-Width">Varying Window Width</a><a id="Varying-Window-Width-1"></a><a class="docs-heading-anchor-permalink" href="#Varying-Window-Width" title="Permalink"></a></h3><p>Here is a copy of the initial <code>rolling</code> example</p><pre><code class="nohighlight hljs">data  = [1, 2, 3, 4, 5, 6]  # here, a single vector
+width = 3  # a window covering 3 indices at a time
+slide = 1  # the window advances in steps of 1 index
+
+# the moving window covers
+        (1,2,3), (2,3,4), (3,4,5), (4,5,6)   # windowed data
+
+# using sum
+        (1+2+3), (2+3+4), (3+4+5), (4+5+6)
+        (6,       9,       12,      15)      # the result
+
+rolling(sum, width, data) == (6, 9, 12, 15)  # this package</code></pre><p>There are situations where working without the constraint of a fixed window width is helpful. Specifying successive window widths is supported; the sum of these widths, along with the optional keywords <code>padding</code> and <code>atend</code>,  is used to determine the data that is spanned by all of the windows.</p><ul><li><code>rolling</code> with multiple window widths assumes each window follows the prior, beginning at <code>prior_start+1</code> and finishing at <code>prior_start+current_window_width</code> (inclusive).</li></ul><pre><code class="nohighlight hljs">data   = [1, 2, 3, 4, 5, 6]  # here, a single vector
+widths = [2, 2, 4]  # a window covering 3 indices at a time
+slide  = 1  # the window advances in steps of 1 index
+
+# the moving windows cover
+        (1,2), (2,3), (3,4,5,6)   # windowed data
+
+# using sum
+        (1+2), (2+3), (3+4+5+6)
+        (3,     5,       18)      # the result
+
+rolling(sum, widths, data) == (3, 5, 18)  # this package</code></pre><ul><li><code>tiling</code> with multiple window widths assumes the windows are immediately adjacent, beginning at <code>prior_end+1</code> and finishing at <code>prior_end+current_window_width</code> (inclusive).</li></ul><pre><code class="nohighlight hljs">data   = [1, 2, 3, 4, 5, 6]  # here, a single vector
+widths = [1, 2, 3]  # a window covering 3 indices at a time
+slide  = [1, 2, 3]  # the window advances by each width
+
+# the moving windows cover
+        (1,), (2,3), (4,5,6)   # windowed data
+
+# using sum
+        (1), (2+3), (4+5+6)
+        (1,     5,   15)      # the result
+
+tiling(sum, widths, data) == (1, 5, 15)  # this package</code></pre><ul><li><code>running</code> with multiple window widths assumes each window follows the prior, beginning at <code>prior_start+1</code> and finishing at <code>prior_start+current_window_width</code> (inclusive).<ul><li>use <code>padding</code> (with <code>atend</code> if needed), it is ignored unless needed</li></ul></li></ul><pre><code class="nohighlight hljs">data   = [1, 2, 3, 4, 5, 6]  # here, a single vector
+widths = [2, 2, 3]  # a window covering 3 indices at a time
+slide  = 1  # the window advances in steps of 1 index
+atend  = false # fill in the first value(s)
+
+# the moving windows cover
+        (2,3), (3,4), (4,5,6)   # windowed data
+# tapering covers
+ (1,),  (2,3), (3,4), (4,5,6)   # windowed data
+
+# using sum
+        (1,), (2+3), (3+4), (4+5+6)
+        (1,    5,     7,     15)      # the result
+
+running(sum, widths, data) == (1, 5, 7, 15)  # this package</code></pre><h3 id="Windowing-in-2D"><a class="docs-heading-anchor" href="#Windowing-in-2D">Windowing in 2D</a><a id="Windowing-in-2D-1"></a><a class="docs-heading-anchor-permalink" href="#Windowing-in-2D" title="Permalink"></a></h3><p>Substantive image processing becomes available with 2D moving windows.</p><ul><li><strong>image</strong> [is an image stored as] pixel values within a [rectangular] matrix.</li><li>winsize = (rows spanned, columns spanned) by the window</li><li>winoffset = winsize .- 1</li><li>winmove = advance window by (nrows, ncolumns)</li><li>winstart = (initial row, initial column) for window upper left</li><li>winstop  = winstart .+ winoffset</li></ul><h5 id="*the-initial-and-the-next-windows*"><a class="docs-heading-anchor" href="#*the-initial-and-the-next-windows*"><em>the initial and the next windows</em></a><a id="*the-initial-and-the-next-windows*-1"></a><a class="docs-heading-anchor-permalink" href="#*the-initial-and-the-next-windows*" title="Permalink"></a></h5><pre><code class="language-julia hljs">Base.:(+)(start::T, move::T) where {I&lt;:Integer, T&lt;:NTuple{2,I}} =
     (start[1]+move[1], start[2]+move[2])
 Base.:(-)(start::T, move::T) where {I&lt;:Integer, T&lt;:NTuple{2,I}} =
     (start[1]-move[1], start[2]-move[2])
@@ -57,4 +104,4 @@ julia&gt; (; coords=:xy, x, morton, match)
 julia&gt; x=2^10; morton=cartesian3morton([x,x,x]); match= ([x,x,x]==morton3cartesian(morton));
 julia&gt; (; coords=:xyz, x, morton, match)
 (coords = :xyz, x = 1024, morton = 1073741824, match = true)
-</code></pre><p>refs</p><ul><li><a href="https://en.wikipedia.org/wiki/Z-order_curve">wikipedia</a></li><li><a href="https://github.com/JaneliaSciComp/Morton.jl">Morton coding</a></li><li><a href="https://github.com/bionanoimaging/TiledViews.jl">TiledViews</a></li><li><a href="https://github.com/JuliaArrays/TiledIteration.jl">TiledIteration</a></li></ul></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../../diagrams/">« Diagrams</a><a class="docs-footer-nextpage" href="../../references/">References »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.27.24 on <span class="colophon-date" title="Friday 4 August 2023 03:42">Friday 4 August 2023</span>. Using Julia version 1.10.0-DEV.1619.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+</code></pre><p>refs</p><ul><li><a href="https://en.wikipedia.org/wiki/Z-order_curve">wikipedia</a></li><li><a href="https://github.com/JaneliaSciComp/Morton.jl">Morton coding</a></li><li><a href="https://github.com/bionanoimaging/TiledViews.jl">TiledViews</a></li><li><a href="https://github.com/JuliaArrays/TiledIteration.jl">TiledIteration</a></li></ul></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../../diagrams/">« Diagrams</a><a class="docs-footer-nextpage" href="../../references/">References »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 0.27.24 on <span class="colophon-date" title="Tuesday 8 August 2023 23:39">Tuesday 8 August 2023</span>. Using Julia version 1.9.2.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>

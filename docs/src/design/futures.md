@@ -60,6 +60,86 @@ _`slide`, `hop`, `indexfrom` must make sense given `nitems` and `width`_
   - the function is applied once, the result is a single value
   - _it is likely that this is a client error_
 
+###  Varying Window Width
+
+Here is a copy of the initial `rolling` example
+```
+data  = [1, 2, 3, 4, 5, 6]  # here, a single vector
+width = 3  # a window covering 3 indices at a time
+slide = 1  # the window advances in steps of 1 index
+
+# the moving window covers
+        (1,2,3), (2,3,4), (3,4,5), (4,5,6)   # windowed data
+
+# using sum
+        (1+2+3), (2+3+4), (3+4+5), (4+5+6)
+        (6,       9,       12,      15)      # the result
+
+rolling(sum, width, data) == (6, 9, 12, 15)  # this package
+```
+
+There are situations where working without the constraint
+of a fixed window width is helpful. Specifying successive
+window widths is supported; the sum of these widths, along
+with the optional keywords `padding` and `atend`,  is used
+to determine the data that is spanned by all of the windows.
+
+- `rolling` with multiple window widths assumes each window follows the prior, beginning at `prior_start+1` and finishing at `prior_start+current_window_width` (inclusive).
+
+```
+data   = [1, 2, 3, 4, 5, 6]  # here, a single vector
+widths = [2, 2, 4]  # a window covering 3 indices at a time
+slide  = 1  # the window advances in steps of 1 index
+
+# the moving windows cover
+        (1,2), (2,3), (3,4,5,6)   # windowed data
+
+# using sum
+        (1+2), (2+3), (3+4+5+6)
+        (3,     5,       18)      # the result
+
+rolling(sum, widths, data) == (3, 5, 18)  # this package
+```
+
+- `tiling` with multiple window widths assumes the windows are immediately adjacent, beginning at `prior_end+1` and finishing at `prior_end+current_window_width` (inclusive).
+
+```
+data   = [1, 2, 3, 4, 5, 6]  # here, a single vector
+widths = [1, 2, 3]  # a window covering 3 indices at a time
+slide  = [1, 2, 3]  # the window advances by each width
+
+# the moving windows cover
+        (1,), (2,3), (4,5,6)   # windowed data
+
+# using sum
+        (1), (2+3), (4+5+6)
+        (1,     5,   15)      # the result
+
+tiling(sum, widths, data) == (1, 5, 15)  # this package
+```
+
+- `running` with multiple window widths assumes each window follows the prior, beginning at `prior_start+1` and finishing at `prior_start+current_window_width` (inclusive).
+   - use `padding` (with `atend` if needed), it is ignored unless needed
+
+```
+data   = [1, 2, 3, 4, 5, 6]  # here, a single vector
+widths = [2, 2, 3]  # a window covering 3 indices at a time
+slide  = 1  # the window advances in steps of 1 index
+atend  = false # fill in the first value(s)
+
+# the moving windows cover
+        (2,3), (3,4), (4,5,6)   # windowed data
+# tapering covers
+ (1,),  (2,3), (3,4), (4,5,6)   # windowed data
+
+# using sum
+        (1,), (2+3), (3+4), (4+5+6)
+        (1,    5,     7,     15)      # the result
+
+running(sum, widths, data) == (1, 5, 7, 15)  # this package
+```
+
+
 ###  Windowing in 2D
 
 Substantive image processing becomes available with 2D moving windows.
